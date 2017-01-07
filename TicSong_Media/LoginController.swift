@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class LoginController: UIViewController {
     
@@ -74,7 +75,7 @@ class LoginController: UIViewController {
                         DispatchQueue.main.async(execute: { () -> Void in
                             let kakao : KOUser = profile as! KOUser
                             //고유 ID값
-                            print(kakao.id)
+                            //print(kakao.id)
                             
                             if let value = kakao.properties["nickname"] as? String{
                                 
@@ -85,8 +86,43 @@ class LoginController: UIViewController {
                                 self.profileIMG = UIImage(data: NSData(contentsOf: NSURL(string: value)! as URL)! as Data)!
                                 
                             }
+                       //서버통신
                             
-                            self.performSegue(withIdentifier: "LoginToMainSegue", sender: self)
+
+                            let baseURL = "http://52.79.152.130/TicSongServer/login.do"
+                            
+                            let parameters: Parameters = ["userId":kakao.id!,"name":self.name,"platform":"1"]
+                            
+                        
+                            
+                            Alamofire.request(baseURL,method : .get, parameters: parameters, encoding: URLEncoding.default, headers: nil)
+                                .responseJSON { (response:DataResponse<Any>) in
+                                
+                                switch(response.result) {
+                                case .success(_):
+                                    if response.result.value != nil{
+                                        print(response.result.value!)
+                                        
+                                        self.performSegue(withIdentifier: "LoginToMainSegue", sender: self)
+                                    }
+                                    break
+                                    
+                                case .failure(_):
+                                    print(response.result.error!)
+                                    
+                                    //대섭이형이 ㅈ같이 코드짜서 카톡이나 페이스북이 널값만 안넘기면 쉽게 가입 및 로그인가능 
+                                    //error시 alert창 띄우기...할일이 있나 싶음..
+                                    
+                                    //exp,item1,2,3,4,userid,userlevel
+                                    
+                                    break
+                                    
+                                }
+                            }
+                            
+                            
+                            
+                            
                             
                         })
                     }else{

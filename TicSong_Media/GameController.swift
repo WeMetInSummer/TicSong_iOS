@@ -55,7 +55,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     var timer = Timer() // 노래 시간 설정시 사용
     var musicSec = 0
     var startTime : Double!
-    var roundList:[(title:String,song:String,start:Int)] = []
+    var roundList:[(code:String,songName:String,artist:String,start:Double)] = []
     
     var hintMode: Int = 0 // 0 : 일반 재생 1 : 힌트 재생
     
@@ -78,7 +78,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         //한번더 viewDidLoad()에서 프린트 되는데 보류.... 세팅이 다시되는거 같진않음...
         print(roundList)
         
-        setting(music: roundList[stage].song)
+        setting(music: roundList[stage].code, time: roundList[stage].start)
     
         
     }
@@ -147,7 +147,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             playMusic()
             aniStar(pic: juke_shootingStar, aniDuration: 1.0)
             
-            print("노래 제목 : " + roundList[stage].title)
+            print("노래 제목 : " + roundList[stage].songName)
             print("life :"+life.description)
             print("stage :"+stage.description)
             print("score :"+score.description)
@@ -167,7 +167,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     @IBAction func Check(_ sender: UIButton) {
         
         
-       if answer.text == roundList[stage].title {
+       if answer.text == roundList[stage].songName {
         
             nextStageInit()
             answer.text = ""
@@ -182,7 +182,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         else{score += 0}
         
         
-        }else if answer.text != roundList[stage].title{
+        }else if answer.text != roundList[stage].songName{
             showToast("틀렸습니다!")
              life -= 1
         if(life == 0){
@@ -220,13 +220,13 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
    //MARK: 노래 재생 설정
     
-    func setting(music: String){
+    func setting(music: String, time:Double){
         do {
             //무음에서도 들리게 해주는 부분!! 나중에 정리하면 될거 같아요 민섭님
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
             try AVAudioSession.sharedInstance().setActive(true)
             
-            setSong(name: music, time: 100)
+            setSong(name: music, time: time)
             let fileURL = NSURL(string:url)
             let soundData = NSData(contentsOf:fileURL! as URL)
             self.audioPlayer = try AVAudioPlayer(data: soundData! as Data)
@@ -259,7 +259,12 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
     func setSong(name: String,time: Double){
         url = "https://api.soundcloud.com/tracks/"+name+"/stream?client_id=59eb0488cc28a2c558ecbf47ed19f787"
-        startTime = time
+        
+        if(time != 0){
+        startTime = time/1000.0
+        }else{
+            startTime = time
+        }
     }
     
    
@@ -277,7 +282,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     func nextStageInit(){
         stage += 1
         life = 3
-        stageFinishAlert(songTitle: roundList[stage-1].title)
+        stageFinishAlert(songTitle: roundList[stage-1].songName, artist: roundList[stage-1].artist)
         
         audioPlayer.currentTime = 0
         audioPlayer.play()
@@ -296,7 +301,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             
             stageLabel.text = "STAGE \(stage+1)"
             answer.text = ""
-            setting(music: roundList[stage].song)
+            setting(music: roundList[stage].code, time: roundList[stage].start)
             print("다음 노래 준비!")
             
         }else{
@@ -336,9 +341,9 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         }
     }
     
-    func stageFinishAlert(songTitle:String){
+    func stageFinishAlert(songTitle:String,artist:String){
         
-        let alertView = UIAlertController(title: songTitle, message: "소울트리~", preferredStyle: .alert)
+        let alertView = UIAlertController(title: songTitle, message: artist, preferredStyle: .alert)
         
 //        let image = UIImage(named: "album")
 //        let realiamge = UIImageView(image: image)

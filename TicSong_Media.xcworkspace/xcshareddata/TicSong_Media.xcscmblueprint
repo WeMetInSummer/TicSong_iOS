@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "602A318B06CDB137884A40D9BDC186D7F4BED9F3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A8032770BDE84C93EA40DF83C9C39DB3E4AC4D30" : 9223372036854775807,
+    "602A318B06CDB137884A40D9BDC186D7F4BED9F3" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "65BD3C79-C4BB-41A4-8F77-3674812BC982",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A8032770BDE84C93EA40DF83C9C39DB3E4AC4D30" : "..",
+    "602A318B06CDB137884A40D9BDC186D7F4BED9F3" : "Ticsong_IOS\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TicSong_Media",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TicSong_Media.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/WeMetInSummer\/TicSong_iOS",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "602A318B06CDB137884A40D9BDC186D7F4BED9F3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/skrth00\/Ticsong_IOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A8032770BDE84C93EA40DF83C9C39DB3E4AC4D30"
+    }
+  ]
+}
