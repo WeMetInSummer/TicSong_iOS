@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		32533E7BB8FC7DA2AF2C235E /* Pods_TicSong_Media.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1DDF84384BBFA8952B429C6 /* Pods_TicSong_Media.framework */; };
+		370899B91E1E393100AD8486 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370899B81E1E393100AD8486 /* LoginController.swift */; };
+		370899BB1E1E3DD100AD8486 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370899BA1E1E3DD100AD8486 /* KakaoOpenSDK.framework */; };
+		370B64BD1E1ACBB700CD2A4C /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B64BC1E1ACBB700CD2A4C /* MainController.swift */; };
+		373D13001E19546900EA00C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D12FF1E19546900EA00C4 /* AppDelegate.swift */; };
+		373D13021E19546900EA00C4 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D13011E19546900EA00C4 /* GameController.swift */; };
+		373D13051E19546900EA00C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 373D13031E19546900EA00C4 /* Main.storyboard */; };
+		373D13071E19546900EA00C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 373D13061E19546900EA00C4 /* Assets.xcassets */; };
+		373D130A1E19546900EA00C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 373D13081E19546900EA00C4 /* LaunchScreen.storyboard */; };
+		373D13121E1955FD00EA00C4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373D13111E1955FD00EA00C4 /* AVFoundation.framework */; };
+		679D5E111E1C9D7E009F824B /* LFTPulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D5E101E1C9D7E009F824B /* LFTPulseAnimation.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		32E0DFF0FAAA5860A9F6314D /* Pods-TicSong_Media.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicSong_Media.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicSong_Media/Pods-TicSong_Media.release.xcconfig"; sourceTree = "<group>"; };
+		370899B81E1E393100AD8486 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		370899BA1E1E3DD100AD8486 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
+		370899BC1E1E402B00AD8486 /* TicSong_Media-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TicSong_Media-Bridging-Header.h"; sourceTree = "<group>"; };
+		370B64BC1E1ACBB700CD2A4C /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		373D12FC1E19546900EA00C4 /* TicSong_Media.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicSong_Media.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		373D12FF1E19546900EA00C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		373D13011E19546900EA00C4 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		373D13041E19546900EA00C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		373D13061E19546900EA00C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		373D13091E19546900EA00C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		373D130B1E19546900EA00C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		373D13111E1955FD00EA00C4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		679D5E101E1C9D7E009F824B /* LFTPulseAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LFTPulseAnimation.swift; sourceTree = "<group>"; };
+		C1DDF84384BBFA8952B429C6 /* Pods_TicSong_Media.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicSong_Media.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E298CB8F856AA74C17938E62 /* Pods-TicSong_Media.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicSong_Media.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicSong_Media/Pods-TicSong_Media.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		373D12F91E19546900EA00C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				373D13121E1955FD00EA00C4 /* AVFoundation.framework in Frameworks */,
+				370899BB1E1E3DD100AD8486 /* KakaoOpenSDK.framework in Frameworks */,
+				32533E7BB8FC7DA2AF2C235E /* Pods_TicSong_Media.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		373D12F31E19546900EA00C4 = {
+			isa = PBXGroup;
+			children = (
+				373D13111E1955FD00EA00C4 /* AVFoundation.framework */,
+				373D12FE1E19546900EA00C4 /* TicSong_Media */,
+				373D12FD1E19546900EA00C4 /* Products */,
+				4E184387B79D6CF3586FD78D /* Pods */,
+				8FCC829368B66A5A3A935425 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		373D12FD1E19546900EA00C4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				373D12FC1E19546900EA00C4 /* TicSong_Media.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		373D12FE1E19546900EA00C4 /* TicSong_Media */ = {
+			isa = PBXGroup;
+			children = (
+				373D12FF1E19546900EA00C4 /* AppDelegate.swift */,
+				373D13011E19546900EA00C4 /* GameController.swift */,
+				370B64BC1E1ACBB700CD2A4C /* MainController.swift */,
+				370899B81E1E393100AD8486 /* LoginController.swift */,
+				373D13031E19546900EA00C4 /* Main.storyboard */,
+				373D13081E19546900EA00C4 /* LaunchScreen.storyboard */,
+				679D5E101E1C9D7E009F824B /* LFTPulseAnimation.swift */,
+				373D13061E19546900EA00C4 /* Assets.xcassets */,
+				373D130B1E19546900EA00C4 /* Info.plist */,
+				370899BA1E1E3DD100AD8486 /* KakaoOpenSDK.framework */,
+				370899BC1E1E402B00AD8486 /* TicSong_Media-Bridging-Header.h */,
+			);
+			path = TicSong_Media;
+			sourceTree = "<group>";
+		};
+		4E184387B79D6CF3586FD78D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E298CB8F856AA74C17938E62 /* Pods-TicSong_Media.debug.xcconfig */,
+				32E0DFF0FAAA5860A9F6314D /* Pods-TicSong_Media.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8FCC829368B66A5A3A935425 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1DDF84384BBFA8952B429C6 /* Pods_TicSong_Media.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		373D12FB1E19546900EA00C4 /* TicSong_Media */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 373D130E1E19546900EA00C4 /* Build configuration list for PBXNativeTarget "TicSong_Media" */;
+			buildPhases = (
+				B4ADDED77C38B5C2B46F9CA1 /* [CP] Check Pods Manifest.lock */,
+				373D12F81E19546900EA00C4 /* Sources */,
+				373D12F91E19546900EA00C4 /* Frameworks */,
+				373D12FA1E19546900EA00C4 /* Resources */,
+				D384AE2179CE0FB3317FD21D /* [CP] Embed Pods Frameworks */,
+				7367C3FC3A616DD049148E55 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TicSong_Media;
+			productName = TicSong_Media;
+			productReference = 373D12FC1E19546900EA00C4 /* TicSong_Media.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		373D12F41E19546900EA00C4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = jeon;
+				TargetAttributes = {
+					373D12FB1E19546900EA00C4 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 537GQ2WKJ4;
+						LastSwiftMigration = 0820;
+					};
+				};
+			};
+			buildConfigurationList = 373D12F71E19546900EA00C4 /* Build configuration list for PBXProject "TicSong_Media" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 373D12F31E19546900EA00C4;
+			productRefGroup = 373D12FD1E19546900EA00C4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				373D12FB1E19546900EA00C4 /* TicSong_Media */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		373D12FA1E19546900EA00C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				373D130A1E19546900EA00C4 /* LaunchScreen.storyboard in Resources */,
+				373D13071E19546900EA00C4 /* Assets.xcassets in Resources */,
+				373D13051E19546900EA00C4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7367C3FC3A616DD049148E55 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TicSong_Media/Pods-TicSong_Media-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4ADDED77C38B5C2B46F9CA1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D384AE2179CE0FB3317FD21D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TicSong_Media/Pods-TicSong_Media-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		373D12F81E19546900EA00C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				373D13021E19546900EA00C4 /* GameController.swift in Sources */,
+				679D5E111E1C9D7E009F824B /* LFTPulseAnimation.swift in Sources */,
+				370B64BD1E1ACBB700CD2A4C /* MainController.swift in Sources */,
+				373D13001E19546900EA00C4 /* AppDelegate.swift in Sources */,
+				370899B91E1E393100AD8486 /* LoginController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		373D13031E19546900EA00C4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				373D13041E19546900EA00C4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		373D13081E19546900EA00C4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				373D13091E19546900EA00C4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		373D130C1E19546900EA00C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		373D130D1E19546900EA00C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		373D130F1E19546900EA00C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E298CB8F856AA74C17938E62 /* Pods-TicSong_Media.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 537GQ2WKJ4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TicSong_Media",
+				);
+				INFOPLIST_FILE = TicSong_Media/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = wemetinsummer.org.kr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TicSong_Media/TicSong_Media-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		373D13101E19546900EA00C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32E0DFF0FAAA5860A9F6314D /* Pods-TicSong_Media.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 537GQ2WKJ4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TicSong_Media",
+				);
+				INFOPLIST_FILE = TicSong_Media/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = wemetinsummer.org.kr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TicSong_Media/TicSong_Media-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		373D12F71E19546900EA00C4 /* Build configuration list for PBXProject "TicSong_Media" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				373D130C1E19546900EA00C4 /* Debug */,
+				373D130D1E19546900EA00C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		373D130E1E19546900EA00C4 /* Build configuration list for PBXNativeTarget "TicSong_Media" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				373D130F1E19546900EA00C4 /* Debug */,
+				373D13101E19546900EA00C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 373D12F41E19546900EA00C4 /* Project object */;
+}

@@ -1,0 +1,15 @@
+PODS:
+  - AEXML (4.0.1)
+  - Alamofire (4.0.1)
+
+DEPENDENCIES:
+  - AEXML
+  - Alamofire (~> 4.0)
+
+SPEC CHECKSUMS:
+  AEXML: 905e50474c0a261d335aa8be4ee32d22d69b6fd5
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+
+PODFILE CHECKSUM: 0f7c52337e7d5eaf94478d0003cdd3ea39fc3bfe
+
+COCOAPODS: 1.0.1
