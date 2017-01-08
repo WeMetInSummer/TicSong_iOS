@@ -75,6 +75,8 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         stageLabel.textColor = UIColor.white
         stageLabel.font = UIFont.systemFont(ofSize: 30)
         
+        answer.autocorrectionType = .no
+        
         //한번더 viewDidLoad()에서 프린트 되는데 보류.... 세팅이 다시되는거 같진않음...
         print(roundList)
         
@@ -166,8 +168,8 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
     @IBAction func Check(_ sender: UIButton) {
         
-        
-       if answer.text == roundList[stage].songName {
+       let isMatch = compareCharacter(origin: roundList[stage].songName, input: answer.text!)
+       if isMatch {
         
             nextStageInit()
             answer.text = ""
@@ -182,7 +184,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         else{score += 0}
         
         
-        }else if answer.text != roundList[stage].songName{
+        }else if !isMatch{
             showToast("틀렸습니다!")
              life -= 1
         if(life == 0){
@@ -228,6 +230,8 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
     // 아직 노래 코드 오류났을 때 제대로 해결 못함..
     func setting(music: String, time:Double){
+        answer.placeholder = "정답을 입력해주세요 (한글로)"
+        
         do {
             //무음에서도 들리게 해주는 부분!! 나중에 정리하면 될거 같아요 민섭님
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
@@ -288,6 +292,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     }
     
     func nextStageInit(){
+        timer.invalidate()
         stage += 1
         life = 3
         stageFinishAlert(songTitle: roundList[stage-1].songName, artist: roundList[stage-1].artist)
@@ -320,6 +325,34 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             
         }
         lifeCreate()
+    }
+    
+    
+    //정답 체크해주는 함수
+    func compareCharacter(origin:String, input:String) -> Bool
+    {
+        var compare1 : String = ""
+        var compare2 : String = ""
+        
+        for origin in origin.characters {
+            if(origin.description != " "){
+                
+                compare1 += origin.description
+                
+            }
+        }
+        
+        for input in input.characters {
+            if(input.description != " "){
+                
+                compare2 += input.description
+                
+            }
+        }
+        
+        
+        
+        return compare1==compare2
     }
     
     
