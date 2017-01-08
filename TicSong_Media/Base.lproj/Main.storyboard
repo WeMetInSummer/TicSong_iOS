@@ -11,6 +11,11 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="EXO-REGULAR.OTF">
+            <string>Exo-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Main Controller-->
         <scene sceneID="o9e-6G-1Z6">
@@ -31,7 +36,7 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_backgroundStar" translatesAutoresizingMaskIntoConstraints="NO" id="gqP-c8-D6G">
-                                <rect key="frame" x="0.0" y="90" width="375" height="488"/>
+                                <rect key="frame" x="0.0" y="90" width="375" height="487"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="gqP-c8-D6G" secondAttribute="height" multiplier="1:1.3" id="sF1-qT-tBn"/>
                                 </constraints>
@@ -54,12 +59,21 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZk-Hq-YKK">
-                                <rect key="frame" x="88" y="20" width="113" height="56.5"/>
+                                <rect key="frame" x="88" y="20" width="225" height="22.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="qZk-Hq-YKK" secondAttribute="height" multiplier="2:1" id="L3e-nj-ruX"/>
+                                    <constraint firstAttribute="width" secondItem="qZk-Hq-YKK" secondAttribute="height" multiplier="5:0.5" id="L3e-nj-ruX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Exo-Regular" family="Exo" pointSize="21"/>
                                 <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LV." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tu1-qj-4wG">
+                                <rect key="frame" x="88" y="49.5" width="68" height="22.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Tu1-qj-4wG" secondAttribute="height" multiplier="3:1" id="uJ1-ZH-P9K"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Exo-Regular" family="Exo" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -69,22 +83,26 @@
                             <constraint firstItem="j0e-Xt-jMX" firstAttribute="centerY" secondItem="xEo-bF-TKU" secondAttribute="centerY" id="5lU-QG-bei"/>
                             <constraint firstItem="gqP-c8-D6G" firstAttribute="centerY" secondItem="xEo-bF-TKU" secondAttribute="centerY" id="9u5-A5-2y4"/>
                             <constraint firstItem="j0e-Xt-jMX" firstAttribute="centerX" secondItem="xEo-bF-TKU" secondAttribute="centerX" id="A6d-sI-c5P"/>
+                            <constraint firstItem="Tu1-qj-4wG" firstAttribute="top" secondItem="qZk-Hq-YKK" secondAttribute="bottom" constant="7.5" id="HOZ-9D-i00"/>
                             <constraint firstItem="CXI-x3-v9E" firstAttribute="centerY" secondItem="xEo-bF-TKU" secondAttribute="centerY" id="Ikn-rc-zIG"/>
                             <constraint firstItem="gqP-c8-D6G" firstAttribute="top" secondItem="euy-h5-ipl" secondAttribute="bottom" constant="8" id="Kpf-Ee-Ebc"/>
                             <constraint firstItem="euy-h5-ipl" firstAttribute="top" secondItem="JfL-Hc-rRp" secondAttribute="bottom" id="NXx-of-IN9"/>
                             <constraint firstItem="qZk-Hq-YKK" firstAttribute="leading" secondItem="euy-h5-ipl" secondAttribute="trailing" constant="8" id="Qqb-62-rlg"/>
                             <constraint firstItem="euy-h5-ipl" firstAttribute="width" secondItem="xEo-bF-TKU" secondAttribute="width" multiplier="0.17" id="S0x-Z9-z2x"/>
                             <constraint firstItem="gqP-c8-D6G" firstAttribute="width" secondItem="xEo-bF-TKU" secondAttribute="width" id="VxM-zZ-WF0"/>
+                            <constraint firstItem="Tu1-qj-4wG" firstAttribute="leading" secondItem="euy-h5-ipl" secondAttribute="trailing" constant="8" id="Wkl-Y1-xc9"/>
                             <constraint firstItem="CXI-x3-v9E" firstAttribute="centerX" secondItem="xEo-bF-TKU" secondAttribute="centerX" id="ZAP-6V-UmI"/>
                             <constraint firstItem="gqP-c8-D6G" firstAttribute="centerX" secondItem="xEo-bF-TKU" secondAttribute="centerX" id="aeT-UB-RPX"/>
                             <constraint firstItem="qZk-Hq-YKK" firstAttribute="top" secondItem="JfL-Hc-rRp" secondAttribute="bottom" id="iyP-yi-60Q"/>
                             <constraint firstItem="j0e-Xt-jMX" firstAttribute="width" secondItem="xEo-bF-TKU" secondAttribute="width" multiplier="0.6" id="mte-j8-E4i"/>
-                            <constraint firstItem="qZk-Hq-YKK" firstAttribute="width" secondItem="xEo-bF-TKU" secondAttribute="width" multiplier="0.3" id="uB7-uG-flC"/>
+                            <constraint firstItem="Tu1-qj-4wG" firstAttribute="width" secondItem="xEo-bF-TKU" secondAttribute="width" multiplier="0.18" id="tbe-0r-aed"/>
+                            <constraint firstItem="qZk-Hq-YKK" firstAttribute="width" secondItem="xEo-bF-TKU" secondAttribute="width" multiplier="0.6" id="uB7-uG-flC"/>
                             <constraint firstItem="CXI-x3-v9E" firstAttribute="width" secondItem="xEo-bF-TKU" secondAttribute="width" multiplier="0.5" id="wY3-56-fVJ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="juke_shootingStar" destination="j0e-Xt-jMX" id="z6y-Fk-ncU"/>
+                        <outlet property="levelLabel" destination="Tu1-qj-4wG" id="ZzW-Ru-UvM"/>
                         <outlet property="mainView" destination="xEo-bF-TKU" id="XTh-bK-QQl"/>
                         <outlet property="main_backgroundStar" destination="gqP-c8-D6G" id="hQg-aV-jY0"/>
                         <outlet property="nickNameLabel" destination="qZk-Hq-YKK" id="6yH-nS-BX0"/>
@@ -248,7 +266,7 @@
                                 </items>
                             </toolbar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ywM-E1-LvU">
-                                <rect key="frame" x="321.5" y="221" width="37.5" height="112"/>
+                                <rect key="frame" x="321.5" y="221" width="37.5" height="112.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="life" translatesAutoresizingMaskIntoConstraints="NO" id="Llz-1L-Xv3">
                                         <rect key="frame" x="0.0" y="0.0" width="37.5" height="37.5"/>
@@ -263,7 +281,7 @@
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="life" translatesAutoresizingMaskIntoConstraints="NO" id="rka-pt-cwQ">
-                                        <rect key="frame" x="0.0" y="75" width="37.5" height="37"/>
+                                        <rect key="frame" x="0.0" y="75" width="37.5" height="37.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="rka-pt-cwQ" secondAttribute="height" id="iPS-FZ-t04"/>
                                         </constraints>
@@ -271,7 +289,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kag-Qu-Nnv">
-                                <rect key="frame" x="102.5" y="446" width="86.5" height="86.5"/>
+                                <rect key="frame" x="102.5" y="446" width="86" height="86.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kag-Qu-Nnv" secondAttribute="height" id="dha-Cg-QhT"/>
                                 </constraints>

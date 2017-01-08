@@ -16,6 +16,8 @@ class LoginController: UIViewController {
     
     var profileIMG:UIImage = UIImage(named: "album")!
     var name:String = "default"
+    
+    var userSet:[String] = []
    
     
     override func viewDidLoad() {
@@ -44,6 +46,7 @@ class LoginController: UIViewController {
             
             destination.receivedProfImg = profileIMG
             destination.receivedName = name
+            
           
         }
         
@@ -86,24 +89,58 @@ class LoginController: UIViewController {
                                 self.profileIMG = UIImage(data: NSData(contentsOf: NSURL(string: value)! as URL)! as Data)!
                                 
                             }
-                       //서버통신
-                            
-
+                       
+                            //서버통신
                             let baseURL = "http://52.79.152.130/TicSongServer/login.do"
                             
                             let parameters: Parameters = ["userId":kakao.id!,"name":self.name,"platform":"1"]
                             
                         
-                            
                             Alamofire.request(baseURL,method : .get, parameters: parameters, encoding: URLEncoding.default, headers: nil)
                                 .responseJSON { (response:DataResponse<Any>) in
                                 
                                 switch(response.result) {
                                 case .success(_):
                                     if response.result.value != nil{
-                                        print(response.result.value!)
+                                        //print(response.result.value!)
                                         
-                                        self.performSegue(withIdentifier: "LoginToMainSegue", sender: self)
+                                        if let data = response.data, let utf8Text = String(data: data, encoding: .utf8), let encodedData = utf8Text.data(using: String.Encoding.utf8){
+                                            
+                                            let JSON = try! JSONSerialization.jsonObject(with: encodedData, options: [])
+                                        
+                                        if let JSON = JSON as? [String: AnyObject] {
+                                            if let exp = JSON["exp"] as? Int, let name = JSON["name"] as? String, let item1Cnt = JSON["item1Cnt"] as? Int, let item2Cnt = JSON["item2Cnt"] as? Int, let item3Cnt = JSON["item3Cnt"] as? Int, let item4Cnt = JSON["item4Cnt"] as? Int, let userLevel = JSON["userLevel"] as? Int {
+                                                
+                                                //추가정보 : {platform = 1;resultCode = 1;timestamp = 1483878381489;userId = 294700636;}
+                                                //userset에 삽입해주세요
+                                                
+                                                print("name:\(name)")
+                                                print("userid:\(kakao.id!)")
+                                                print("exp:\(exp)")
+                                                print("userLevel:\(userLevel)")
+                                                
+                                                print("item1Cnt:\(item1Cnt)")
+                                                print("item2Cnt:\(item2Cnt)")
+                                                print("item3Cnt:\(item3Cnt)")
+                                                print("item4Cnt:\(item4Cnt)")
+                                                
+                                                self.userSet.append("\(name)")
+                                                self.userSet.append("\(kakao.id!)")
+                                                self.userSet.append("\(exp)")
+                                                self.userSet.append("\(userLevel)")
+                                                
+                                                self.userSet.append("\(item1Cnt)")
+                                                self.userSet.append("\(item2Cnt)")
+                                                self.userSet.append("\(item3Cnt)")
+                                                self.userSet.append("\(item4Cnt)")
+                                                
+                                                let user = UserDefaults.standard
+                                                
+                                                user.set(self.userSet, forKey: "user")
+                                                
+                                                }
+                                        }}
+                                            self.performSegue(withIdentifier: "LoginToMainSegue", sender: self)
                                     }
                                     break
                                     

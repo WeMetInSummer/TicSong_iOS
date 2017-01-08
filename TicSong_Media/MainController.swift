@@ -21,12 +21,15 @@ class MainController: UIViewController {
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nickNameLabel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
     
     var pulseEffect : LFTPulseAnimation!
     
     
     var receivedName : String = ""
     var receivedProfImg : UIImage = UIImage(named : "album")!
+    //var receviedUserSet : [String] = []
+    
     var url: String!
    
 //    var arraySong : [String] = ["270052873","287320848","18560800","285714919","17179509","200018532","73847634","196942610","261595798","266565177"]
@@ -48,8 +51,13 @@ class MainController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //UIFont.systemFont(ofSize: 20)
+        
         nickNameLabel.textColor = UIColor.white
-        nickNameLabel.font = UIFont.systemFont(ofSize: 30)
+        nickNameLabel.font = UIFont.systemFont(ofSize: 20)
+        levelLabel.font = UIFont(name: "EXO-REGULAR", size: 16)
+        
+        
         
         profileImage.layer.borderWidth = 1
         profileImage.layer.masksToBounds = false
@@ -63,6 +71,11 @@ class MainController: UIViewController {
         aniPulse(160)
         aniPulse(170)
         
+        
+        
+        
+        
+        //print(receviedUserSet)
         
         // Do any additional setup after loading the view.
         
@@ -80,6 +93,15 @@ class MainController: UIViewController {
         
         nickNameLabel.text = receivedName
         profileImage.image = receivedProfImg
+        
+        
+        let user = UserDefaults.standard
+        
+        if let result = user.stringArray(forKey: "user")
+        {
+            levelLabel.text = "LV.\(result[3])"
+        }
+        
         
     }
     
@@ -119,8 +141,7 @@ class MainController: UIViewController {
                 }else{
                     print(code[index] + " 노래제목 : " + songName[index])
                 }
-                //code:String,songName:String,artist:String,start:Int
-                //list.append((title:arrayTitle[index],song:arraySong[index],start:100))
+                
                 
                 
                 

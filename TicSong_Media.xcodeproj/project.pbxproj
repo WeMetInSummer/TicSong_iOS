@@ -17,6 +17,7 @@
 		373D13071E19546900EA00C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 373D13061E19546900EA00C4 /* Assets.xcassets */; };
 		373D130A1E19546900EA00C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 373D13081E19546900EA00C4 /* LaunchScreen.storyboard */; };
 		373D13121E1955FD00EA00C4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373D13111E1955FD00EA00C4 /* AVFoundation.framework */; };
+		37B0B1B61E2279040061F499 /* EXO-REGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 37B0B1B51E2279040061F499 /* EXO-REGULAR.OTF */; };
 		679D5E111E1C9D7E009F824B /* LFTPulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D5E101E1C9D7E009F824B /* LFTPulseAnimation.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		373D13091E19546900EA00C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		373D130B1E19546900EA00C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		373D13111E1955FD00EA00C4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		37B0B1B51E2279040061F499 /* EXO-REGULAR.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EXO-REGULAR.OTF"; sourceTree = "<group>"; };
 		679D5E101E1C9D7E009F824B /* LFTPulseAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LFTPulseAnimation.swift; sourceTree = "<group>"; };
 		C1DDF84384BBFA8952B429C6 /* Pods_TicSong_Media.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicSong_Media.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E298CB8F856AA74C17938E62 /* Pods-TicSong_Media.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicSong_Media.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicSong_Media/Pods-TicSong_Media.debug.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				679D5E101E1C9D7E009F824B /* LFTPulseAnimation.swift */,
 				373D13061E19546900EA00C4 /* Assets.xcassets */,
 				373D130B1E19546900EA00C4 /* Info.plist */,
+				37B0B1B51E2279040061F499 /* EXO-REGULAR.OTF */,
 				370899BA1E1E3DD100AD8486 /* KakaoOpenSDK.framework */,
 				370899BC1E1E402B00AD8486 /* TicSong_Media-Bridging-Header.h */,
 			);
@@ -171,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				373D130A1E19546900EA00C4 /* LaunchScreen.storyboard in Resources */,
+				37B0B1B61E2279040061F499 /* EXO-REGULAR.OTF in Resources */,
 				373D13071E19546900EA00C4 /* Assets.xcassets in Resources */,
 				373D13051E19546900EA00C4 /* Main.storyboard in Resources */,
 			);
