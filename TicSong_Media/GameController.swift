@@ -145,7 +145,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         hintMode = 0
         if(stage < roundList.count){
             playMusic()
-            aniStar(pic: juke_shootingStar, aniDuration: 1.0)
+            aniStar(pic: juke_shootingStar, aniDuration: 2.0)
             
             print("노래 제목 : " + roundList[stage].songName)
             print("life :"+life.description)
@@ -193,12 +193,18 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         lifeCreate()
     }
     
-    @IBAction func Hint(_ sender: UIButton) {
+    // item !
+    
+    @IBAction func threeSecHint(_ sender: UIButton) {
         hintMode = 1
         playMusic()
-        aniStar(pic: juke_shootingStar, aniDuration: 3.0)
+        aniStar(pic: juke_shootingStar, aniDuration: 4.0)
     }
     
+   
+    @IBAction func singerHint(_ sender: UIButton) {
+        singerAlert(artist: roundList[stage].artist)
+    }
     
     // 패스 버튼
     
@@ -220,6 +226,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
    //MARK: 노래 재생 설정
     
+    // 아직 노래 코드 오류났을 때 제대로 해결 못함..
     func setting(music: String, time:Double){
         do {
             //무음에서도 들리게 해주는 부분!! 나중에 정리하면 될거 같아요 민섭님
@@ -228,12 +235,13 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             
             setSong(name: music, time: time)
             let fileURL = NSURL(string:url)
-            let soundData = NSData(contentsOf:fileURL! as URL)
-            self.audioPlayer = try AVAudioPlayer(data: soundData! as Data)
-            audioPlayer.prepareToPlay()
-            audioPlayer.volume = 1.0
-            audioPlayer.delegate = self
-            audioPlayer.currentTime = startTime
+            if let soundData = NSData(contentsOf:fileURL! as URL) {
+                self.audioPlayer = try AVAudioPlayer(data: soundData as Data)
+                audioPlayer.prepareToPlay()
+                audioPlayer.volume = 1.0
+                audioPlayer.delegate = self
+                audioPlayer.currentTime = startTime
+            }
         } catch {
             print(error)
             print("Error getting the audio file")
@@ -244,11 +252,11 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
     func counter() {
         musicSec += 1
-        if musicSec > 0 && hintMode == 0{
+        if musicSec > 1 && hintMode == 0{
             audioPlayer.stop() // 지정한 시간이 지나면 스톱
             timer.invalidate()   // 타이머를 다시 0초로
         }
-        else if musicSec > 2 && hintMode == 1{
+        else if musicSec > 3 && hintMode == 1{
             audioPlayer.stop() // 지정한 시간이 지나면 스톱
             timer.invalidate()   // 타이머를 다시 0초로
         }
@@ -367,6 +375,25 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
 
     }
+
+    //힌트 alert!
+    func singerAlert (artist : String){
+        
+        let alertView = UIAlertController(title: "가수힌트", message: "해당 노래의 가수는 : " + artist, preferredStyle: .alert)
+        
+        
+        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
+            alertView.dismiss(animated: true, completion: nil)
+        })
+        alertView.addAction(action)
+        
+        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
+        alertWindow.rootViewController = UIViewController()
+        alertWindow.windowLevel = UIWindowLevelAlert + 1
+        alertWindow.makeKeyAndVisible()
+        alertWindow.rootViewController?.present(alertView, animated: true, completion: nil)
+    }
+
     
   
     

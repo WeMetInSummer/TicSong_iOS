@@ -185,9 +185,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="4EC-s5-t9V" secondAttribute="height" id="FEd-6F-zy1"/>
                                 </constraints>
-                                <state key="normal" image="hintItem"/>
+                                <state key="normal" image="hint_threeSec"/>
                                 <connections>
-                                    <action selector="Hint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Hh-zJ-RYF"/>
+                                    <action selector="threeSecHint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QQL-XY-a6L"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcq-sr-E1l">
@@ -270,9 +270,20 @@
                                     </imageView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kag-Qu-Nnv">
+                                <rect key="frame" x="102.5" y="446" width="86.5" height="86.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kag-Qu-Nnv" secondAttribute="height" id="dha-Cg-QhT"/>
+                                </constraints>
+                                <state key="normal" image="hint_singerName"/>
+                                <connections>
+                                    <action selector="singerHint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4i4-KX-8Ka"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.054947271943092346" green="0.13114801049232483" blue="0.23077297210693359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="kag-Qu-Nnv" firstAttribute="top" secondItem="1mW-rm-6rN" secondAttribute="bottom" id="1ib-hY-7ov"/>
                             <constraint firstItem="4EC-s5-t9V" firstAttribute="top" secondItem="1mW-rm-6rN" secondAttribute="bottom" id="1x6-7n-j9G"/>
                             <constraint firstItem="DU5-52-hOP" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.35" id="4Ar-Ql-kEI"/>
                             <constraint firstItem="L4x-Cy-4O2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4ep-vG-GRc"/>
@@ -289,6 +300,7 @@
                             <constraint firstItem="1mW-rm-6rN" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.6" id="bxf-ZL-kmG"/>
                             <constraint firstItem="ON4-uv-OKQ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.1" id="fBb-2U-trX"/>
                             <constraint firstItem="Hcq-sr-E1l" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.2" id="g0C-Km-o2S"/>
+                            <constraint firstItem="kag-Qu-Nnv" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.23" id="g3L-1D-0O8"/>
                             <constraint firstItem="1mW-rm-6rN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gus-pf-hVA"/>
                             <constraint firstItem="4Lr-rt-wW2" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="h2g-vb-eqh"/>
                             <constraint firstItem="DU5-52-hOP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="hoz-nE-Edg"/>
@@ -296,6 +308,7 @@
                             <constraint firstItem="4EC-s5-t9V" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="k69-gm-9mU"/>
                             <constraint firstItem="ON4-uv-OKQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="kzq-DA-jgU"/>
                             <constraint firstItem="4Lr-rt-wW2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lCO-xL-c9q"/>
+                            <constraint firstItem="kag-Qu-Nnv" firstAttribute="leading" secondItem="4EC-s5-t9V" secondAttribute="trailing" id="rfl-bx-IIg"/>
                             <constraint firstAttribute="trailing" secondItem="L4x-Cy-4O2" secondAttribute="trailing" id="y8v-7P-on3"/>
                         </constraints>
                     </view>
@@ -319,7 +332,8 @@
     <resources>
         <image name="Tic_btn" width="496" height="496"/>
         <image name="close" width="35" height="35"/>
-        <image name="hintItem" width="127" height="127"/>
+        <image name="hint_singerName" width="127" height="127"/>
+        <image name="hint_threeSec" width="127" height="127"/>
         <image name="juke_shootingStar" width="496" height="496"/>
         <image name="kakao_login" width="588" height="80"/>
         <image name="life" width="35" height="35"/>
