@@ -208,6 +208,15 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         singerAlert(artist: roundList[stage].artist)
     }
     
+    @IBAction func firstCharHint(_ sender: UIButton) {
+        firstCharAlert(songName: roundList[stage].songName)
+    }
+    
+    @IBAction func inputSecHint(_ sender: UIButton) {
+        inputSecAlert()
+    }
+    
+    
     // 패스 버튼
     
     @IBAction func Pass(_ sender: UIButton) {
@@ -400,16 +409,13 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         })
         alertView.addAction(action)
         
-        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
-        alertWindow.rootViewController = UIViewController()
-        alertWindow.windowLevel = UIWindowLevelAlert + 1
-        alertWindow.makeKeyAndVisible()
-        alertWindow.rootViewController?.present(alertView, animated: true, completion: nil)
+        alertWindow(alertView: alertView)
         
 
     }
 
-    //힌트 alert!
+    //가수 힌트 alert!
+    
     func singerAlert (artist : String){
         
         let alertView = UIAlertController(title: "가수힌트", message: "해당 노래의 가수는 : " + artist, preferredStyle: .alert)
@@ -419,12 +425,62 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             alertView.dismiss(animated: true, completion: nil)
         })
         alertView.addAction(action)
+        alertWindow(alertView: alertView)
+
+    }
+    
+    
+    // 첫글자 힌트 alert!
+    
+    func firstCharAlert(songName: String){
+        let alertView = UIAlertController(title: "첫글자힌트", message: "해당 노래의 첫글자는 : " + songName.substring(to: songName.index(after: songName.startIndex)), preferredStyle: .alert)
         
-        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
-        alertWindow.rootViewController = UIViewController()
-        alertWindow.windowLevel = UIWindowLevelAlert + 1
-        alertWindow.makeKeyAndVisible()
-        alertWindow.rootViewController?.present(alertView, animated: true, completion: nil)
+        
+        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
+            alertView.dismiss(animated: true, completion: nil)
+        })
+        alertView.addAction(action)
+        
+        alertWindow(alertView: alertView)
+
+    }
+    
+    // 원하는 구간 힌트 alert!
+    
+    func inputSecAlert(){
+        //1. Create the alert controller.
+        let alert = UIAlertController(title: "시작구간 선택힌트", message: "원하는 시작구간(초) 을 입력해주세요!", preferredStyle: .alert)
+        
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.placeholder = "0~180 사이 숫자만 입력해주세요."
+        }
+        
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+            // 사용자가 한글 입력은 안되고 노래 전체구간 사이를 입력했을 경우만 들려준다.
+            if Double((textField?.text)!) != nil {
+                if Double((textField?.text)!)! < 180 {
+                self.answer.endEditing(true)
+                self.audioPlayer.currentTime = Double((textField?.text)!)!
+                self.timer.invalidate()
+                self.musicSec = 0
+                self.hintMode = 1
+                self.aniStar(pic: self.juke_shootingStar, aniDuration: 3.5)
+                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GameController.counter), userInfo: nil,repeats:true)
+                self.audioPlayer.play()
+                }else{
+                    self.basicAlert(string: "꽝")
+                }
+            }else{
+                self.basicAlert(string: "꽝")
+            }
+        }))
+        
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+
     }
 
     
@@ -448,11 +504,8 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         })
         alertView.addAction(action)
         
-        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
-        alertWindow.rootViewController = UIViewController()
-        alertWindow.windowLevel = UIWindowLevelAlert + 1
-        alertWindow.makeKeyAndVisible()
-        alertWindow.rootViewController?.present(alertView, animated: true, completion: nil)
+        alertWindow(alertView: alertView)
+
     }
     
     func escapeAlert(score:Int){
@@ -471,11 +524,23 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         alertView.addAction(action)
         alertView.addAction(cancelAction)
         
-        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
-        alertWindow.rootViewController = UIViewController()
-        alertWindow.windowLevel = UIWindowLevelAlert + 1
-        alertWindow.makeKeyAndVisible()
-        alertWindow.rootViewController?.present(alertView, animated: true, completion: nil)
+        alertWindow(alertView: alertView)
+
+    }
+    
+    func basicAlert(string : String){
+        let alertView = UIAlertController(title: string+"!!", message: string+"입니다요", preferredStyle: .alert)
+        
+        
+        
+        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
+            alertView.dismiss(animated: true, completion: nil)
+        })
+        
+        
+        alertView.addAction(action)
+        
+        alertWindow(alertView: alertView)
     }
     
     //MARK: ANIMATION
@@ -525,6 +590,16 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             
         })
         
+    }
+    
+    // alertWindow 중복 제거
+    
+    func alertWindow(alertView: UIAlertController){
+        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
+        alertWindow.rootViewController = UIViewController()
+        alertWindow.windowLevel = UIWindowLevelAlert + 1
+        alertWindow.makeKeyAndVisible()
+        alertWindow.rootViewController?.present(alertView, animated: true, completion: nil)
     }
 
     

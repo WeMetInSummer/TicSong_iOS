@@ -199,7 +199,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4EC-s5-t9V">
-                                <rect key="frame" x="16" y="446" width="86.5" height="86.5"/>
+                                <rect key="frame" x="16" y="446" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="4EC-s5-t9V" secondAttribute="height" id="FEd-6F-zy1"/>
                                 </constraints>
@@ -289,13 +289,33 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kag-Qu-Nnv">
-                                <rect key="frame" x="102.5" y="446" width="86" height="86.5"/>
+                                <rect key="frame" x="106" y="446" width="90" height="90.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kag-Qu-Nnv" secondAttribute="height" id="dha-Cg-QhT"/>
                                 </constraints>
                                 <state key="normal" image="hint_singerName"/>
                                 <connections>
                                     <action selector="singerHint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4i4-KX-8Ka"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PtL-gF-VFM">
+                                <rect key="frame" x="196" y="446" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="PtL-gF-VFM" secondAttribute="height" id="u3s-ce-4ki"/>
+                                </constraints>
+                                <state key="normal" image="hint_firstChar"/>
+                                <connections>
+                                    <action selector="firstCharHint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ofY-up-UDq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DgD-cy-SfT">
+                                <rect key="frame" x="294" y="454" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="원하는구간">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="inputSecHint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E39-ax-rcC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -310,15 +330,18 @@
                             <constraint firstItem="ywM-E1-LvU" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="BBr-Cy-mNN"/>
                             <constraint firstItem="4Lr-rt-wW2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="DFz-cS-gh4"/>
                             <constraint firstItem="Hcq-sr-E1l" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Dok-EP-rNq"/>
+                            <constraint firstItem="PtL-gF-VFM" firstAttribute="top" secondItem="1mW-rm-6rN" secondAttribute="bottom" id="G4O-zB-t1j"/>
                             <constraint firstItem="ywM-E1-LvU" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.1" id="NaI-Do-4of"/>
                             <constraint firstItem="DU5-52-hOP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Raw-6C-tEU"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="L4x-Cy-4O2" secondAttribute="bottom" id="VaC-ML-xAn"/>
                             <constraint firstItem="1mW-rm-6rN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vax-tE-Oo2"/>
-                            <constraint firstItem="4EC-s5-t9V" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.23" id="Yih-G0-p99"/>
+                            <constraint firstItem="PtL-gF-VFM" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.24" id="Xo4-tk-TZ0"/>
+                            <constraint firstItem="4EC-s5-t9V" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.24" id="Yih-G0-p99"/>
                             <constraint firstItem="1mW-rm-6rN" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.6" id="bxf-ZL-kmG"/>
                             <constraint firstItem="ON4-uv-OKQ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.1" id="fBb-2U-trX"/>
+                            <constraint firstItem="PtL-gF-VFM" firstAttribute="leading" secondItem="kag-Qu-Nnv" secondAttribute="trailing" id="fnv-Fo-0Ax"/>
                             <constraint firstItem="Hcq-sr-E1l" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.2" id="g0C-Km-o2S"/>
-                            <constraint firstItem="kag-Qu-Nnv" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.23" id="g3L-1D-0O8"/>
+                            <constraint firstItem="kag-Qu-Nnv" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.24" id="g3L-1D-0O8"/>
                             <constraint firstItem="1mW-rm-6rN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gus-pf-hVA"/>
                             <constraint firstItem="4Lr-rt-wW2" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="h2g-vb-eqh"/>
                             <constraint firstItem="DU5-52-hOP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="hoz-nE-Edg"/>
@@ -350,6 +373,7 @@
     <resources>
         <image name="Tic_btn" width="496" height="496"/>
         <image name="close" width="35" height="35"/>
+        <image name="hint_firstChar" width="127" height="127"/>
         <image name="hint_singerName" width="127" height="127"/>
         <image name="hint_threeSec" width="127" height="127"/>
         <image name="juke_shootingStar" width="496" height="496"/>
