@@ -27,11 +27,11 @@ class MainController: UIViewController {
     
     var receivedName : String = ""
     var receivedProfImg : UIImage = UIImage(named : "album")!
-    
-    
-    var arraySong : [String] = ["270052873","287320848","18560800","285714919","17179509","200018532","73847634","196942610","261595798","266565177"]
-    var arrayTitle : [String] = ["야생화","숨","사랑한후에","꿈","눈의꽃","해줄수없는일","안녕사랑아","동경","화신","나를넘는다"]
-    
+    var url: String!
+   
+//    var arraySong : [String] = ["270052873","287320848","18560800","285714919","17179509","200018532","73847634","196942610","261595798","266565177"]
+//    var arrayTitle : [String] = ["야생화","숨","사랑한후에","꿈","눈의꽃","해줄수없는일","안녕사랑아","동경","화신","나를넘는다"]
+//    
     var itemSort = 1
     var index = 0
     
@@ -111,12 +111,20 @@ class MainController: UIViewController {
         while indexList.count != 5 {
             index = random()
             if(!indexList.contains(index)){
-                indexList.append(index)
-                
+                url = "https://api.soundcloud.com/tracks/"+code[index]+"/stream?client_id=59eb0488cc28a2c558ecbf47ed19f787"
+                let fileURL = NSURL(string:url)
+                if NSData(contentsOf:fileURL! as URL) != nil {
+                    indexList.append(index)
+                    list.append((code:code[index],songName:songName[index],artist:artist[index],start:start[index]))
+                }else{
+                    print(code[index] + " 노래제목 : " + songName[index])
+                }
                 //code:String,songName:String,artist:String,start:Int
                 //list.append((title:arrayTitle[index],song:arraySong[index],start:100))
                 
-                list.append((code:code[index],songName:songName[index],artist:artist[index],start:start[index]))
+                
+                
+                
             }
         }
         
