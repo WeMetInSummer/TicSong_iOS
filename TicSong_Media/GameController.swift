@@ -185,12 +185,13 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
         
         }else if !isMatch{
-            showToast("틀렸습니다!")
              life -= 1
-        if(life == 0){
-            nextStageInit()
-            score += 0
-        }
+                if(life == 0){
+                    self.answer.endEditing(true)
+                    nextStageInit()
+                    score += 0
+                }
+            showToast("틀렸습니다!")
         }
         lifeCreate()
     }
@@ -202,8 +203,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         playMusic()
         aniStar(pic: juke_shootingStar, aniDuration: 4.0)
     }
-    
-   
     @IBAction func singerHint(_ sender: UIButton) {
         singerAlert(artist: roundList[stage].artist)
     }
@@ -216,11 +215,9 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         inputSecAlert()
     }
     
-    
     // 패스 버튼
     
     @IBAction func Pass(_ sender: UIButton) {
-        
         nextStageInit()
         score += 0
         
@@ -280,7 +277,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
     func setSong(name: String,time: Double){
         url = "https://api.soundcloud.com/tracks/"+name+"/stream?client_id=59eb0488cc28a2c558ecbf47ed19f787"
-        
         if(time != 0){
         startTime = time/1000.0
         }else{
@@ -301,6 +297,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     }
     
     func nextStageInit(){
+        self.answer.text=""
         timer.invalidate()
         stage += 1
         life = 3
@@ -320,7 +317,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
         //다음 노래 준비
         if(stage < roundList.count){
-            
             stageLabel.text = "STAGE \(stage+1)"
             answer.text = ""
             setting(music: roundList[stage].code, time: roundList[stage].start)
@@ -361,7 +357,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
         
         
-        return compare1==compare2
+        return  compare1.lowercased()==compare2.lowercased()
     }
     
     
@@ -392,7 +388,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     }
     
     func stageFinishAlert(songTitle:String,artist:String){
-        
+    
         let alertView = UIAlertController(title: songTitle, message: artist, preferredStyle: .alert)
         
 //        let image = UIImage(named: "album")

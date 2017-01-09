@@ -141,11 +141,6 @@ class MainController: UIViewController {
                 }else{
                     print(code[index] + " 노래제목 : " + songName[index])
                 }
-                
-                
-                
-                
-                
             }
         }
         
