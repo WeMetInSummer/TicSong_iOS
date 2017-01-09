@@ -49,7 +49,6 @@
                                 <state key="normal" title="Button" image="Tic_btn"/>
                                 <connections>
                                     <action selector="startGameBtn:" destination="mm2-tq-ShV" eventType="touchUpInside" id="5nk-16-Q4d"/>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="MainToGameSegue" modalTransitionStyle="flipHorizontal" id="ozH-5r-uaW"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="euy-h5-ipl">
@@ -108,6 +107,7 @@
                         <outlet property="nickNameLabel" destination="qZk-Hq-YKK" id="6yH-nS-BX0"/>
                         <outlet property="profileImage" destination="euy-h5-ipl" id="NSC-JV-a92"/>
                         <outlet property="startGameBtn" destination="CXI-x3-v9E" id="8eo-pF-5mM"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="MainToSegue" modalTransitionStyle="flipHorizontal" id="C73-AW-wxB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6B5-ll-45k" userLabel="First Responder" sceneMemberID="firstResponder"/>

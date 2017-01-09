@@ -112,9 +112,9 @@ class MainController: UIViewController {
     
     
     @IBAction func startGameBtn(_ sender: UIButton) {
-        
-        self.performSegue(withIdentifier: "MainToGameSegue", sender: self)
-        
+        print("노래를 준비중..")
+        self.performSegue(withIdentifier: "MainToSegue", sender: self)
+        print("노래를 보냈음..")
     }
     
     // MARK: - Method
@@ -161,7 +161,7 @@ class MainController: UIViewController {
         
         
         
-        if segue.identifier == "MainToGameSegue"
+        if segue.identifier == "MainToSegue"
         {
             
             let destination = segue.destination as! GameController
