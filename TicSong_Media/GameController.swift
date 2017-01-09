@@ -489,6 +489,13 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         let myLevel = Int(userSet[3])! // 내 레벨
         print("내경험치 : \(scoreSum)")
         print("내 레벨 : \(myLevel)")
+        print("내가 가지고 있는 아이템 ",userSet[4])
+        
+        print("내가 가지고 있는 아이템 ",userSet[5])
+        
+        print("내가 가지고 있는 아이템 ",userSet[6])
+        
+        print("내가 가지고 있는 아이템 ",userSet[7])
         
         // 프리퍼런스로 내가 가진 경험치에 + score = 내 경험치
         let alertView = UIAlertController(title: "RESULT", message: "당신의 점수는 \(score)점 입니다!", preferredStyle: .alert)
@@ -500,8 +507,13 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             self.userSet[2] = "\(scoreSum)"
             if self.isLevelUp(scoreSum,myLevel){
                 print("레벨업!")
-                //임시로..
-                self.basicAlert(string: "레벨업",message: "레벨업")
+                // 임시로 랜덤아이템이 뭐가 나왔나 띄우는 것
+                let random : Int = Int(arc4random_uniform(UInt32(4)))+1
+                
+                // item5Cnt 까지 추가하면 완료... 아마 default 에 4567에 들어있을 것임..
+                // 만약 랜덤값이 4면 서버에는 item5Cnt 을 추가하면 돼
+                self.userSet[random+3] = String(Int(self.userSet[random+3])! + 1)
+                self.levelUpAlert(random)
                 self.dismiss(animated: true, completion: nil)
             }else{
                 //아니라면 alertView 끄기..
@@ -575,6 +587,38 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
         alertWindow(alertView: alertView)
     }
+    
+    // level up alert !
+    func levelUpAlert(_ random: Int){
+        
+        let alertView = UIAlertController(title: "레벨업!!", message: "레벨업 입니다요", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
+            alertView.dismiss(animated: true, completion: nil)
+        })
+        
+        // 1345
+        // 1234 = random 값
+//        let image = UIImage(named: "levelupItem\(random)")
+//        let realiamge = UIImageView(image: image)
+//        realiamge.frame = CGRect(x: 80, y: 150, width: 100, height: 100) // 위치는 나중에 생각..
+//        alertView.view.addSubview(realiamge)
+//        alertView.addAction(action)
+//        alertWindow(alertView: alertView)
+
+        // 획득 했다는 것 어떻게 알려줄까? 
+        
+        print("내가 가지고 있는 아이템 ",userSet[4])
+        
+        print("내가 가지고 있는 아이템 ",userSet[5])
+        
+        print("내가 가지고 있는 아이템 ",userSet[6])
+        
+        print("내가 가지고 있는 아이템 ",userSet[7])
+        
+        
+    }
+
     
     //MARK: ANIMATION
     
