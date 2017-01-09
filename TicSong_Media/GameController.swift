@@ -75,7 +75,8 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
         stageLabel.text = " STAGE \(stage+1)"
         stageLabel.textColor = UIColor.white
-        stageLabel.font = UIFont.systemFont(ofSize: 30)
+        stageLabel.font = UIFont(name: "EXO-REGULAR", size: 27)
+        //stageLabel.font = UIFont.systemFont(ofSize: 30)
         
         answer.autocorrectionType = .no
         
@@ -177,10 +178,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
        let isMatch = compareCharacter(origin: roundList[stage].songName, input: answer.text!)
        if isMatch {
         
-            nextStageInit()
-            answer.text = ""
-            self.answer.endEditing(true)
-            showToast("정답입니다!")
         
         
         if(life == 3){score += 100}
@@ -188,6 +185,10 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         else if(life == 1){score += 30}
         else{score += 0}
         
+        nextStageInit()
+        answer.text = ""
+        self.answer.endEditing(true)
+        showToast("정답입니다!")
         
         }else if !isMatch{
              life -= 1
