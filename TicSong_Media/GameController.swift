@@ -47,7 +47,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
 
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
-    
+    let expArr : [Int] = MainController.expArray
     
     var audioPlayer:AVAudioPlayer = AVAudioPlayer()
     
@@ -64,14 +64,16 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     var stage : Int = 0
     var item : Int = 3
     
-    
+    // 디폴트
+    var userSet : [String] = []
+    let user = UserDefaults.standard
     
     //MARK: 생명주기
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        stageLabel.text = "STAGE \(stage+1)"
+        stageLabel.text = " STAGE \(stage+1)"
         stageLabel.textColor = UIColor.white
         stageLabel.font = UIFont.systemFont(ofSize: 30)
         
@@ -81,8 +83,12 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         print(roundList)
         
         setting(music: roundList[stage].code, time: roundList[stage].start)
-    
         
+        if let result = user.stringArray(forKey: "user"){
+            userSet = result
+        }
+        print(userSet)
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -173,7 +179,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
             nextStageInit()
             answer.text = ""
-        
             self.answer.endEditing(true)
             showToast("정답입니다!")
         
@@ -317,7 +322,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
         //다음 노래 준비
         if(stage < roundList.count){
-            stageLabel.text = "STAGE \(stage+1)"
+            stageLabel.text = " STAGE \(stage+1)"
             answer.text = ""
             setting(music: roundList[stage].code, time: roundList[stage].start)
             print("다음 노래 준비!")
@@ -341,21 +346,15 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
         for origin in origin.characters {
             if(origin.description != " "){
-                
                 compare1 += origin.description
-                
             }
         }
         
         for input in input.characters {
             if(input.description != " "){
-                
                 compare2 += input.description
-                
             }
         }
-        
-        
         
         return  compare1.lowercased()==compare2.lowercased()
     }
@@ -467,10 +466,10 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                 self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GameController.counter), userInfo: nil,repeats:true)
                 self.audioPlayer.play()
                 }else{
-                    self.basicAlert(string: "꽝")
+                    self.basicAlert(string: "꽝",message: "노래의 범위를 벗어난 꽝")
                 }
             }else{
-                self.basicAlert(string: "꽝")
+                self.basicAlert(string: "꽝",message: "숫자 외 다른 문자를 입력한 꽝")
             }
         }))
         
@@ -484,25 +483,64 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
     
     func resultAlert(score:Int){
+        // 내가 가진 경험치에 이번판에 얻은 스코어를 더한후..
+        let scoreSum = Int(userSet[2])! + score
+        let myLevel = Int(userSet[3])! // 내 레벨
+        print("내경험치 : \(scoreSum)")
+        print("내 레벨 : \(myLevel)")
         
+        // 프리퍼런스로 내가 가진 경험치에 + score = 내 경험치
         let alertView = UIAlertController(title: "RESULT", message: "당신의 점수는 \(score)점 입니다!", preferredStyle: .alert)
         
-//        let image = UIImage(named: "album")
-//        let realiamge = UIImageView(image: image)
-//        realiamge.frame = CGRect(x: 0, y: 100, width: 250, height: 250)
-//        
-//        alertView.view.addSubview(realiamge)
-        
-        
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
-            alertView.dismiss(animated: true, completion: nil)
-            self.dismiss(animated: true, completion: nil)
+            //만약 경험치가 레벨업을 할 수 있는 경험치라면 레벨업 뷰로..
+            
+            
+            self.userSet[2] = "\(scoreSum)"
+            if self.isLevelUp(scoreSum,myLevel){
+                print("레벨업!")
+                //임시로..
+                self.basicAlert(string: "레벨업",message: "레벨업")
+                self.dismiss(animated: true, completion: nil)
+            }else{
+                //아니라면 alertView 끄기..
+                alertView.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
+            }
+            self.user.set(self.userSet, forKey: "user")
+ 
+            
         })
         alertView.addAction(action)
         
         alertWindow(alertView: alertView)
 
     }
+    
+    // 레벨업 할 수 있나 없나 체크!
+    func isLevelUp(_ scoreSum : Int ,_ myLevel : Int) -> Bool{
+        var mylv = myLevel
+        
+        print ("mylv \(mylv)")
+        for index in 0..<expArr.count{
+            if scoreSum >= expArr[index]{
+                mylv = index+2
+            }else{
+                break
+            }
+        }
+        
+        print ("mylv2 \(mylv)")
+        
+        if mylv != myLevel{       //내 레벨이 바뀌었으면
+            self.userSet[3] = "\(mylv)"
+            return true
+        }else{
+            return false
+        }
+        
+    }
+    
     
     func escapeAlert(score:Int){
         
@@ -524,11 +562,9 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
 
     }
     
-    func basicAlert(string : String){
-        let alertView = UIAlertController(title: string+"!!", message: string+"입니다요", preferredStyle: .alert)
-        
-        
-        
+    func basicAlert(string : String,message : String){
+        let alertView = UIAlertController(title: string+"!!", message: message+"입니다요", preferredStyle: .alert)
+
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
             alertView.dismiss(animated: true, completion: nil)
         })
