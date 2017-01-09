@@ -23,22 +23,35 @@ class MainController: UIViewController {
     @IBOutlet weak var nickNameLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     
-    // 임시로 만든 남은 경험치
-    @IBOutlet weak var lackExp: UILabel!
+    // 경험치 관련
+    
+    @IBOutlet weak var expText: UILabel!
+    @IBOutlet weak var expBar: UIImageView!
+    let barSize : Int = 20  // bar 의 개수
+    
+    static let expArray : [Int] =
+        [100,600,1200,1900,2700,3600,4600,5700,6900,8200,9700,11400,13300,15400,17700,20200,22900,25800,28900,32200,35800,39700,43900,48400,53200,58300,63700,69400,75400,81700,88450,95650,103300,111400,119950,128950,138400,148300,158650,169450,180650,192250,204250,216650,229450,242650,256250,270250,284650,299450,315000,331300,348350,366150,384700,404000,424050,444850,466400,
+         488700,511850,535850,560700,586400,612950,640350,668600,697700,727650,758450,790250,823050,
+         856850,891650,927450,964250,1002050,1040850,1080650,1121450,1163750,1207550,1252850,1299650,
+         1347950,1398250,1450550,1504850,1561150,1621150,1686150,1761150,1861150,2011150,2261150,2661150,3261150,4261150,7000000,10000000]
     
     
+    // 애니메이션
     var pulseEffect : LFTPulseAnimation!
     
-    
+    // 카카오톡 프로필 및 이름
     var receivedName : String = ""
     var receivedProfImg : UIImage = UIImage(named : "album")!
     //var receviedUserSet : [String] = []
     
+    // 사운드 클라우드 유알엘
     var url: String!
    
 //    var arraySong : [String] = ["270052873","287320848","18560800","285714919","17179509","200018532","73847634","196942610","261595798","266565177"]
 //    var arrayTitle : [String] = ["야생화","숨","사랑한후에","꿈","눈의꽃","해줄수없는일","안녕사랑아","동경","화신","나를넘는다"]
 //    
+    
+    // 멤버 변수
     var itemSort = 1
     var index = 0
     
@@ -50,12 +63,7 @@ class MainController: UIViewController {
     var start :[Double] = []
     
     
-    // MARK: - 경험치 배열
-    static let expArray : [Int] =
-        [100,600,1200,1900,2700,3600,4600,5700,6900,8200,9700,11400,13300,15400,17700,20200,22900,25800,28900,32200,35800,39700,43900,48400,53200,58300,63700,69400,75400,81700,88450,95650,103300,111400,119950,128950,138400,148300,158650,169450,180650,192250,204250,216650,229450,242650,256250,270250,284650,299450,315000,331300,348350,366150,384700,404000,424050,444850,466400,
-            488700,511850,535850,560700,586400,612950,640350,668600,697700,727650,758450,790250,823050,
-            856850,891650,927450,964250,1002050,1040850,1080650,1121450,1163750,1207550,1252850,1299650,
-            1347950,1398250,1450550,1504850,1561150,1621150,1686150,1761150,1861150,2011150,2261150,2661150,3261150,4261150,7000000,10000000]
+    
     
     // MARK: - 생명주기
   
@@ -105,14 +113,31 @@ class MainController: UIViewController {
         {
             let myLevel = Int(result[3])!
             let myExp = Int(result[2])!
+            var countBar = 0
+            var oneBarExpSize = 0
+            print("내 경험치 : \(myExp)")
             
             levelLabel.text = "LV.\(myLevel)"
             let forLevelUpExp = MainController.expArray[myLevel-1]
-            lackExp.text = "남은 exp: \(forLevelUpExp-myExp)"
+            print("레벨 업을 위한 경험치 \(forLevelUpExp)")
             
             // 원래 레벨업 까지 필요한 경험치 (다음레벨 - 내 레벨) exp를 레벨업 바 (19개 던가...) 개수로 나누면 레벨업 바 한칸
             // ( 원래 레벨업까지 필요한 경험치 - 내가 레벨업까지 남은 경험치 = 내가 채운 경험치 ) / 레벨업 바 한칸 경험치 = 레벨업 바 개수
             
+            // exp bar 개수 : 20개
+            if myLevel == 1{
+               oneBarExpSize = forLevelUpExp / barSize
+               countBar = myExp / oneBarExpSize
+                expText.text = "(\(myExp)/100)"
+            }else{
+            
+                oneBarExpSize = ( forLevelUpExp - MainController.expArray[myLevel-2] ) / barSize // oneBarExpSize 는 내가 레벨업에 필요한 경험치 bar의한칸의 경험치
+                countBar = ( myExp - MainController.expArray[myLevel-2] ) / oneBarExpSize
+                expText.text = "(\(myExp-MainController.expArray[myLevel-2])/\(forLevelUpExp-MainController.expArray[myLevel-2]))"
+                
+            }
+            
+            expBar.image = UIImage(named: "bar\(countBar)")
         }
         
         
