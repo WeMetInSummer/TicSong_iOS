@@ -14,7 +14,7 @@ class LoginController: UIViewController {
     
 
     
-    var profileIMG:UIImage = UIImage(named: "album")!
+    var profileIMG:UIImage = UIImage(named: "default")!
     var name:String = "default"
     
     var userSet:[String] = []
@@ -32,6 +32,8 @@ class LoginController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

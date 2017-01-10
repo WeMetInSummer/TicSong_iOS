@@ -36,13 +36,13 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_backgroundStar" translatesAutoresizingMaskIntoConstraints="NO" id="gqP-c8-D6G">
-                                <rect key="frame" x="0.0" y="90" width="375" height="487"/>
+                                <rect key="frame" x="0.0" y="90" width="375" height="486"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="gqP-c8-D6G" secondAttribute="height" multiplier="1:1.3" id="sF1-qT-tBn"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXI-x3-v9E">
-                                <rect key="frame" x="94" y="240" width="188" height="188"/>
+                                <rect key="frame" x="94" y="240" width="187.5" height="187.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="CXI-x3-v9E" secondAttribute="height" id="weZ-z2-Bbj"/>
                                 </constraints>
@@ -67,7 +67,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LV." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tu1-qj-4wG">
-                                <rect key="frame" x="88" y="49.5" width="68" height="22.5"/>
+                                <rect key="frame" x="88" y="49.5" width="67.5" height="22.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Tu1-qj-4wG" secondAttribute="height" multiplier="3:1" id="uJ1-ZH-P9K"/>
                                 </constraints>
@@ -76,7 +76,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar0" translatesAutoresizingMaskIntoConstraints="NO" id="iwA-yf-vcI">
-                                <rect key="frame" x="156" y="46.5" width="187" height="28"/>
+                                <rect key="frame" x="155.5" y="46.5" width="187.5" height="28"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5mG-Xc-cmT">
                                 <rect key="frame" x="305" y="73.5" width="20" height="16"/>
@@ -146,9 +146,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKB-Xw-Mba">
-                                <rect key="frame" x="16" y="515.5" width="338" height="67.5"/>
+                                <rect key="frame" x="16" y="531" width="338" height="52"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="CKB-Xw-Mba" secondAttribute="height" multiplier="5:1" id="3UY-Xe-H1v"/>
+                                    <constraint firstAttribute="width" secondItem="CKB-Xw-Mba" secondAttribute="height" multiplier="6.5:1" id="3UY-Xe-H1v"/>
                                 </constraints>
                                 <state key="normal" image="kakao_login"/>
                                 <connections>
@@ -229,7 +229,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Hcq-sr-E1l" secondAttribute="height" multiplier="2.5:1" id="6im-bs-B0r"/>
                                 </constraints>
-                                <state key="normal" image="pass"/>
+                                <state key="normal" backgroundImage="pass"/>
                                 <connections>
                                     <action selector="Pass:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OpS-UG-PqS"/>
                                 </connections>
@@ -239,7 +239,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ON4-uv-OKQ" secondAttribute="height" id="Ah6-aC-WOd"/>
                                 </constraints>
-                                <state key="normal" image="close"/>
+                                <state key="normal" backgroundImage="close"/>
                                 <connections>
                                     <action selector="Escape:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0xN-wM-KO8"/>
                                 </connections>
@@ -258,19 +258,18 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="w3g-Zb-fHn"/>
-                                    <barButtonItem width="250" style="plain" id="Nkd-cS-KcB">
+                                    <barButtonItem width="259" style="plain" id="Nkd-cS-KcB">
                                         <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="sQn-Bn-cxL">
-                                            <rect key="frame" x="32" y="7" width="250" height="30"/>
+                                            <rect key="frame" x="35" y="7" width="259" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="azD-V9-VyL"/>
                                     <barButtonItem style="plain" id="sJw-eM-EDL">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" id="nHL-vv-zW1">
-                                            <rect key="frame" x="308" y="7" width="35" height="30"/>
+                                            <rect key="frame" x="304" y="7" width="35" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="send"/>
                                             <connections>
@@ -315,7 +314,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PtL-gF-VFM">
-                                <rect key="frame" x="188.5" y="471" width="86.5" height="86"/>
+                                <rect key="frame" x="188.5" y="471" width="86.5" height="86.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="PtL-gF-VFM" secondAttribute="height" id="u3s-ce-4ki"/>
                                 </constraints>
@@ -324,10 +323,12 @@
                                     <action selector="firstCharHint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ofY-up-UDq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DgD-cy-SfT">
-                                <rect key="frame" x="289" y="499" width="65" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="원하는구간">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DgD-cy-SfT">
+                                <rect key="frame" x="275" y="471" width="86" height="86.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DgD-cy-SfT" secondAttribute="height" id="68j-UM-tsD"/>
+                                </constraints>
+                                <state key="normal" image="hint_selectStart">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -337,6 +338,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.054947271943092346" green="0.13114801049232483" blue="0.23077297210693359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="DgD-cy-SfT" firstAttribute="top" secondItem="1mW-rm-6rN" secondAttribute="bottom" id="1Nq-aQ-7hb"/>
                             <constraint firstItem="kag-Qu-Nnv" firstAttribute="top" secondItem="1mW-rm-6rN" secondAttribute="bottom" id="1ib-hY-7ov"/>
                             <constraint firstItem="4EC-s5-t9V" firstAttribute="top" secondItem="1mW-rm-6rN" secondAttribute="bottom" id="1x6-7n-j9G"/>
                             <constraint firstItem="DU5-52-hOP" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.35" id="4Ar-Ql-kEI"/>
@@ -352,8 +354,11 @@
                             <constraint firstItem="4EC-s5-t9V" firstAttribute="top" secondItem="1mW-rm-6rN" secondAttribute="bottom" constant="25" id="N03-Iv-cRC"/>
                             <constraint firstItem="ywM-E1-LvU" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.1" id="NaI-Do-4of"/>
                             <constraint firstItem="DU5-52-hOP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Raw-6C-tEU"/>
+                            <constraint firstItem="DgD-cy-SfT" firstAttribute="leading" secondItem="PtL-gF-VFM" secondAttribute="trailing" id="Rz8-bb-gI8"/>
+                            <constraint firstItem="DgD-cy-SfT" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.23" id="Tjp-t2-Qti"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="L4x-Cy-4O2" secondAttribute="bottom" id="VaC-ML-xAn"/>
                             <constraint firstItem="1mW-rm-6rN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vax-tE-Oo2"/>
+                            <constraint firstItem="DgD-cy-SfT" firstAttribute="top" secondItem="1mW-rm-6rN" secondAttribute="bottom" constant="25" id="W4s-fx-Ydp"/>
                             <constraint firstItem="PtL-gF-VFM" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.23" id="Xo4-tk-TZ0"/>
                             <constraint firstItem="4EC-s5-t9V" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.23" id="Yih-G0-p99"/>
                             <constraint firstItem="1mW-rm-6rN" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.6" id="bxf-ZL-kmG"/>
@@ -394,6 +399,7 @@
         <image name="bar0" width="255" height="28"/>
         <image name="close" width="35" height="35"/>
         <image name="hint_firstChar" width="127" height="127"/>
+        <image name="hint_selectStart" width="121" height="122"/>
         <image name="hint_singerName" width="127" height="127"/>
         <image name="hint_threeSec" width="127" height="127"/>
         <image name="juke_shootingStar" width="496" height="496"/>
