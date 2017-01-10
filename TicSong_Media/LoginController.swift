@@ -95,7 +95,6 @@ class LoginController: UIViewController {
                             
                             let parameters: Parameters = ["userId":kakao.id!,"name":self.name,"platform":"1"]
                             
-                        
                             Alamofire.request(baseURL,method : .get, parameters: parameters, encoding: URLEncoding.default, headers: nil)
                                 .responseJSON { (response:DataResponse<Any>) in
                                 

@@ -22,6 +22,7 @@
 
 import UIKit
 import AVFoundation
+import Alamofire
 class GameController: UIViewController , AVAudioPlayerDelegate {
     
     
@@ -345,18 +346,21 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         var compare1 : String = ""
         var compare2 : String = ""
         
+        //, - ! 문자 예외처리 포함!
+        
         for origin in origin.characters {
-            if(origin.description != " "){
+            if(origin.description != " " && origin.description != "," && origin.description != "-" && origin.description != "!"){
                 compare1 += origin.description
             }
         }
         
         for input in input.characters {
-            if(input.description != " "){
+            if(input.description != " " && input.description != "," && input.description != "-" && input.description != "!"){
                 compare2 += input.description
             }
         }
         
+        print("origin: \(compare1.lowercased()) input : \(compare2.lowercased())")
         return  compare1.lowercased()==compare2.lowercased()
     }
     
@@ -487,7 +491,9 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         // 내가 가진 경험치에 이번판에 얻은 스코어를 더한후..
         let scoreSum = Int(userSet[2])! + score
         let myLevel = Int(userSet[3])! // 내 레벨
-        print("내경험치 : \(scoreSum)")
+        let random : Int = Int(arc4random_uniform(UInt32(4)))+1
+        var levelUp : Bool = false
+        print("내 경험치 : \(scoreSum)")
         print("내 레벨 : \(myLevel)")
         print("내가 가지고 있는 아이템 ",userSet[4])
         
@@ -497,6 +503,27 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
         print("내가 가지고 있는 아이템 ",userSet[7])
         
+        //총 경험치를 userSet의 두번째 인덱스에 넣어주고
+        self.userSet[2] = "\(scoreSum)"
+        
+        //레벨업한 경우에만 아이템을 하나 더 준다.
+        if isLevelUp(scoreSum,myLevel){
+            levelUp = true
+            self.userSet[random+3] = String(Int(self.userSet[random+3])! + 1)
+            
+        }
+        //레벨업을 하거나 하지않거나 해서 나온 결과들을 프리퍼런스에 저장시키고
+        self.user.set(self.userSet, forKey: "user")
+
+        //그값들을 동일하게 서버에 저장시킨다.
+        //------>>>여기에<<<-----
+        //userSet에 담긴 프리퍼런스 값을 그대로 서버에 삽입!
+        // item5Cnt 까지 추가하면 완료... 아마 default 에 4567에 들어있을 것임..
+        // 만약 랜덤값이 4면 서버에는 item5Cnt 을 추가하면 돼
+        
+        
+        
+        
         // 프리퍼런스로 내가 가진 경험치에 + score = 내 경험치
         let alertView = UIAlertController(title: "RESULT", message: "당신의 점수는 \(score)점 입니다!", preferredStyle: .alert)
         
@@ -504,15 +531,11 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             //만약 경험치가 레벨업을 할 수 있는 경험치라면 레벨업 뷰로..
             
             
-            self.userSet[2] = "\(scoreSum)"
-            if self.isLevelUp(scoreSum,myLevel){
-                print("레벨업!")
                 // 임시로 랜덤아이템이 뭐가 나왔나 띄우는 것
-                let random : Int = Int(arc4random_uniform(UInt32(4)))+1
                 
-                // item5Cnt 까지 추가하면 완료... 아마 default 에 4567에 들어있을 것임..
-                // 만약 랜덤값이 4면 서버에는 item5Cnt 을 추가하면 돼
-                self.userSet[random+3] = String(Int(self.userSet[random+3])! + 1)
+                
+            if levelUp{
+                print("레벨업!")
                 self.levelUpAlert(random)
                 self.dismiss(animated: true, completion: nil)
             }else{
@@ -520,8 +543,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                 alertView.dismiss(animated: true, completion: nil)
                 self.dismiss(animated: true, completion: nil)
             }
-            self.user.set(self.userSet, forKey: "user")
- 
             
         })
         alertView.addAction(action)
@@ -533,7 +554,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     // 레벨업 할 수 있나 없나 체크!
     func isLevelUp(_ scoreSum : Int ,_ myLevel : Int) -> Bool{
         var mylv = myLevel
-        
+        print("levelup 판독기에서")
         print ("mylv \(mylv)")
         for index in 0..<expArr.count{
             if scoreSum >= expArr[index]{
@@ -544,7 +565,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         }
         
         print ("mylv2 \(mylv)")
-        
+        print("levelup 판독 끝")
         if mylv != myLevel{       //내 레벨이 바뀌었으면
             self.userSet[3] = "\(mylv)"
             return true
@@ -603,8 +624,8 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
 //        let realiamge = UIImageView(image: image)
 //        realiamge.frame = CGRect(x: 80, y: 150, width: 100, height: 100) // 위치는 나중에 생각..
 //        alertView.view.addSubview(realiamge)
-//        alertView.addAction(action)
-//        alertWindow(alertView: alertView)
+        alertView.addAction(action)
+        alertWindow(alertView: alertView)
 
         // 획득 했다는 것 어떻게 알려줄까? 
         
@@ -681,8 +702,99 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
 
     
     
+    //MARK: SERVER 통신 함수
+    
+    func myscoreUpdate(userId:String, exp:Int, userLevel:Int){
+    
+        let baseURL = "http://52.79.152.130/TicSongServer/myscore.do"
+        
+        let parameters: Parameters = ["service":"update", "userId":userId, "exp":exp, "userLevel":userLevel]
+        
+        
+        Alamofire.request(baseURL,method : .post, parameters: parameters, encoding: URLEncoding.default, headers: nil)
+        .responseJSON { (response:DataResponse<Any>) in
+            
+            switch(response.result) {
+            case .success(_):
+                if response.result.value != nil{
+                    //print(response.result.value!)
+                    
+                    if let data = response.data, let utf8Text = String(data: data, encoding: .utf8), let encodedData = utf8Text.data(using: String.Encoding.utf8){
+                        
+                        let JSON = try! JSONSerialization.jsonObject(with: encodedData, options: [])
+                        
+                        if let JSON = JSON as? [String: AnyObject] {
+                            if let resultCode = JSON["resultCode"] as? Int{
+                                
+                                if(resultCode == 1){
+                                    print("성공적으로 exp와 userLevel update!")
+                                }else{print("exp와 userLevel update 실패…")
+                                }
+                            }
+                        }}
+                    //self.performSegue(withIdentifier: "LoginToMainSegue", sender: self)
+                }
+                break
+                
+            case .failure(_):
+                print(response.result.error!)
+                
+                break
+                
+            }
+        }
+    }
+    
+    
+    func itemUpdate(userId:String, exp:Int, userLevel:Int, item1Cnt:Int, item2Cnt:Int, item3Cnt:Int, item4Cnt:Int) {
+        
+        
+        let baseURL = "http://52.79.152.130/TicSongServer/item.do"
+        
+        let parameters: Parameters = ["service":"update", "userId":userId, "item1Cnt":item1Cnt, "item2Cnt":item2Cnt,"item3Cnt":item3Cnt, "item4Cnt":item4Cnt]
+        
+        
+        Alamofire.request(baseURL,method : .post, parameters: parameters, encoding: URLEncoding.default, headers: nil)
+        .responseJSON { (response:DataResponse<Any>) in
+            
+            switch(response.result) {
+            case .success(_):
+                if response.result.value != nil{
+                    //print(response.result.value!)
+                    
+                    if let data = response.data, let utf8Text = String(data: data, encoding: .utf8), let encodedData = utf8Text.data(using: String.Encoding.utf8){
+                        
+                        let JSON = try! JSONSerialization.jsonObject(with: encodedData, options: [])
+                        
+                        if let JSON = JSON as? [String: AnyObject] {
+                            if let resultCode = JSON["resultCode"] as? Int {
+                                
+            if(resultCode == 1){
+            print("성공적으로 exp와 userLevel update!")
+            }else{print("exp와 userLevel update 실패…")
+            }
+
+            
+                            }
+                        }}
+                    //self.performSegue(withIdentifier: "LoginToMainSegue", sender: self)
+                }
+                break
+                
+            case .failure(_):
+                print(response.result.error!)
+                
+                break
+                
+            }
+        }
+    
+
+    
     
   
+
+}
 
 }
 
