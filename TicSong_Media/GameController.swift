@@ -349,13 +349,13 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         //, - ! 문자 예외처리 포함!
         
         for origin in origin.characters {
-            if(origin.description != " " && origin.description != "," && origin.description != "-" && origin.description != "!"){
+            if(origin.description != " " && origin.description != "," && origin.description != "-" && origin.description != "!" && origin.description != "&" && origin.description != "'"){
                 compare1 += origin.description
             }
         }
         
         for input in input.characters {
-            if(input.description != " " && input.description != "," && input.description != "-" && input.description != "!"){
+            if(input.description != " " && input.description != "," && input.description != "-" && input.description != "!" && input.description != "&" && input.description != "'"){
                 compare2 += input.description
             }
         }
