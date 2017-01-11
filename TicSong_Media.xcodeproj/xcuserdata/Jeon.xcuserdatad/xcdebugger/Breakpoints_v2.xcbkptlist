@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TicSong_Media/GameController.swift"
-            timestampString = "505836998.728275"
+            timestampString = "505849184.653766"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "346"
-            endingLineNumber = "346"
+            startingLineNumber = "389"
+            endingLineNumber = "389"
             landmarkName = "nextStageInit()"
             landmarkType = "7">
             <Locations>

@@ -68,7 +68,9 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     var score : Int = 0
     var life : Int = 3
     var stage : Int = 0
-    var item : Int = 3
+    
+    var itemReuseCheck : Int = 0
+    var items : [ActionButtonItem] = []
     
     // 디폴트
     var userSet : [String] = []
@@ -86,7 +88,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
         answer.autocorrectionType = .no
         
-        //한번더 viewDidLoad()에서 프린트 되는데 보류.... 세팅이 다시되는거 같진않음...
+        
         print(roundList)
         
         setting(music: roundList[stage].code, time: roundList[stage].start)
@@ -96,26 +98,56 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         }
         print(userSet)
         
+        makeFloatBtn()
+        
+        print("이곳이 불림")
+
+    }
+    
+    func makeAction(_ items : [ActionButtonItem]){
+        actionButton = ActionButton(attachedToView: view, items: items)
+        actionButton.action = { button in button.toggleMenu() }
+        actionButton.setTitle("Item", forState: UIControlState())
+        
+        actionButton.backgroundColor = UIColor(red: 242.0/255.0, green: 238.0/255.0, blue: 186.0/255.0, alpha:1.0)
+    }
+    
+    func makeFloatBtn(){
+        
+        //액션 버튼 초기화
+        actionButton = nil
+        //아이템 초기화
+        items = []
+        
         let hint_firstChar = UIImage(named:"levelupItem2")
         let hint_selectStart = UIImage(named:"levelupItem4")
         let hint_singerName = UIImage(named:"levelupItem1")
         let hint_threeSec = UIImage(named:"levelupItem3")
         
-      
+        
         
         
         let firstChar = ActionButtonItem(title: "\(userSet[4])", image: hint_firstChar)
         firstChar.action = { item in print("hint_firstChar..")
             self.firstCharAlert(songName: self.roundList[self.stage].songName)
-        
             self.actionButton.close()
+            let index = self.items.index(of: firstChar)
+            self.items.remove(at: index!)
+            self.actionButton = nil
+            self.makeAction(self.items)
+            print(self.items)
         }
         
         let selectStart = ActionButtonItem(title: "\(userSet[5])", image: hint_selectStart)
         selectStart.action = { item in print("hint_selectStart...")
             self.inputSecAlert()
-            
             self.actionButton.close()
+            let index = self.items.index(of: selectStart)
+            self.items.remove(at: index!)
+            self.actionButton = nil
+            self.makeAction(self.items)
+            print(self.items)
+
         }
         
         let singerName = ActionButtonItem(title: "\(userSet[6])", image: hint_singerName)
@@ -123,25 +155,36 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             self.singerAlert(artist: self.roundList[self.stage].artist)
             
             self.actionButton.close()
+            
+            let index = self.items.index(of: singerName)
+            self.items.remove(at: index!)
+            self.actionButton = nil
+            self.makeAction(self.items)
+            print(self.items)
+
         }
         
         let threeSec = ActionButtonItem(title: "\(userSet[7])", image: hint_threeSec)
-            threeSec.action = { item in
-                print("hint_threeSec...")
-                self.hintMode = 1
-                self.playMusic()
-                self.aniStar(pic: self.juke_shootingStar, aniDuration: 4.0)
+        threeSec.action = { item in
+            print("hint_threeSec...")
+            self.hintMode = 1
+            self.playMusic()
+            self.aniStar(pic: self.juke_shootingStar, aniDuration: 4.0)
+            self.actionButton.close()
+            let index = self.items.index(of: threeSec)
+            self.items.remove(at: index!)
+            self.actionButton = nil
+            self.makeAction(self.items)
+            print(self.items)
 
-                self.actionButton.close()
-                
         }
         
-        actionButton = ActionButton(attachedToView: view, items: [firstChar, selectStart,singerName,threeSec])
-        actionButton.action = { button in button.toggleMenu() }
-        actionButton.setTitle("+", forState: UIControlState())
+        items.append(firstChar)
+        items.append(selectStart)
+        items.append(singerName)
+        items.append(threeSec)
         
-        actionButton.backgroundColor = UIColor(red: 242.0/255.0, green: 238.0/255.0, blue: 186.0/255.0, alpha:1.0)
-    
+        makeAction(items)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -355,6 +398,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
         audioPlayer.stop()
         
+        makeFloatBtn()
         
         //다음 노래 준비
         if(stage < roundList.count){
