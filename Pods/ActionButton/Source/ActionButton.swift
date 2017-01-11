@@ -93,7 +93,7 @@ open class ActionButton: NSObject {
         self.floatButton.setTitle("+", for: UIControlState())
         self.floatButton.setImage(nil, for: UIControlState())
         self.floatButton.backgroundColor = self.backgroundColor
-        self.floatButton.titleLabel!.font = UIFont(name: "HelveticaNeue-Light", size: 35)
+        self.floatButton.titleLabel!.font = UIFont(name: "HelveticaNeue-Light", size: 20)
         self.floatButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 8, right: 0)
         self.floatButton.isUserInteractionEnabled = true
         self.floatButton.translatesAutoresizingMaskIntoConstraints = false

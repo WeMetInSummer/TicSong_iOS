@@ -71,6 +71,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
     var itemReuseCheck : Int = 0
     var items : [ActionButtonItem] = []
+    let image = UIImage(named:"earthFloatBtn")
     
     // 디폴트
     var userSet : [String] = []
@@ -108,6 +109,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         actionButton = ActionButton(attachedToView: view, items: items)
         actionButton.action = { button in button.toggleMenu() }
         actionButton.setTitle("Item", forState: UIControlState())
+        actionButton.setImage(image, forState: UIControlState())
         
         actionButton.backgroundColor = UIColor(red: 242.0/255.0, green: 238.0/255.0, blue: 186.0/255.0, alpha:1.0)
     }

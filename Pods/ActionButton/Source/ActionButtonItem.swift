@@ -88,12 +88,14 @@ open class ActionButtonItem: NSObject {
                 
         if let text = optionalTitle, text.trimmingCharacters(in: CharacterSet.whitespaces).isEmpty == false {
             self.label = UILabel()
-            self.label.font = UIFont(name: "HelveticaNeue-Medium", size: 13)
+            self.label.font = UIFont(name: "HelveticaNeue-Medium", size: 10)
             self.label.textColor = UIColor.darkGray
             self.label.textAlignment = .right
             self.label.text = text
             self.label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ActionButtonItem.labelTapped(_:))))
             self.label.sizeToFit()
+            
+            //self.label.isEnabled = false
             
             self.labelBackground = UIView()
             self.labelBackground.frame = self.label.frame
@@ -104,20 +106,22 @@ open class ActionButtonItem: NSObject {
             self.labelBackground.layer.shadowRadius = 0.2
             self.labelBackground.layer.shadowColor = UIColor.lightGray.cgColor
             
+            //self.labelBackground.
+            
             // Adjust the label's background inset
             self.labelBackground.frame.size.width = self.label.frame.size.width + backgroundInset.width
             self.labelBackground.frame.size.height = self.label.frame.size.height + backgroundInset.height
             self.label.frame.origin.x = self.label.frame.origin.x + backgroundInset.width / 2
             self.label.frame.origin.y = self.label.frame.origin.y + backgroundInset.height / 2
-            
+           
             // Adjust label's background position
             self.labelBackground.frame.origin.x = CGFloat(130 - self.label.frame.size.width)
             self.labelBackground.center.y = self.view.center.y
             self.labelBackground.addSubview(self.label)
             
-            // Add Tap Gestures Recognizer
-            let tap = UITapGestureRecognizer(target: self, action: #selector(ActionButtonItem.labelTapped(_:)))
-            self.view.addGestureRecognizer(tap)
+            // Add Tap Gestures Recognizer - label까지 탭되는 걸 막음
+            //let tap = UITapGestureRecognizer(target: self, action: #selector(ActionButtonItem.labelTapped(_:)))
+            //self.view.addGestureRecognizer(tap)
             
             self.view.addSubview(self.labelBackground)
         }
