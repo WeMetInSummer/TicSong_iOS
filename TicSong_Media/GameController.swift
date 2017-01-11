@@ -23,6 +23,8 @@
 import UIKit
 import AVFoundation
 import Alamofire
+import ActionButton
+
 class GameController: UIViewController , AVAudioPlayerDelegate {
     
     
@@ -45,7 +47,10 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
     @IBOutlet weak var lifeThree: UIImageView!
     
-
+    
+    
+    var actionButton: ActionButton!
+    
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     let expArr : [Int] = MainController.expArray
@@ -90,6 +95,52 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             userSet = result
         }
         print(userSet)
+        
+        let hint_firstChar = UIImage(named:"levelupItem2")
+        let hint_selectStart = UIImage(named:"levelupItem4")
+        let hint_singerName = UIImage(named:"levelupItem1")
+        let hint_threeSec = UIImage(named:"levelupItem3")
+        
+      
+        
+        
+        let firstChar = ActionButtonItem(title: "\(userSet[4])", image: hint_firstChar)
+        firstChar.action = { item in print("hint_firstChar..")
+            self.firstCharAlert(songName: self.roundList[self.stage].songName)
+        
+            self.actionButton.close()
+        }
+        
+        let selectStart = ActionButtonItem(title: "\(userSet[5])", image: hint_selectStart)
+        selectStart.action = { item in print("hint_selectStart...")
+            self.inputSecAlert()
+            
+            self.actionButton.close()
+        }
+        
+        let singerName = ActionButtonItem(title: "\(userSet[6])", image: hint_singerName)
+        singerName.action = { item in print("hint_singerName...")
+            self.singerAlert(artist: self.roundList[self.stage].artist)
+            
+            self.actionButton.close()
+        }
+        
+        let threeSec = ActionButtonItem(title: "\(userSet[7])", image: hint_threeSec)
+            threeSec.action = { item in
+                print("hint_threeSec...")
+                self.hintMode = 1
+                self.playMusic()
+                self.aniStar(pic: self.juke_shootingStar, aniDuration: 4.0)
+
+                self.actionButton.close()
+                
+        }
+        
+        actionButton = ActionButton(attachedToView: view, items: [firstChar, selectStart,singerName,threeSec])
+        actionButton.action = { button in button.toggleMenu() }
+        actionButton.setTitle("+", forState: UIControlState())
+        
+        actionButton.backgroundColor = UIColor(red: 242.0/255.0, green: 238.0/255.0, blue: 186.0/255.0, alpha:1.0)
     
     }
     
@@ -203,24 +254,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         lifeCreate()
     }
     
-    // item !
     
-    @IBAction func threeSecHint(_ sender: UIButton) {
-        hintMode = 1
-        playMusic()
-        aniStar(pic: juke_shootingStar, aniDuration: 4.0)
-    }
-    @IBAction func singerHint(_ sender: UIButton) {
-        singerAlert(artist: roundList[stage].artist)
-    }
-    
-    @IBAction func firstCharHint(_ sender: UIButton) {
-        firstCharAlert(songName: roundList[stage].songName)
-    }
-    
-    @IBAction func inputSecHint(_ sender: UIButton) {
-        inputSecAlert()
-    }
     
     // 패스 버튼
     

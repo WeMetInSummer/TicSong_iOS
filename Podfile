@@ -5,5 +5,6 @@ use_frameworks!
 target 'TicSong_Media' do
 pod 'Alamofire', '~> 4.0'
 pod 'AEXML'
+pod 'ActionButton', '~> 0.1'
 use_frameworks!
 end

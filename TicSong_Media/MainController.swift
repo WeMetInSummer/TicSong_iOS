@@ -29,6 +29,14 @@ class MainController: UIViewController {
     @IBOutlet weak var expBar: UIImageView!
     let barSize : Int = 20  // bar 의 개수
     
+    // 아이템 관련
+    
+    @IBOutlet weak var item1Label: UILabel!
+    @IBOutlet weak var item2Label: UILabel!
+    @IBOutlet weak var item3Label: UILabel!
+    @IBOutlet weak var item4Label: UILabel!
+    
+    
     static let expArray : [Int] =
         [100,600,1200,1900,2700,3600,4600,5700,6900,8200,9700,11400,13300,15400,17700,20200,22900,25800,28900,32200,35800,39700,43900,48400,53200,58300,63700,69400,75400,81700,88450,95650,103300,111400,119950,128950,138400,148300,158650,169450,180650,192250,204250,216650,229450,242650,256250,270250,284650,299450,315000,331300,348350,366150,384700,404000,424050,444850,466400,
          488700,511850,535850,560700,586400,612950,640350,668600,697700,727650,758450,790250,823050,
@@ -138,6 +146,12 @@ class MainController: UIViewController {
             }
             
             expBar.image = UIImage(named: "bar\(countBar)")
+            
+            
+            item1Label.text = result[4]
+            item2Label.text = result[5]
+            item3Label.text = result[6]
+            item4Label.text = result[7]
         }
         
         
