@@ -101,38 +101,33 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
         makeFloatBtn()
         
-        print("이곳이 불림")
-
     }
     
     // 플로팅 버튼에 대한 액션을 만든다.
     
     func makeAction(_ items : [ActionButtonItem]){
+        actionButton = nil
         actionButton = ActionButton(attachedToView: view, items: items)
         actionButton.action = { button in button.toggleMenu() }
         actionButton.setTitle("Item", forState: UIControlState())
         actionButton.setImage(image, forState: UIControlState())
-        
         actionButton.backgroundColor = UIColor(red: 242.0/255.0, green: 238.0/255.0, blue: 186.0/255.0, alpha:1.0)
     }
     
     // 플로팅 버튼을 리셋팅
     
     func resetActionBtn(_ action : ActionButtonItem){
-        self.actionButton.close()
-        let index = self.items.index(of: action)
-        self.items.remove(at: index!)
-        self.actionButton = nil
-        self.makeAction(self.items)
-        print(self.items)
+        actionButton.close()
+        let index = items.index(of: action)
+        items.remove(at: index!)
+        makeAction(items)
     }
     
     func makeFloatBtn(){
-        
         //액션 버튼 초기화
         actionButton = nil
         //아이템 초기화
-        items = []
+        items.removeAll()
         
         let hint_firstChar = UIImage(named:"levelupItem2")
         let hint_selectStart = UIImage(named:"levelupItem4")
@@ -150,14 +145,12 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         selectStart.action = { item in print("hint_selectStart...")
             self.inputSecAlert()
             self.resetActionBtn(selectStart)
-
         }
         
         let singerName = ActionButtonItem(title: "\(userSet[6])", image: hint_singerName)
         singerName.action = { item in print("hint_singerName...")
             self.singerAlert(artist: self.roundList[self.stage].artist)
             self.resetActionBtn(singerName)
-
         }
         
         let threeSec = ActionButtonItem(title: "\(userSet[7])", image: hint_threeSec)
@@ -166,7 +159,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             self.hintMode = 1
             self.playMusic()
             self.aniStar(pic: self.juke_shootingStar, aniDuration: 4.0)
-            self.resetActionBtn(singerName)
+            self.resetActionBtn(threeSec)
         }
         
         items.append(firstChar)
@@ -186,6 +179,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(GameController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(GameController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -388,15 +382,14 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
         audioPlayer.stop()
         
-        makeFloatBtn()
-        
         //다음 노래 준비
         if(stage < roundList.count){
             stageLabel.text = " STAGE \(stage+1)"
             answer.text = ""
             setting(music: roundList[stage].code, time: roundList[stage].start)
             print("다음 노래 준비!")
-            
+            makeFloatBtn()
+
         }else{
             //모든 스테이지 종료 시 일단은 라벨 제거함
             //Alert창 띄워서 결과보여주고 확인누르면 메인으로 돌아가게 만들까?
@@ -405,6 +398,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             
         }
         lifeCreate()
+
     }
     
     
