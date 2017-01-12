@@ -141,6 +141,10 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                 self.singerAlert(artist: self.roundList[self.stage].artist)
                 self.resetActionBtn(singerName)
                 self.userSet[4] = String(Int(self.userSet[4])!-1)
+                
+                // Item Update API
+                self.itemUpdate()
+                
             }else{
             
                 // 아이템 까만색으로 하기
@@ -155,6 +159,10 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                 self.firstCharAlert(songName: self.roundList[self.stage].songName)
                 self.resetActionBtn(firstChar)
                 self.userSet[5] = String(Int(self.userSet[5])!-1)
+                
+                // Item Update API
+                self.itemUpdate()
+                
             }else{
                 
                 // 아이템 까만색으로 하기
@@ -170,8 +178,11 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                 self.playMusic()
                 self.aniStar(pic: self.juke_shootingStar, aniDuration: 4.0)
                 self.resetActionBtn(threeSec)
-            
                 self.userSet[6] = String(Int(self.userSet[6])!-1)
+                
+                // Item Update API
+                self.itemUpdate()
+                
             }else{
                 
                 // 아이템 까만색으로 하기
@@ -185,6 +196,10 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                 self.inputSecAlert()
                 self.resetActionBtn(selectStart)
                 self.userSet[7] = String(Int(self.userSet[7])!-1)
+                
+                // Item Update API
+                self.itemUpdate()
+                
              }else{
                 
                 // 아이템 까만색으로 하기
@@ -839,6 +854,51 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         }
     }
     
+  
+    // Item Update API
+    func itemUpdate() {
+        
+        
+        let baseURL = "http://52.79.152.130/TicSongServer/item.do"
+        
+        let parameters: Parameters = ["service":"update", "userId":userSet[1], "item1Cnt":userSet[4], "item3Cnt":userSet[5], "item4Cnt":userSet[6], "item5Cnt":userSet[7],]
+        
+        
+        Alamofire.request(baseURL,method : .post, parameters: parameters, encoding: URLEncoding.default, headers: nil)
+            .responseJSON { (response:DataResponse<Any>) in
+                
+                switch(response.result) {
+                case .success(_):
+                    if response.result.value != nil{
+                        //print(response.result.value!)
+                        
+                        if let data = response.data, let utf8Text = String(data: data, encoding: .utf8), let encodedData = utf8Text.data(using: String.Encoding.utf8){
+                            
+                            let JSON = try! JSONSerialization.jsonObject(with: encodedData, options: [])
+                            
+                            if let JSON = JSON as? [String: AnyObject] {
+                                if let resultCode = JSON["resultCode"] as? Int {
+                                    
+                                    if(resultCode == 1){
+                                        print("성공적으로 exp와 userLevel update!")
+                                    }else{print("exp와 userLevel update 실패…")
+                                    }
+                                    
+                                    
+                                }
+                            }}
+                        //self.performSegue(withIdentifier: "LoginToMainSegue", sender: self)
+                    }
+                    break
+                    
+                case .failure(_):
+                    print(response.result.error!)
+                    
+                    break
+                    
+                }
+        }
+    }
     
     func itemUpdate(userId:String, exp:Int, userLevel:Int, item1Cnt:Int, item2Cnt:Int, item3Cnt:Int, item4Cnt:Int) {
         
@@ -882,13 +942,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                 
             }
         }
-    
-
-    
-    
-  
-
-}
+    }
 
 }
 
