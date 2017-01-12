@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>ActionButton.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +28,16 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A7AF6E763314D4D05792E29A5B9ABDE6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B14C4065DAA9AA1DEDEB46537573075D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -105,6 +105,8 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
 
     }
     
+    // 플로팅 버튼에 대한 액션을 만든다.
+    
     func makeAction(_ items : [ActionButtonItem]){
         actionButton = ActionButton(attachedToView: view, items: items)
         actionButton.action = { button in button.toggleMenu() }
@@ -112,6 +114,17 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         actionButton.setImage(image, forState: UIControlState())
         
         actionButton.backgroundColor = UIColor(red: 242.0/255.0, green: 238.0/255.0, blue: 186.0/255.0, alpha:1.0)
+    }
+    
+    // 플로팅 버튼을 리셋팅
+    
+    func resetActionBtn(_ action : ActionButtonItem){
+        self.actionButton.close()
+        let index = self.items.index(of: action)
+        self.items.remove(at: index!)
+        self.actionButton = nil
+        self.makeAction(self.items)
+        print(self.items)
     }
     
     func makeFloatBtn(){
@@ -127,42 +140,23 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         let hint_threeSec = UIImage(named:"levelupItem3")
         
         
-        
-        
         let firstChar = ActionButtonItem(title: "\(userSet[4])", image: hint_firstChar)
         firstChar.action = { item in print("hint_firstChar..")
             self.firstCharAlert(songName: self.roundList[self.stage].songName)
-            self.actionButton.close()
-            let index = self.items.index(of: firstChar)
-            self.items.remove(at: index!)
-            self.actionButton = nil
-            self.makeAction(self.items)
-            print(self.items)
+            self.resetActionBtn(firstChar)
         }
         
         let selectStart = ActionButtonItem(title: "\(userSet[5])", image: hint_selectStart)
         selectStart.action = { item in print("hint_selectStart...")
             self.inputSecAlert()
-            self.actionButton.close()
-            let index = self.items.index(of: selectStart)
-            self.items.remove(at: index!)
-            self.actionButton = nil
-            self.makeAction(self.items)
-            print(self.items)
+            self.resetActionBtn(selectStart)
 
         }
         
         let singerName = ActionButtonItem(title: "\(userSet[6])", image: hint_singerName)
         singerName.action = { item in print("hint_singerName...")
             self.singerAlert(artist: self.roundList[self.stage].artist)
-            
-            self.actionButton.close()
-            
-            let index = self.items.index(of: singerName)
-            self.items.remove(at: index!)
-            self.actionButton = nil
-            self.makeAction(self.items)
-            print(self.items)
+            self.resetActionBtn(singerName)
 
         }
         
@@ -172,13 +166,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             self.hintMode = 1
             self.playMusic()
             self.aniStar(pic: self.juke_shootingStar, aniDuration: 4.0)
-            self.actionButton.close()
-            let index = self.items.index(of: threeSec)
-            self.items.remove(at: index!)
-            self.actionButton = nil
-            self.makeAction(self.items)
-            print(self.items)
-
+            self.resetActionBtn(singerName)
         }
         
         items.append(firstChar)
