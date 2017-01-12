@@ -77,6 +77,8 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     var userSet : [String] = []
     let user = UserDefaults.standard
     
+    final let COUNT_ITEM : String = "0"
+    
     //MARK: 생명주기
     
     override func viewDidLoad() {
@@ -128,44 +130,74 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         actionButton = nil
         //아이템 초기화
         items.removeAll()
-        
-        let hint_firstChar = UIImage(named:"levelupItem2")
-        let hint_selectStart = UIImage(named:"levelupItem4")
         let hint_singerName = UIImage(named:"levelupItem1")
+        let hint_firstChar = UIImage(named:"levelupItem2")
         let hint_threeSec = UIImage(named:"levelupItem3")
-        
-        
-        let firstChar = ActionButtonItem(title: "\(userSet[4])", image: hint_firstChar)
-        firstChar.action = { item in print("hint_firstChar..")
-            self.firstCharAlert(songName: self.roundList[self.stage].songName)
-            self.resetActionBtn(firstChar)
+        let hint_selectStart = UIImage(named:"levelupItem4")
+       
+        let singerName = ActionButtonItem(title: "\(userSet[4])", image: hint_singerName)
+        singerName.action = { item in
+            if (self.userSet[4] != self.COUNT_ITEM){
+                self.singerAlert(artist: self.roundList[self.stage].artist)
+                self.resetActionBtn(singerName)
+                self.userSet[4] = String(Int(self.userSet[4])!-1)
+            }else{
+            
+                // 아이템 까만색으로 하기
+                print("아이템 없음!")
+            }
         }
         
-        let selectStart = ActionButtonItem(title: "\(userSet[5])", image: hint_selectStart)
-        selectStart.action = { item in print("hint_selectStart...")
-            self.inputSecAlert()
-            self.resetActionBtn(selectStart)
+        
+        let firstChar = ActionButtonItem(title: "\(userSet[5])", image: hint_firstChar)
+        firstChar.action = { item in
+            if (self.userSet[5] != self.COUNT_ITEM){
+                self.firstCharAlert(songName: self.roundList[self.stage].songName)
+                self.resetActionBtn(firstChar)
+                self.userSet[5] = String(Int(self.userSet[5])!-1)
+            }else{
+                
+                // 아이템 까만색으로 하기
+                print("아이템 없음!")
+            }
         }
         
-        let singerName = ActionButtonItem(title: "\(userSet[6])", image: hint_singerName)
-        singerName.action = { item in print("hint_singerName...")
-            self.singerAlert(artist: self.roundList[self.stage].artist)
-            self.resetActionBtn(singerName)
-        }
         
-        let threeSec = ActionButtonItem(title: "\(userSet[7])", image: hint_threeSec)
+        let threeSec = ActionButtonItem(title: "\(userSet[6])", image: hint_threeSec)
         threeSec.action = { item in
-            print("hint_threeSec...")
-            self.hintMode = 1
-            self.playMusic()
-            self.aniStar(pic: self.juke_shootingStar, aniDuration: 4.0)
-            self.resetActionBtn(threeSec)
+            if (self.userSet[6] != self.COUNT_ITEM){
+                self.hintMode = 1
+                self.playMusic()
+                self.aniStar(pic: self.juke_shootingStar, aniDuration: 4.0)
+                self.resetActionBtn(threeSec)
+            
+                self.userSet[6] = String(Int(self.userSet[6])!-1)
+            }else{
+                
+                // 아이템 까만색으로 하기
+                print("아이템 없음!")
+            }
         }
         
-        items.append(firstChar)
+        let selectStart = ActionButtonItem(title: "\(userSet[7])", image: hint_selectStart)
+        selectStart.action = { item in
+             if (self.userSet[7] != self.COUNT_ITEM){
+                self.inputSecAlert()
+                self.resetActionBtn(selectStart)
+                self.userSet[7] = String(Int(self.userSet[7])!-1)
+             }else{
+                
+                // 아이템 까만색으로 하기
+                print("아이템 없음!")
+            }
+        }
+        
+        
+        
         items.append(selectStart)
-        items.append(singerName)
         items.append(threeSec)
+        items.append(firstChar)
+        items.append(singerName)
         
         makeAction(items)
     }

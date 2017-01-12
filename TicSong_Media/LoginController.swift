@@ -110,7 +110,7 @@ class LoginController: UIViewController {
                                             let JSON = try! JSONSerialization.jsonObject(with: encodedData, options: [])
                                         
                                         if let JSON = JSON as? [String: AnyObject] {
-                                            if let exp = JSON["exp"] as? Int, let name = JSON["name"] as? String, let item1Cnt = JSON["item1Cnt"] as? Int, let item2Cnt = JSON["item2Cnt"] as? Int, let item3Cnt = JSON["item3Cnt"] as? Int, let item4Cnt = JSON["item4Cnt"] as? Int, let userLevel = JSON["userLevel"] as? Int {
+                                            if let exp = JSON["exp"] as? Int, let name = JSON["name"] as? String, let item1Cnt = JSON["item1Cnt"] as? Int, let item2Cnt = JSON["item3Cnt"] as? Int, let item3Cnt = JSON["item4Cnt"] as? Int, let item4Cnt = JSON["item5Cnt"] as? Int, let userLevel = JSON["userLevel"] as? Int {
                                                 
                                                 //추가정보 : {platform = 1;resultCode = 1;timestamp = 1483878381489;userId = 294700636;}
                                                 //userset에 삽입해주세요
@@ -120,10 +120,10 @@ class LoginController: UIViewController {
                                                 print("exp:\(exp)")
                                                 print("userLevel:\(userLevel)")
                                                 
-                                                print("item1Cnt:\(item1Cnt)")
-                                                print("item2Cnt:\(item2Cnt)")
-                                                print("item3Cnt:\(item3Cnt)")
-                                                print("item4Cnt:\(item4Cnt)")
+                                                print("item1Cnt:\(item1Cnt)") // 가수
+                                                print("item2Cnt:\(item2Cnt)") // 앞에 한글자
+                                                print("item3Cnt:\(item3Cnt)") // 3초
+                                                print("item4Cnt:\(item4Cnt)") // 원하는 구간
                                                 
                                                 self.userSet.append("\(name)")
                                                 self.userSet.append("\(kakao.id!)")
