@@ -141,9 +141,12 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                 self.singerAlert(artist: self.roundList[self.stage].artist)
                 self.resetActionBtn(singerName)
                 self.userSet[4] = String(Int(self.userSet[4])!-1)
-                
                 // Item Update API
                 self.itemUpdate()
+                
+                //
+                self.user.set(self.userSet, forKey: "user")
+
                 
             }else{
             
@@ -162,6 +165,11 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                 
                 // Item Update API
                 self.itemUpdate()
+                
+                //
+                
+                self.user.set(self.userSet, forKey: "user")
+
                 
             }else{
                 
@@ -183,6 +191,11 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                 // Item Update API
                 self.itemUpdate()
                 
+                //
+                
+                self.user.set(self.userSet, forKey: "user")
+
+                
             }else{
                 
                 // 아이템 까만색으로 하기
@@ -199,6 +212,9 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                 
                 // Item Update API
                 self.itemUpdate()
+                
+                self.user.set(self.userSet, forKey: "user")
+
                 
              }else{
                 
@@ -881,6 +897,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                                     
                                     if(resultCode == 1){
                                         print("성공적으로 exp와 userLevel update!")
+                                        
                                     }else{print("exp와 userLevel update 실패…")
                                     }
                                     

@@ -145,7 +145,7 @@
 				TargetAttributes = {
 					373D12FB1E19546900EA00C4 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = NE9YAC47HN;
+						DevelopmentTeam = 537GQ2WKJ4;
 						LastSwiftMigration = 0820;
 					};
 				};
@@ -361,7 +361,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = NE9YAC47HN;
+				DEVELOPMENT_TEAM = 537GQ2WKJ4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TicSong_Media",
@@ -370,7 +370,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = wemetinsummer1.org.kr;
+				PRODUCT_BUNDLE_IDENTIFIER = wemetinsummer.org.kr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TicSong_Media/TicSong_Media-Bridging-Header.h";
@@ -388,7 +388,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = NE9YAC47HN;
+				DEVELOPMENT_TEAM = 537GQ2WKJ4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TicSong_Media",
@@ -397,7 +397,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = wemetinsummer1.org.kr;
+				PRODUCT_BUNDLE_IDENTIFIER = wemetinsummer.org.kr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TicSong_Media/TicSong_Media-Bridging-Header.h";
