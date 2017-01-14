@@ -83,7 +83,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Ranking" id="9iQ-am-cDv">
-                        <barButtonItem key="leftBarButtonItem" image="close" id="9Aj-57-xz2"/>
+                        <barButtonItem key="leftBarButtonItem" image="close" id="9Aj-57-xz2">
+                            <connections>
+                                <action selector="toMain:" destination="371-Ov-zit" id="zN6-ht-gz7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jnz-Ju-p9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -344,6 +348,14 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="iMT-r5-V17" kind="show" id="tqa-Lb-jSH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ty-wr-n1P">
+                                <rect key="frame" x="226" y="106" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="yQ6-ga-H5g" kind="show" id="rli-vk-jA5"/>
                                 </connections>
                             </button>
                         </subviews>
