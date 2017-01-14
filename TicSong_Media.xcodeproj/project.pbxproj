@@ -24,6 +24,8 @@
 		37B0B1B61E2279040061F499 /* EXO-REGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 37B0B1B51E2279040061F499 /* EXO-REGULAR.OTF */; };
 		37FC94751E29DB0400A08AA4 /* jellyfish.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 37FC94741E29DB0400A08AA4 /* jellyfish.mp3 */; };
 		679D5E111E1C9D7E009F824B /* LFTPulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D5E101E1C9D7E009F824B /* LFTPulseAnimation.swift */; };
+		67FFB29C1E2A1B34009BCDE3 /* TicSongLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FFB29B1E2A1B34009BCDE3 /* TicSongLoadingView.swift */; };
+		67FFB2A01E2A231A009BCDE3 /* LoadingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FFB29F1E2A231A009BCDE3 /* LoadingController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		37B0B1B51E2279040061F499 /* EXO-REGULAR.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EXO-REGULAR.OTF"; sourceTree = "<group>"; };
 		37FC94741E29DB0400A08AA4 /* jellyfish.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jellyfish.mp3; sourceTree = "<group>"; };
 		679D5E101E1C9D7E009F824B /* LFTPulseAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LFTPulseAnimation.swift; sourceTree = "<group>"; };
+		67FFB29B1E2A1B34009BCDE3 /* TicSongLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicSongLoadingView.swift; sourceTree = "<group>"; };
+		67FFB29F1E2A231A009BCDE3 /* LoadingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingController.swift; path = ../LoadingController.swift; sourceTree = "<group>"; };
 		C1DDF84384BBFA8952B429C6 /* Pods_TicSong_Media.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicSong_Media.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E298CB8F856AA74C17938E62 /* Pods-TicSong_Media.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicSong_Media.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicSong_Media/Pods-TicSong_Media.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +95,7 @@
 				373D12FF1E19546900EA00C4 /* AppDelegate.swift */,
 				373D13011E19546900EA00C4 /* GameController.swift */,
 				370B64BC1E1ACBB700CD2A4C /* MainController.swift */,
+				67FFB29F1E2A231A009BCDE3 /* LoadingController.swift */,
 				370899B81E1E393100AD8486 /* LoginController.swift */,
 				373D13031E19546900EA00C4 /* Main.storyboard */,
 				373D13081E19546900EA00C4 /* LaunchScreen.storyboard */,
@@ -104,6 +109,7 @@
 				37B0B1B51E2279040061F499 /* EXO-REGULAR.OTF */,
 				370899BA1E1E3DD100AD8486 /* KakaoOpenSDK.framework */,
 				370899BC1E1E402B00AD8486 /* TicSong_Media-Bridging-Header.h */,
+				67FFB29B1E2A1B34009BCDE3 /* TicSongLoadingView.swift */,
 			);
 			path = TicSong_Media;
 			sourceTree = "<group>";
@@ -160,7 +166,7 @@
 				TargetAttributes = {
 					373D12FB1E19546900EA00C4 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = NE9YAC47HN;
+						DevelopmentTeam = VANL3XS874;
 						LastSwiftMigration = 0820;
 					};
 				};
@@ -254,6 +260,8 @@
 				373D13021E19546900EA00C4 /* GameController.swift in Sources */,
 				679D5E111E1C9D7E009F824B /* LFTPulseAnimation.swift in Sources */,
 				3784E5971E2937A9005E11BE /* Ranking.swift in Sources */,
+				67FFB2A01E2A231A009BCDE3 /* LoadingController.swift in Sources */,
+				67FFB29C1E2A1B34009BCDE3 /* TicSongLoadingView.swift in Sources */,
 				373816691E2933E600E1EEC3 /* RankingTableViewController.swift in Sources */,
 				373816671E29300800E1EEC3 /* RankingTableViewCell.swift in Sources */,
 				3784E5991E294A4D005E11BE /* SettingViewController.swift in Sources */,
@@ -381,7 +389,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = NE9YAC47HN;
+				DEVELOPMENT_TEAM = VANL3XS874;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TicSong_Media",
@@ -390,7 +398,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = wemetinsummer1.org.kr;
+				PRODUCT_BUNDLE_IDENTIFIER = yoon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TicSong_Media/TicSong_Media-Bridging-Header.h";
@@ -408,7 +416,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = NE9YAC47HN;
+				DEVELOPMENT_TEAM = VANL3XS874;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TicSong_Media",
@@ -417,7 +425,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = wemetinsummer1.org.kr;
+				PRODUCT_BUNDLE_IDENTIFIER = yoon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TicSong_Media/TicSong_Media-Bridging-Header.h";

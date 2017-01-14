@@ -76,7 +76,9 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
     var artist :[String] = []
     var start :[Double] = []
     
-    
+    ///// 로딩 (임시)
+    static var loadingPref : Bool = false
+
     
     
     
@@ -108,11 +110,7 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
         aniPulse(170)
         
         
-        getSongXmlFromServer()
-        
-        //let setting = UserDefaults.standard
-        
-        //setting.set(bgmSetting, forKey: "setting")
+       
         
     }
     
@@ -182,6 +180,8 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
     func playBgm(){
         bgmState = true
         // 노래 구해서 mp3 확장자로 구해서 하면 댐
@@ -204,62 +204,43 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
     
     
     @IBAction func startGameBtn(_ sender: UIButton) {
+        MainController.loadingPref = true
+
         print("노래를 준비중..")
         if setting.string(forKey: "setting") == "1" {
             self.bgMusic.stop()
         }
-        self.performSegue(withIdentifier: "MainToSegue", sender: self)
+        self.performSegue(withIdentifier: "MainToLoading", sender: self)
         print("노래를 보냈음..")
     }
     
+        
+      
+    
     // MARK: - Method
     
-    func random() -> Int {
-        let random = Int(arc4random_uniform(UInt32(songName.count)))
-        return random
-    }
-    
-    func makeList() -> [(code:String,songName:String,artist:String,start:Double)]{
-        
-        var list:[(code:String,songName:String,artist:String,start:Double)] = []
-        var indexList:[Int] = []
-        var index = 0
-        
-        while indexList.count != 5 {
-            index = random()
-            if(!indexList.contains(index)){
-                url = "https://api.soundcloud.com/tracks/"+code[index]+"/stream?client_id=59eb0488cc28a2c558ecbf47ed19f787"
-                let fileURL = NSURL(string:url)
-                if NSData(contentsOf:fileURL! as URL) != nil {
-                    indexList.append(index)
-                    list.append((code:code[index],songName:songName[index],artist:artist[index],start:start[index]))
-                }else{
-                    print(code[index] + " 노래제목 : " + songName[index])
-                }
-            }
-        }
-        
-        //print(indexList)
-        return list
-    }
+
     
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        
-        
-        
-        if segue.identifier == "MainToSegue"
-        {
-            
-            let destination = segue.destination as! GameController
-            destination.roundList = makeList()
-        }
-        
+
+//        if segue.identifier == "MainToSegue"
+//        {
+//            let destination = segue.destination as! GameController
+//            destination.roundList = makeList()
+//
+//        }
+
     }
     
+
+    @IBAction func unwindToMenu(_ sender: UIStoryboardSegue) {
+        TicSongLoadingView.shared.hideProgressView()
+    }
+
     
     // MARK: - Animation
     // 가운데 별 회전 애니메이션
@@ -291,58 +272,6 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
     func aniPulse(_ radius :Float){
         pulseEffect = LFTPulseAnimation(repeatCount: Float.infinity, radius:CGFloat(radius), position:mainView.center)
         view.layer.insertSublayer(self.pulseEffect, below: juke_shootingStar.layer)
-    }
-    
-    
-    func getSongXmlFromServer() {
-        let url: URL = URL(string: "http://52.79.152.130/TicSongServer/songs?type=xml")!
-        let doc = xmlDocumentFromURL(url: url)
-        parseSongXml(doc: doc)
-    }
-    
-    func parseSongXml(doc: AEXMLDocument) {
-        
-        
-        if let songs = doc.root["string-array"].all {
-            for song in songs {
-                for child in song.children {
-                    
-                    data = String(describing: child.value)
-                    
-                    switch itemSort {
-                        
-                    case 1:
-                        code.append(child.value!)
-                        itemSort += 1
-                    case 2:
-                        songName.append(child.value!)
-                        //print("index : \(index) | name : \(data.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))")
-                        itemSort += 1
-                    case 3:
-                        artist.append(child.value!)
-                        itemSort += 1
-                    default:
-                        start.append(Double(child.value!)!)
-                        itemSort = 1
-                        //index += 1
-                    }
-                }
-            }
-        }
-        
-        //printSongList()
-    }
-    
-    func xmlDocumentFromURL(url: URL) -> AEXMLDocument {
-        var xmlDocument = AEXMLDocument()
-        
-        do {
-            let data = try Data.init(contentsOf: url)
-            xmlDocument = try AEXMLDocument(xml: data)
-        } catch {
-            print(error)
-        }
-        return xmlDocument
     }
     
     

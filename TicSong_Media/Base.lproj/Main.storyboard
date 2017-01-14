@@ -393,7 +393,7 @@
                         <outlet property="nickNameLabel" destination="qZk-Hq-YKK" id="6yH-nS-BX0"/>
                         <outlet property="profileImage" destination="euy-h5-ipl" id="NSC-JV-a92"/>
                         <outlet property="startGameBtn" destination="CXI-x3-v9E" id="8eo-pF-5mM"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="MainToSegue" modalTransitionStyle="flipHorizontal" id="C73-AW-wxB"/>
+                        <segue destination="Gts-Xy-UTe" kind="presentation" identifier="MainToLoading" id="HmR-P9-jc0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6B5-ll-45k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -599,11 +599,35 @@
                         <outlet property="lifeTwo" destination="Urf-zJ-IYI" id="wI2-8n-6ip"/>
                         <outlet property="main_backgroundStar" destination="qoS-OS-3uy" id="o5K-ky-onL"/>
                         <outlet property="stageLabel" destination="DU5-52-hOP" id="69H-Eg-S7U"/>
+                        <segue destination="Jqr-EN-zN5" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenu:" id="NPj-uH-O1O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="Jqr-EN-zN5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="424.80000000000001" y="76.911544227886068"/>
+            <point key="canvasLocation" x="1252" y="80"/>
+        </scene>
+        <!--Loading Controller-->
+        <scene sceneID="Cfg-0c-xV4">
+            <objects>
+                <viewController id="Gts-Xy-UTe" customClass="LoadingController" customModule="TicSong_Media" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nmX-KP-6Bg"/>
+                        <viewControllerLayoutGuide type="bottom" id="7D7-bi-sgt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0gK-C4-D88">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="LoadingToGame" modalTransitionStyle="flipHorizontal" id="HXN-tg-7HD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ihz-8K-Lnh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="489" y="238"/>
         </scene>
         <!--Setting-->
         <scene sceneID="wRu-0Y-gMe">

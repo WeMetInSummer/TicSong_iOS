@@ -82,8 +82,9 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     //MARK: 생명주기
     
     override func viewDidLoad() {
+        MainController.loadingPref = false
         super.viewDidLoad()
-        
+        print("게임 컨트롤러!")
         stageLabel.text = " STAGE \(stage+1)"
         stageLabel.textColor = UIColor.white
         stageLabel.font = UIFont(name: "EXO-REGULAR", size: 27)
@@ -103,7 +104,10 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
         makeFloatBtn()
         
+        
     }
+    
+    
     
     // 플로팅 버튼에 대한 액션을 만든다.
     
@@ -357,7 +361,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
    
     @IBAction func Escape(_ sender: UIButton) {
-        
         escapeAlert(score: score)
         
     }
@@ -367,7 +370,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
     // 아직 노래 코드 오류났을 때 제대로 해결 못함..
     func setting(music: String, time:Double){
-        answer.placeholder = "정답을 입력해주세요 (한글로)"
+        answer.placeholder = "정답을 입력해주세요 (원곡제목)"
         
         do {
             //무음에서도 들리게 해주는 부분!! 나중에 정리하면 될거 같아요 민섭님
@@ -666,11 +669,11 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             if levelUp{
                 print("레벨업!")
                 self.levelUpAlert(random)
-                self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "unwindToMenu", sender: self)
             }else{
                 //아니라면 alertView 끄기..
                 alertView.dismiss(animated: true, completion: nil)
-                self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "unwindToMenu", sender: self)
             }
             
         })
@@ -712,8 +715,8 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
         
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
-            alertView.dismiss(animated: true, completion: nil)
-            self.dismiss(animated: true, completion: nil)
+           // alertView.dismiss(animated: true, completion: nil)
+            self.performSegue(withIdentifier: "unwindToMenu", sender: self)
         })
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in print("cancel button clicked")}
