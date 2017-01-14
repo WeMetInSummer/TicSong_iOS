@@ -39,7 +39,8 @@ class RankingTableViewController: UITableViewController {
     
     }
     override func viewDidAppear(_ animated: Bool) {
-        
+        rankings.removeAll()
+        selectRankings(userId: userId)
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,14 +68,14 @@ class RankingTableViewController: UITableViewController {
         
         print("여기....\(indexPath.row)")
         
-        rankings.removeAll()
-        selectRankings(userId: userId)
+   
 
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "RankingTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RankingTableViewCell
         
         // Fetches the appropriate meal for the data source layout.
+        if !rankings.isEmpty {
         let ranking = rankings[indexPath.row]
         print(ranking)
     
@@ -83,7 +84,9 @@ class RankingTableViewController: UITableViewController {
         cell.levelLabel.text = ranking.level
         cell.expLabel.text = ranking.exp
         
+        }
         return cell
+
     }
     
     
@@ -108,6 +111,7 @@ class RankingTableViewController: UITableViewController {
         print(parameters)
         print("selectRanking 호출3")
 
+        
         Alamofire.request(baseURL,method : .get, parameters: parameters, encoding: URLEncoding.default, headers: nil)
             .responseJSON { (response:DataResponse<Any>) in
                 print("selectRanking 호출3-1")
@@ -158,6 +162,7 @@ class RankingTableViewController: UITableViewController {
                                             )
                                             self.countRanking = counts.count
                                             
+                                            self.tableView.reloadData()
                                             print("counts: \(counts.count)")
                                             print(self.rankings[0].name)
                                             
