@@ -18,6 +18,8 @@ class LoginController: UIViewController {
     var name:String = "default"
     
     var userSet:[String] = []
+    
+    var bgmSetting : String? = "1"
    
     
     override func viewDidLoad() {
@@ -141,7 +143,17 @@ class LoginController: UIViewController {
                                                 
                                                 }
                                         }}
-                                            self.performSegue(withIdentifier: "LoginToMainSegue", sender: self)
+                                        
+
+                                        
+                                        let setting = UserDefaults.standard
+                                        
+                                        if setting.string(forKey: "setting") == nil{
+                                            let set = UserDefaults.standard
+                                            set.set(self.bgmSetting, forKey: "setting")
+                                        }
+                                        
+                                        self.performSegue(withIdentifier: "LoginToMainSegue", sender: self)
                                     }
                                     break
                                     

@@ -8,8 +8,9 @@
 
 import UIKit
 import AEXML
+import AVFoundation
 
-class MainController: UIViewController {
+class MainController: UIViewController ,AVAudioPlayerDelegate{
     
     // MARK: 멤버 필드
     
@@ -36,6 +37,11 @@ class MainController: UIViewController {
     @IBOutlet weak var item3Label: UILabel!
     @IBOutlet weak var item4Label: UILabel!
     
+    // 배경음
+    
+    var bgMusic: AVAudioPlayer!
+    let setting = UserDefaults.standard
+    var bgmState : Bool = false
     
     static let expArray : [Int] =
         [100,600,1200,1900,2700,3600,4600,5700,6900,8200,9700,11400,13300,15400,17700,20200,22900,25800,28900,32200,35800,39700,43900,48400,53200,58300,63700,69400,75400,81700,88450,95650,103300,111400,119950,128950,138400,148300,158650,169450,180650,192250,204250,216650,229450,242650,256250,270250,284650,299450,315000,331300,348350,366150,384700,404000,424050,444850,466400,
@@ -73,6 +79,8 @@ class MainController: UIViewController {
     
     
     
+    
+    
     // MARK: - 생명주기
   
     
@@ -102,6 +110,9 @@ class MainController: UIViewController {
         
         getSongXmlFromServer()
         
+        //let setting = UserDefaults.standard
+        
+        //setting.set(bgmSetting, forKey: "setting")
         
     }
     
@@ -109,8 +120,17 @@ class MainController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         aniBackgroundStar(pic: main_backgroundStar)
         
+        //setting preference 값을 받아와서 1이면 재생 0이면 x
         
-        
+        let setting = UserDefaults.standard
+
+        if setting.string(forKey: "setting") == "1" {
+            playBgm()
+        }else{
+            if bgmState == true{
+                bgMusic.stop()
+            }
+        }
         nickNameLabel.text = receivedName
         profileImage.image = receivedProfImg
         
@@ -162,9 +182,32 @@ class MainController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func playBgm(){
+        bgmState = true
+        // 노래 구해서 mp3 확장자로 구해서 하면 댐
+        let path = Bundle.main.path(forResource: "jellyfish", ofType:"mp3")!
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            //무음에서도 들리게 해주는 부분
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            bgMusic = try AVAudioPlayer(contentsOf: url)
+            bgMusic.prepareToPlay()
+            bgMusic.volume = 1.0
+            bgMusic.delegate = self
+            bgMusic.play()
+        } catch {
+            print("여기: ",error)
+        }
+    }
+    
     
     @IBAction func startGameBtn(_ sender: UIButton) {
         print("노래를 준비중..")
+        if setting.string(forKey: "setting") == "1" {
+            self.bgMusic.stop()
+        }
         self.performSegue(withIdentifier: "MainToSegue", sender: self)
         print("노래를 보냈음..")
     }
