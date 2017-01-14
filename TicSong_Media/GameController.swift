@@ -635,13 +635,17 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         if isLevelUp(scoreSum,myLevel){
             levelUp = true
             self.userSet[random+3] = String(Int(self.userSet[random+3])! + 1)
+         
             
         }
         //레벨업을 하거나 하지않거나 해서 나온 결과들을 프리퍼런스에 저장시키고
         self.user.set(self.userSet, forKey: "user")
 
         //그값들을 동일하게 서버에 저장시킨다.
-        //------>>>여기에<<<-----
+        // Update MyScore, Item 
+        myscoreUpdate()
+        itemUpdate()
+        
         //userSet에 담긴 프리퍼런스 값을 그대로 서버에 삽입!
         // item5Cnt 까지 추가하면 완료... 아마 default 에 4567에 들어있을 것임..
         // 만약 랜덤값이 4면 서버에는 item5Cnt 을 추가하면 돼
@@ -829,11 +833,12 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
     //MARK: SERVER 통신 함수
     
-    func myscoreUpdate(userId:String, exp:Int, userLevel:Int){
+    // Update MyScore API
+    func myscoreUpdate(){
     
         let baseURL = "http://52.79.152.130/TicSongServer/myscore.do"
         
-        let parameters: Parameters = ["service":"update", "userId":userId, "exp":exp, "userLevel":userLevel]
+        let parameters: Parameters = ["service":"update", "userId":userSet[1], "exp":userSet[2], "userLevel":userSet[3]]
         
         
         Alamofire.request(baseURL,method : .post, parameters: parameters, encoding: URLEncoding.default, headers: nil)
@@ -870,8 +875,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         }
     }
     
-  
-    // Item Update API
+    // Update Item API
     func itemUpdate() {
         
         
@@ -917,6 +921,50 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         }
     }
     
+    
+    
+    /*
+    func myscoreUpdate(userId:String, exp:Int, userLevel:Int){
+        
+        let baseURL = "http://52.79.152.130/TicSongServer/myscore.do"
+        
+        let parameters: Parameters = ["service":"update", "userId":userId, "exp":exp, "userLevel":userLevel]
+        
+        
+        Alamofire.request(baseURL,method : .post, parameters: parameters, encoding: URLEncoding.default, headers: nil)
+            .responseJSON { (response:DataResponse<Any>) in
+                
+                switch(response.result) {
+                case .success(_):
+                    if response.result.value != nil{
+                        //print(response.result.value!)
+                        
+                        if let data = response.data, let utf8Text = String(data: data, encoding: .utf8), let encodedData = utf8Text.data(using: String.Encoding.utf8){
+                            
+                            let JSON = try! JSONSerialization.jsonObject(with: encodedData, options: [])
+                            
+                            if let JSON = JSON as? [String: AnyObject] {
+                                if let resultCode = JSON["resultCode"] as? Int{
+                                    
+                                    if(resultCode == 1){
+                                        print("성공적으로 exp와 userLevel update!")
+                                    }else{print("exp와 userLevel update 실패…")
+                                    }
+                                }
+                            }}
+                        //self.performSegue(withIdentifier: "LoginToMainSegue", sender: self)
+                    }
+                    break
+                    
+                case .failure(_):
+                    print(response.result.error!)
+                    
+                    break
+                    
+                }
+        }
+    }
+     
     func itemUpdate(userId:String, exp:Int, userLevel:Int, item1Cnt:Int, item2Cnt:Int, item3Cnt:Int, item4Cnt:Int) {
         
         
@@ -960,6 +1008,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             }
         }
     }
+     */
 
 }
 
