@@ -22,6 +22,7 @@
 		3784E5971E2937A9005E11BE /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3784E5961E2937A9005E11BE /* Ranking.swift */; };
 		3784E5991E294A4D005E11BE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3784E5981E294A4D005E11BE /* SettingViewController.swift */; };
 		37B0B1B61E2279040061F499 /* EXO-REGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 37B0B1B51E2279040061F499 /* EXO-REGULAR.OTF */; };
+		37D8EB461E2A9AD30080F585 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D8EB451E2A9AD30080F585 /* ResultViewController.swift */; };
 		37FC94751E29DB0400A08AA4 /* jellyfish.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 37FC94741E29DB0400A08AA4 /* jellyfish.mp3 */; };
 		679D5E111E1C9D7E009F824B /* LFTPulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D5E101E1C9D7E009F824B /* LFTPulseAnimation.swift */; };
 		67FFB29C1E2A1B34009BCDE3 /* TicSongLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FFB29B1E2A1B34009BCDE3 /* TicSongLoadingView.swift */; };
@@ -47,6 +48,7 @@
 		3784E5961E2937A9005E11BE /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		3784E5981E294A4D005E11BE /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		37B0B1B51E2279040061F499 /* EXO-REGULAR.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EXO-REGULAR.OTF"; sourceTree = "<group>"; };
+		37D8EB451E2A9AD30080F585 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		37FC94741E29DB0400A08AA4 /* jellyfish.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jellyfish.mp3; sourceTree = "<group>"; };
 		679D5E101E1C9D7E009F824B /* LFTPulseAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LFTPulseAnimation.swift; sourceTree = "<group>"; };
 		67FFB29B1E2A1B34009BCDE3 /* TicSongLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicSongLoadingView.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				370899BA1E1E3DD100AD8486 /* KakaoOpenSDK.framework */,
 				370899BC1E1E402B00AD8486 /* TicSong_Media-Bridging-Header.h */,
 				67FFB29B1E2A1B34009BCDE3 /* TicSongLoadingView.swift */,
+				37D8EB451E2A9AD30080F585 /* ResultViewController.swift */,
 			);
 			path = TicSong_Media;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				370B64BD1E1ACBB700CD2A4C /* MainController.swift in Sources */,
 				373D13001E19546900EA00C4 /* AppDelegate.swift in Sources */,
 				370899B91E1E393100AD8486 /* LoginController.swift in Sources */,
+				37D8EB461E2A9AD30080F585 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
