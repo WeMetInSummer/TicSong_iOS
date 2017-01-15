@@ -33,7 +33,12 @@ class ResultViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func dismissResult(_ sender: UIButton) {
+       
+        self.performSegue(withIdentifier: "unwindToMain", sender: self)
+    }
 
+   
     /*
     // MARK: - Navigation
 

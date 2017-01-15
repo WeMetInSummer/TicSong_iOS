@@ -106,7 +106,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
         
     }
-    
+   
     
     
     // 플로팅 버튼에 대한 액션을 만든다.

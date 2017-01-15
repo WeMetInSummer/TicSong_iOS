@@ -36,6 +36,14 @@ class ResultViewControllerLvUp: UIViewController {
     }
     
 
+    
+    @IBAction func dismissResult(_ sender: UIButton) {
+       
+        self.performSegue(withIdentifier: "unwindToMain", sender: self)
+
+    }
+   
+    
     /*
     // MARK: - Navigation
 
