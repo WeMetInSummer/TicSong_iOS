@@ -82,7 +82,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     //MARK: 생명주기
     
     override func viewDidLoad() {
-        MainController.loadingPref = false
         super.viewDidLoad()
         print("게임 컨트롤러!")
         stageLabel.text = " STAGE \(stage+1)"
@@ -669,11 +668,12 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             if levelUp{
                 print("레벨업!")
                 self.levelUpAlert(random)
-                self.performSegue(withIdentifier: "unwindToMenu", sender: self)
+                self.dismiss(animated: true, completion: nil)
             }else{
                 //아니라면 alertView 끄기..
                 alertView.dismiss(animated: true, completion: nil)
-                self.performSegue(withIdentifier: "unwindToMenu", sender: self)
+                self.dismiss(animated: true, completion: nil)
+
             }
             
         })
@@ -715,8 +715,8 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
         
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
-           // alertView.dismiss(animated: true, completion: nil)
-            self.performSegue(withIdentifier: "unwindToMenu", sender: self)
+            alertView.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         })
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in print("cancel button clicked")}

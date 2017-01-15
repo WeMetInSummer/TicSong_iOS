@@ -37,12 +37,14 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
     @IBOutlet weak var item3Label: UILabel!
     @IBOutlet weak var item4Label: UILabel!
     
+    
     // 배경음
     
     var bgMusic: AVAudioPlayer!
     let setting = UserDefaults.standard
     var bgmState : Bool = false
     
+    // 경험치 어레이
     static let expArray : [Int] =
         [100,600,1200,1900,2700,3600,4600,5700,6900,8200,9700,11400,13300,15400,17700,20200,22900,25800,28900,32200,35800,39700,43900,48400,53200,58300,63700,69400,75400,81700,88450,95650,103300,111400,119950,128950,138400,148300,158650,169450,180650,192250,204250,216650,229450,242650,256250,270250,284650,299450,315000,331300,348350,366150,384700,404000,424050,444850,466400,
          488700,511850,535850,560700,586400,612950,640350,668600,697700,727650,758450,790250,823050,
@@ -60,10 +62,7 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
     
     // 사운드 클라우드 유알엘
     var url: String!
-   
-//    var arraySong : [String] = ["270052873","287320848","18560800","285714919","17179509","200018532","73847634","196942610","261595798","266565177"]
-//    var arrayTitle : [String] = ["야생화","숨","사랑한후에","꿈","눈의꽃","해줄수없는일","안녕사랑아","동경","화신","나를넘는다"]
-//    
+
     
     // 멤버 변수
     var itemSort = 1
@@ -76,20 +75,16 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
     var artist :[String] = []
     var start :[Double] = []
     
-    ///// 로딩 (임시)
-    static var loadingPref : Bool = false
 
-    
-    
-    
-    
+    // 백그라운드 큐!
+    let backgroundQueue = DispatchQueue(label: "com.app.queue",
+                                        qos: .background,
+                                        target: nil)
     // MARK: - 생명주기
   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //UIFont.systemFont(ofSize: 20)
         
         nickNameLabel.textColor = UIColor.white
         nickNameLabel.font = UIFont.systemFont(ofSize: 20)
@@ -165,15 +160,25 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
             
             expBar.image = UIImage(named: "bar\(countBar)")
             
+            let itemLabelArray: [UILabel] = [self.item1Label,self.item2Label,self.item3Label,self.item4Label]
             
-            item1Label.text = result[4]
-            item2Label.text = result[5]
-            item3Label.text = result[6]
-            item4Label.text = result[7]
+            for item in 0..<4 {
+                if Int(result[item+4])! > 99{
+                    itemLabelArray[item].text = ".."
+                }else{
+                    itemLabelArray[item].text = result[item+4]
+                }
+            }
         }
         
         
+      
+        
+        
     }
+    
+   
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -203,42 +208,62 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
     }
     
     
+    // MARK : 게임 set 과 준비
+    
     @IBAction func startGameBtn(_ sender: UIButton) {
-        MainController.loadingPref = true
 
-        print("노래를 준비중..")
+        loadProgress()
         if setting.string(forKey: "setting") == "1" {
             self.bgMusic.stop()
         }
-        self.performSegue(withIdentifier: "MainToLoading", sender: self)
-        print("노래를 보냈음..")
+        backgroundQueue.async {
+            self.getSongXmlFromServer()
+            self.readySongs()
+        }
     }
     
-        
-      
     
-    // MARK: - Method
-    
+    func readySongs(){
+        self.performSegue(withIdentifier: "MainToGameSegue", sender: self)
+    }
 
     
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-
-//        if segue.identifier == "MainToSegue"
-//        {
-//            let destination = segue.destination as! GameController
-//            destination.roundList = makeList()
-//
-//        }
-
+        if segue.identifier == "MainToGameSegue"
+        {
+            let destination = segue.destination as! GameController
+            destination.roundList = makeList()
+            dismiss(animated: false, completion: nil)
+        }
     }
     
-
-    @IBAction func unwindToMenu(_ sender: UIStoryboardSegue) {
-        TicSongLoadingView.shared.hideProgressView()
+    func random() -> Int {
+        let random = Int(arc4random_uniform(UInt32(songName.count)))
+        return random
+    }
+    
+    func makeList() -> [(code:String,songName:String,artist:String,start:Double)]{
+        var list:[(code:String,songName:String,artist:String,start:Double)] = []
+        var indexList:[Int] = []
+        var index = 0
+        
+        while indexList.count != 5 {
+            index = random()
+            if(!indexList.contains(index)){
+                url = "https://api.soundcloud.com/tracks/"+code[index]+"/stream?client_id=59eb0488cc28a2c558ecbf47ed19f787"
+                let fileURL = NSURL(string:url)
+                if NSData(contentsOf:fileURL! as URL) != nil {
+                    indexList.append(index)
+                    list.append((code:code[index],songName:songName[index],artist:artist[index],start:start[index]))
+                }else{
+                    print(code[index] + " 노래제목 : " + songName[index])
+                }
+            }
+        }
+        
+        //print(indexList)
+        return list
     }
 
     
@@ -275,20 +300,76 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
     }
     
     
-    func printSongList() {
+    
+    
+    
+    // MARK: - 서버 준비!
+    
+    func getSongXmlFromServer() {
+        let url: URL = URL(string: "http://52.79.152.130/TicSongServer/songs?type=xml")!
+        let doc = xmlDocumentFromURL(url: url)
+        parseSongXml(doc: doc)
+    }
+    
+    func parseSongXml(doc: AEXMLDocument) {
         
-        for cc in code {
-            print("code : \(cc)")
+        
+        if let songs = doc.root["string-array"].all {
+            for song in songs {
+                for child in song.children {
+                    
+                    data = String(describing: child.value)
+                    
+                    switch itemSort {
+                        
+                    case 1:
+                        code.append(child.value!)
+                        itemSort += 1
+                    case 2:
+                        songName.append(child.value!)
+                        //print("index : \(index) | name : \(data.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))")
+                        itemSort += 1
+                    case 3:
+                        artist.append(child.value!)
+                        itemSort += 1
+                    default:
+                        start.append(Double(child.value!)!)
+                        itemSort = 1
+                        //index += 1
+                    }
+                }
+            }
         }
-        for ss in songName {
-            print("name : \(ss)")
+        
+        //printSongList()
+    }
+    
+    func xmlDocumentFromURL(url: URL) -> AEXMLDocument {
+        var xmlDocument = AEXMLDocument()
+        
+        do {
+            let data = try Data.init(contentsOf: url)
+            xmlDocument = try AEXMLDocument(xml: data)
+        } catch {
+            print(error)
         }
-        for aa in artist {
-            print("artist : \(aa)")
-        }
-        for tt in start {
-            print("time : \(tt)")
-        }
+        return xmlDocument
+    }
+    
+    
+    // loading alert!
+    
+    func loadProgress(){
+        let alert = UIAlertController(title: nil, message: "노래를 준비중...", preferredStyle: .alert)
+        
+        alert.view.tintColor = UIColor.black
+        let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x:10, y:5, width:50, height:50)) as UIActivityIndicatorView
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        loadingIndicator.startAnimating();
+        
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
     }
     
     
