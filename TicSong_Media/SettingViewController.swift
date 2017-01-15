@@ -8,13 +8,23 @@
 
 import UIKit
 
-class SettingViewController: UIViewController {
+class SettingViewController: UIViewController,UINavigationControllerDelegate,UINavigationBarDelegate {
 
     @IBOutlet weak var bgmSwitch: UISwitch!
     let setting = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let bar:UINavigationBar! = navigationController?.navigationBar
+        let barColor = UIColor(red: 20.0/255.0, green: 34.0/255.0, blue: 58.0/255.0, alpha: 1.0)
+        bar.isTranslucent = false
+        bar.barTintColor = barColor
+        
+        
+        bar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        
+        
         let switchState = setting.string(forKey: "setting")
         if switchState == "1" || switchState == nil {
             bgmSwitch.setOn(true, animated:true)

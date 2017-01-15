@@ -19,6 +19,15 @@
 		373D13071E19546900EA00C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 373D13061E19546900EA00C4 /* Assets.xcassets */; };
 		373D130A1E19546900EA00C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 373D13081E19546900EA00C4 /* LaunchScreen.storyboard */; };
 		373D13121E1955FD00EA00C4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373D13111E1955FD00EA00C4 /* AVFoundation.framework */; };
+		37664F021E2B57C8005FA7E7 /* EXO-BOLD.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 37664F011E2B57C8005FA7E7 /* EXO-BOLD.OTF */; };
+		37664F041E2B58E7005FA7E7 /* EXO-EXTRABOLD.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 37664F031E2B58E7005FA7E7 /* EXO-EXTRABOLD.OTF */; };
+		37664F061E2B594F005FA7E7 /* EXO-ITALIC.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 37664F051E2B594F005FA7E7 /* EXO-ITALIC.OTF */; };
+		37664F081E2B5960005FA7E7 /* EXO-EXTRALIGHT.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 37664F071E2B5960005FA7E7 /* EXO-EXTRALIGHT.OTF */; };
+		37664F0A1E2B596A005FA7E7 /* EXO-SEMIBOLD.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 37664F091E2B596A005FA7E7 /* EXO-SEMIBOLD.OTF */; };
+		37664F0C1E2B5977005FA7E7 /* EXO-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 37664F0B1E2B5977005FA7E7 /* EXO-MEDIUM.OTF */; };
+		37664F0E1E2B5995005FA7E7 /* EXO-THIN.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 37664F0D1E2B5995005FA7E7 /* EXO-THIN.OTF */; };
+		37664F101E2B59A4005FA7E7 /* EXO-LIGHT.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 37664F0F1E2B59A4005FA7E7 /* EXO-LIGHT.OTF */; };
+		37664F121E2B59C6005FA7E7 /* EXO-BLACK.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 37664F111E2B59C6005FA7E7 /* EXO-BLACK.OTF */; };
 		3784E5971E2937A9005E11BE /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3784E5961E2937A9005E11BE /* Ranking.swift */; };
 		3784E5991E294A4D005E11BE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3784E5981E294A4D005E11BE /* SettingViewController.swift */; };
 		37B0B1B61E2279040061F499 /* EXO-REGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 37B0B1B51E2279040061F499 /* EXO-REGULAR.OTF */; };
@@ -44,6 +53,15 @@
 		373D13091E19546900EA00C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		373D130B1E19546900EA00C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		373D13111E1955FD00EA00C4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		37664F011E2B57C8005FA7E7 /* EXO-BOLD.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EXO-BOLD.OTF"; sourceTree = "<group>"; };
+		37664F031E2B58E7005FA7E7 /* EXO-EXTRABOLD.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EXO-EXTRABOLD.OTF"; sourceTree = "<group>"; };
+		37664F051E2B594F005FA7E7 /* EXO-ITALIC.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EXO-ITALIC.OTF"; sourceTree = "<group>"; };
+		37664F071E2B5960005FA7E7 /* EXO-EXTRALIGHT.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EXO-EXTRALIGHT.OTF"; sourceTree = "<group>"; };
+		37664F091E2B596A005FA7E7 /* EXO-SEMIBOLD.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EXO-SEMIBOLD.OTF"; sourceTree = "<group>"; };
+		37664F0B1E2B5977005FA7E7 /* EXO-MEDIUM.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EXO-MEDIUM.OTF"; sourceTree = "<group>"; };
+		37664F0D1E2B5995005FA7E7 /* EXO-THIN.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EXO-THIN.OTF"; sourceTree = "<group>"; };
+		37664F0F1E2B59A4005FA7E7 /* EXO-LIGHT.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EXO-LIGHT.OTF"; sourceTree = "<group>"; };
+		37664F111E2B59C6005FA7E7 /* EXO-BLACK.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EXO-BLACK.OTF"; sourceTree = "<group>"; };
 		3784E5961E2937A9005E11BE /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		3784E5981E294A4D005E11BE /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		37B0B1B51E2279040061F499 /* EXO-REGULAR.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EXO-REGULAR.OTF"; sourceTree = "<group>"; };
@@ -105,7 +123,16 @@
 				3784E5981E294A4D005E11BE /* SettingViewController.swift */,
 				373D13061E19546900EA00C4 /* Assets.xcassets */,
 				373D130B1E19546900EA00C4 /* Info.plist */,
+				37664F111E2B59C6005FA7E7 /* EXO-BLACK.OTF */,
 				37B0B1B51E2279040061F499 /* EXO-REGULAR.OTF */,
+				37664F0B1E2B5977005FA7E7 /* EXO-MEDIUM.OTF */,
+				37664F011E2B57C8005FA7E7 /* EXO-BOLD.OTF */,
+				37664F091E2B596A005FA7E7 /* EXO-SEMIBOLD.OTF */,
+				37664F031E2B58E7005FA7E7 /* EXO-EXTRABOLD.OTF */,
+				37664F071E2B5960005FA7E7 /* EXO-EXTRALIGHT.OTF */,
+				37664F051E2B594F005FA7E7 /* EXO-ITALIC.OTF */,
+				37664F0D1E2B5995005FA7E7 /* EXO-THIN.OTF */,
+				37664F0F1E2B59A4005FA7E7 /* EXO-LIGHT.OTF */,
 				370899BA1E1E3DD100AD8486 /* KakaoOpenSDK.framework */,
 				370899BC1E1E402B00AD8486 /* TicSong_Media-Bridging-Header.h */,
 				67FFB29B1E2A1B34009BCDE3 /* TicSongLoadingView.swift */,
@@ -166,7 +193,7 @@
 				TargetAttributes = {
 					373D12FB1E19546900EA00C4 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = VANL3XS874;
+						DevelopmentTeam = 537GQ2WKJ4;
 						LastSwiftMigration = 0820;
 					};
 				};
@@ -194,11 +221,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37664F0C1E2B5977005FA7E7 /* EXO-MEDIUM.OTF in Resources */,
+				37664F101E2B59A4005FA7E7 /* EXO-LIGHT.OTF in Resources */,
+				37664F081E2B5960005FA7E7 /* EXO-EXTRALIGHT.OTF in Resources */,
+				37664F041E2B58E7005FA7E7 /* EXO-EXTRABOLD.OTF in Resources */,
 				373D130A1E19546900EA00C4 /* LaunchScreen.storyboard in Resources */,
+				37664F021E2B57C8005FA7E7 /* EXO-BOLD.OTF in Resources */,
 				37FC94751E29DB0400A08AA4 /* jellyfish.mp3 in Resources */,
+				37664F061E2B594F005FA7E7 /* EXO-ITALIC.OTF in Resources */,
 				37B0B1B61E2279040061F499 /* EXO-REGULAR.OTF in Resources */,
 				373D13071E19546900EA00C4 /* Assets.xcassets in Resources */,
+				37664F121E2B59C6005FA7E7 /* EXO-BLACK.OTF in Resources */,
 				373D13051E19546900EA00C4 /* Main.storyboard in Resources */,
+				37664F0A1E2B596A005FA7E7 /* EXO-SEMIBOLD.OTF in Resources */,
+				37664F0E1E2B5995005FA7E7 /* EXO-THIN.OTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,7 +425,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = VANL3XS874;
+				DEVELOPMENT_TEAM = 537GQ2WKJ4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TicSong_Media",
@@ -398,7 +434,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = wemetinsummer2.org.kr;
+				PRODUCT_BUNDLE_IDENTIFIER = wemetinsummer.org.kr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TicSong_Media/TicSong_Media-Bridging-Header.h";
@@ -416,7 +452,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = VANL3XS874;
+				DEVELOPMENT_TEAM = 537GQ2WKJ4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TicSong_Media",
@@ -425,7 +461,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = wemetinsummer2.org.kr;
+				PRODUCT_BUNDLE_IDENTIFIER = wemetinsummer.org.kr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TicSong_Media/TicSong_Media-Bridging-Header.h";

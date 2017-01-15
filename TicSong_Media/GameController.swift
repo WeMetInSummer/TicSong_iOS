@@ -85,8 +85,8 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         super.viewDidLoad()
         print("게임 컨트롤러!")
         stageLabel.text = " STAGE \(stage+1)"
-        stageLabel.textColor = UIColor.white
-        stageLabel.font = UIFont(name: "EXO-REGULAR", size: 27)
+        //stageLabel.textColor = UIColor.white
+        //stageLabel.font = UIFont(name: "EXO-BOLD", size: 33)
         //stageLabel.font = UIFont.systemFont(ofSize: 30)
         
         answer.autocorrectionType = .no

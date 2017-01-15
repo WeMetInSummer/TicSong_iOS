@@ -9,7 +9,18 @@
 import UIKit
 import Alamofire
 
-class RankingTableViewController: UITableViewController {
+
+// hex code로 변환
+extension UIColor {
+    convenience init(hex: Int) {
+        let r = hex / 0x10000
+        let g = (hex - r*0x10000) / 0x100
+        let b = hex - r*0x10000 - g*0x100
+        self.init(red: CGFloat(r)/255, green: CGFloat(g)/255, blue: CGFloat(b)/255, alpha: 1)
+    }
+}
+
+class RankingTableViewController: UITableViewController,UINavigationBarDelegate, UINavigationControllerDelegate {
     
     var rankings = [Ranking]()
     var countRanking :Int = 0
@@ -21,7 +32,17 @@ class RankingTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        let bar:UINavigationBar! = navigationController?.navigationBar
+        let barColor = UIColor(red: 20.0/255.0, green: 34.0/255.0, blue: 58.0/255.0, alpha: 1.0)
+        bar.isTranslucent = false
+        bar.barTintColor = barColor
+        myRankLabel.backgroundColor = barColor
+        
+        bar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        
    
+        
         
         let user = UserDefaults.standard
         
@@ -58,9 +79,6 @@ class RankingTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        print("여기....\(indexPath.row)")
-        
-        
         
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "RankingTableViewCell"
@@ -72,8 +90,8 @@ class RankingTableViewController: UITableViewController {
             
             cell.numberLabel.text = ranking.number
             cell.nameLabel.text = ranking.name
-            cell.levelLabel.text = ranking.level
-            cell.expLabel.text = ranking.exp
+            cell.levelLabel.text = "Lv. \(ranking.level)"
+            cell.expLabel.text = "Exp : \(ranking.exp)"
             
         }
         
@@ -180,6 +198,7 @@ class RankingTableViewController: UITableViewController {
     
     
 }
+
 
 /*
  // Override to support conditional editing of the table view.
