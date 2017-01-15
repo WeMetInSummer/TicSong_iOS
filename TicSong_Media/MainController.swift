@@ -360,7 +360,7 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
     // loading alert!
     
     func loadProgress(){
-        let alert = UIAlertController(title: nil, message: "노래를 준비중...", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: "노래를 준비중 입니다...", preferredStyle: .alert)
         
         alert.view.tintColor = UIColor.black
         let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x:10, y:5, width:50, height:50)) as UIActivityIndicatorView

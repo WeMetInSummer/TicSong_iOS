@@ -47,7 +47,8 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
     @IBOutlet weak var lifeThree: UIImageView!
     
-    
+    var randomItemIndex : Int = 0 // result view 를 위한 변수
+    var gameScore : Int = 0  // result view 를 위한 변수
     
     var actionButton: ActionButton!
     
@@ -138,7 +139,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         let hint_threeSec = UIImage(named:"levelupItem3")
         let hint_selectStart = UIImage(named:"levelupItem4")
        
-        let singerName = ActionButtonItem(title: "\(userSet[4])", image: hint_singerName)
+        let singerName = ActionButtonItem(title: itemCounting(userSet[4]), image: hint_singerName)
         singerName.action = { item in
             if (self.userSet[4] != self.COUNT_ITEM){
                 self.singerAlert(artist: self.roundList[self.stage].artist)
@@ -159,7 +160,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         }
         
         
-        let firstChar = ActionButtonItem(title: "\(userSet[5])", image: hint_firstChar)
+        let firstChar = ActionButtonItem(title: itemCounting(userSet[5]), image: hint_firstChar)
         firstChar.action = { item in
             if (self.userSet[5] != self.COUNT_ITEM){
                 self.firstCharAlert(songName: self.roundList[self.stage].songName)
@@ -182,7 +183,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         }
         
         
-        let threeSec = ActionButtonItem(title: "\(userSet[6])", image: hint_threeSec)
+        let threeSec = ActionButtonItem(title: itemCounting(userSet[6]), image: hint_threeSec)
         threeSec.action = { item in
             if (self.userSet[6] != self.COUNT_ITEM){
                 self.hintMode = 1
@@ -206,7 +207,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             }
         }
         
-        let selectStart = ActionButtonItem(title: "\(userSet[7])", image: hint_selectStart)
+        let selectStart = ActionButtonItem(title: itemCounting(userSet[7]), image: hint_selectStart)
         selectStart.action = { item in
              if (self.userSet[7] != self.COUNT_ITEM){
                 self.inputSecAlert()
@@ -234,6 +235,15 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         items.append(singerName)
         
         makeAction(items)
+    }
+    
+    func itemCounting(_ item : String) -> String{
+
+        if Int(item)! > 9 {
+            return item
+        }else{
+            return " " + item + " "
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -333,16 +343,15 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         nextStageInit()
         answer.text = ""
         self.answer.endEditing(true)
-        showToast("정답입니다!")
         
         }else if !isMatch{
              life -= 1
+            showToast("틀렸습니다!")
                 if(life == 0){
                     self.answer.endEditing(true)
                     nextStageInit()
                     score += 0
                 }
-            showToast("틀렸습니다!")
         }
         lifeCreate()
     }
@@ -459,6 +468,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             //모든 스테이지 종료 시 일단은 라벨 제거함
             //Alert창 띄워서 결과보여주고 확인누르면 메인으로 돌아가게 만들까?
             stageLabel.isHidden = true
+            
             resultAlert(score: score)
             
         }
@@ -521,24 +531,16 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     func stageFinishAlert(songTitle:String,artist:String){
     
         let alertView = UIAlertController(title: songTitle, message: artist, preferredStyle: .alert)
-        
-//        let image = UIImage(named: "album")
-//        let realiamge = UIImageView(image: image)
-//        realiamge.frame = CGRect(x: 0, y: 100, width: 250, height: 250)
-//        
-//        alertView.view.addSubview(realiamge)
+    
         
         
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
-            alertView.dismiss(animated: true, completion: nil)
-            
             self.nextSong()
+            alertView.dismiss(animated: true, completion: nil)
         })
         alertView.addAction(action)
         
         alertWindow(alertView: alertView)
-        
-
     }
 
     //가수 힌트 alert!
@@ -615,10 +617,14 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
     
     func resultAlert(score:Int){
+        
         // 내가 가진 경험치에 이번판에 얻은 스코어를 더한후..
         let scoreSum = Int(userSet[2])! + score
         let myLevel = Int(userSet[3])! // 내 레벨
         let random : Int = Int(arc4random_uniform(UInt32(4)))+1
+        randomItemIndex = random // segue 로 넘기기 위한 변수
+        gameScore = score // segue 로 넘기기 위한 변수
+        
         var levelUp : Bool = false
         print("내 경험치 : \(scoreSum)")
         print("내 레벨 : \(myLevel)")
@@ -638,7 +644,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             levelUp = true
             self.userSet[random+3] = String(Int(self.userSet[random+3])! + 1)
          
-            
         }
         //레벨업을 하거나 하지않거나 해서 나온 결과들을 프리퍼런스에 저장시키고
         self.user.set(self.userSet, forKey: "user")
@@ -652,35 +657,14 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         // item5Cnt 까지 추가하면 완료... 아마 default 에 4567에 들어있을 것임..
         // 만약 랜덤값이 4면 서버에는 item5Cnt 을 추가하면 돼
         
+        if levelUp {
+            self.performSegue(withIdentifier: "GameToResultLvUp", sender: self)
+ 
+        } else{
+            self.performSegue(withIdentifier: "GameToResult", sender: self)
+        }
         
         
-        
-        // 프리퍼런스로 내가 가진 경험치에 + score = 내 경험치
-        let alertView = UIAlertController(title: "RESULT", message: "당신의 점수는 \(score)점 입니다!", preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
-            //만약 경험치가 레벨업을 할 수 있는 경험치라면 레벨업 뷰로..
-            
-            
-                // 임시로 랜덤아이템이 뭐가 나왔나 띄우는 것
-                
-                
-            if levelUp{
-                print("레벨업!")
-                self.levelUpAlert(random)
-                self.dismiss(animated: true, completion: nil)
-            }else{
-                //아니라면 alertView 끄기..
-                alertView.dismiss(animated: true, completion: nil)
-                self.dismiss(animated: true, completion: nil)
-
-            }
-            
-        })
-        alertView.addAction(action)
-        
-        alertWindow(alertView: alertView)
-
     }
     
     // 레벨업 할 수 있나 없나 체크!
@@ -741,38 +725,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         alertWindow(alertView: alertView)
     }
     
-    // level up alert !
-    func levelUpAlert(_ random: Int){
-        
-        let alertView = UIAlertController(title: "레벨업!!", message: "레벨업 입니다요", preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
-            alertView.dismiss(animated: true, completion: nil)
-        })
-        
-        // 1345
-        // 1234 = random 값
-//        let image = UIImage(named: "levelupItem\(random)")
-//        let realiamge = UIImageView(image: image)
-//        realiamge.frame = CGRect(x: 80, y: 150, width: 100, height: 100) // 위치는 나중에 생각..
-//        alertView.view.addSubview(realiamge)
-        alertView.addAction(action)
-        alertWindow(alertView: alertView)
-
-        // 획득 했다는 것 어떻게 알려줄까? 
-        
-        print("내가 가지고 있는 아이템 ",userSet[4])
-        
-        print("내가 가지고 있는 아이템 ",userSet[5])
-        
-        print("내가 가지고 있는 아이템 ",userSet[6])
-        
-        print("내가 가지고 있는 아이템 ",userSet[7])
-        
-        
-    }
-
-    
+      
     //MARK: ANIMATION
     
     func aniStar(pic : UIImageView, aniDuration : Double){
@@ -865,7 +818,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                                 }
                             }
                         }}
-                    //self.performSegue(withIdentifier: "LoginToMainSegue", sender: self)
                 }
                 break
                 
@@ -924,94 +876,21 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         }
     }
     
-    
-    
-    /*
-    func myscoreUpdate(userId:String, exp:Int, userLevel:Int){
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let baseURL = "http://52.79.152.130/TicSongServer/myscore.do"
-        
-        let parameters: Parameters = ["service":"update", "userId":userId, "exp":exp, "userLevel":userLevel]
-        
-        
-        Alamofire.request(baseURL,method : .post, parameters: parameters, encoding: URLEncoding.default, headers: nil)
-            .responseJSON { (response:DataResponse<Any>) in
-                
-                switch(response.result) {
-                case .success(_):
-                    if response.result.value != nil{
-                        //print(response.result.value!)
-                        
-                        if let data = response.data, let utf8Text = String(data: data, encoding: .utf8), let encodedData = utf8Text.data(using: String.Encoding.utf8){
-                            
-                            let JSON = try! JSONSerialization.jsonObject(with: encodedData, options: [])
-                            
-                            if let JSON = JSON as? [String: AnyObject] {
-                                if let resultCode = JSON["resultCode"] as? Int{
-                                    
-                                    if(resultCode == 1){
-                                        print("성공적으로 exp와 userLevel update!")
-                                    }else{print("exp와 userLevel update 실패…")
-                                    }
-                                }
-                            }}
-                        //self.performSegue(withIdentifier: "LoginToMainSegue", sender: self)
-                    }
-                    break
-                    
-                case .failure(_):
-                    print(response.result.error!)
-                    
-                    break
-                    
-                }
+        if segue.identifier == "GameToResultLvUp"{
+            let des = segue.destination as! ResultViewControllerLvUp
+            des.randomIndex = randomItemIndex
+            des.myLevel = self.userSet[3]
+            des.myScore = String(gameScore)
+        }
+        else if segue.identifier == "GameToResult"{
+            let des = segue.destination as! ResultViewController
+            des.myLevel = self.userSet[3]
+            des.myScore = String(gameScore)
         }
     }
-     
-    func itemUpdate(userId:String, exp:Int, userLevel:Int, item1Cnt:Int, item2Cnt:Int, item3Cnt:Int, item4Cnt:Int) {
-        
-        
-        let baseURL = "http://52.79.152.130/TicSongServer/item.do"
-        
-        let parameters: Parameters = ["service":"update", "userId":userId, "item1Cnt":item1Cnt, "item2Cnt":item2Cnt,"item3Cnt":item3Cnt, "item4Cnt":item4Cnt]
-        
-        
-        Alamofire.request(baseURL,method : .post, parameters: parameters, encoding: URLEncoding.default, headers: nil)
-        .responseJSON { (response:DataResponse<Any>) in
-            
-            switch(response.result) {
-            case .success(_):
-                if response.result.value != nil{
-                    //print(response.result.value!)
-                    
-                    if let data = response.data, let utf8Text = String(data: data, encoding: .utf8), let encodedData = utf8Text.data(using: String.Encoding.utf8){
-                        
-                        let JSON = try! JSONSerialization.jsonObject(with: encodedData, options: [])
-                        
-                        if let JSON = JSON as? [String: AnyObject] {
-                            if let resultCode = JSON["resultCode"] as? Int {
-                                
-            if(resultCode == 1){
-            print("성공적으로 exp와 userLevel update!")
-            }else{print("exp와 userLevel update 실패…")
-            }
-
-            
-                            }
-                        }}
-                    //self.performSegue(withIdentifier: "LoginToMainSegue", sender: self)
-                }
-                break
-                
-            case .failure(_):
-                print(response.result.error!)
-                
-                break
-                
-            }
-        }
-    }
-     */
-
+    
+    
 }
 

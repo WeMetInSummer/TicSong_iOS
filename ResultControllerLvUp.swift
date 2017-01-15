@@ -1,5 +1,5 @@
 //
-//  ResultViewController.swift
+//  ResultControllerLvUp.swift
 //  TicSong_Media
 //
 //  Created by 윤민섭 on 2017. 1. 15..
@@ -8,26 +8,14 @@
 
 import UIKit
 
-class ResultViewController: UIViewController {
+class ResultControllerLvUp: UIViewController {
 
-    var myLevel : String = ""
-    var myScore : String = ""
-    
-    @IBOutlet weak var myScoreLabel: UILabel!
-    
-    @IBOutlet weak var myLevelLabel: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-   
+
         // Do any additional setup after loading the view.
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        print(myScore,"내점수")
-        myScoreLabel.text = myScore
-        myLevelLabel.text = "레벨 : " + myLevel
-    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
