@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Alamofire
 
 class SettingViewController: UIViewController,UINavigationControllerDelegate,UINavigationBarDelegate {
 
     @IBOutlet weak var bgmSwitch: UISwitch!
     let setting = UserDefaults.standard
+    
+    var userId : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,10 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate,UIN
         
         
         bar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        
+        
+        userId = (setting.stringArray(forKey: "user")?[1])!
+        
         
         
         let switchState = setting.string(forKey: "setting")
@@ -61,15 +68,114 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate,UIN
     
     
     @IBAction func deleteUserBtn(_ sender: UIButton) {
-        print("a")
+        
+        let alertView = UIAlertController(title: "회원 탈퇴", message: "정말로 탈퇴하시겠습니까?", preferredStyle: .alert)
+        
+        
+        
+        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
+            
+            
+            alertView.dismiss(animated: true, completion: nil)
+            self.deleteUser()
+            
+        
+        
+        
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in print("cancel button clicked")}
+        
+        alertView.addAction(action)
+        alertView.addAction(cancelAction)
+        
+        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
+        alertWindow.rootViewController = UIViewController()
+        alertWindow.windowLevel = UIWindowLevelAlert + 1
+        alertWindow.makeKeyAndVisible()
+        alertWindow.rootViewController?.present(alertView, animated: true, completion: nil)
+       
+    
     }
+    
+    
     
     @IBAction func tutorialBtn(_ sender: UIButton) {
         print("keep")
 
     }
-   
     
+    
+    
+    func deleteUser(){
+    
+    
+        //서버통신
+        let baseURL = "http://52.79.152.130/TicSongServer/user.do?service=delete&userId="+userId
+        
+        
+        
+        Alamofire.request(baseURL,method : .get,encoding: URLEncoding.default, headers: nil)
+            .responseJSON { (response:DataResponse<Any>) in
+                
+                switch(response.result) {
+                case .success(_):
+                    if response.result.value != nil{
+                        
+                        
+                        if let data = response.data, let utf8Text = String(data: data, encoding: .utf8), let encodedData = utf8Text.data(using: String.Encoding.utf8){
+                            
+                            let JSON = try! JSONSerialization.jsonObject(with: encodedData, options: [])
+                            
+                            if let JSON = JSON as? [String: AnyObject] {
+                                if let resultCode = JSON["resultCode"] as? String {
+                                    
+                                    
+                                    if resultCode == "1"{
+                                        
+                                        self.setting.removeObject(forKey: "user")
+                                        self.setting.removeObject(forKey: "setting")
+                                        
+                                        self.performSegue(withIdentifier: "unwindToLogin", sender: self)
+                                        
+                                    }else{
+                                        
+                                        self.showToast("네트워크 연결 상태를 확인해주세요.")
+                                        
+                                        
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                    
+                    
+                    break
+                    
+                case .failure(_):
+                    print(response.result.error!)
+                    
+                    
+                    break
+                    
+                }
+        }
+        
+    }
+    
+   
+    func showToast(_ msg:String) {
+        let toast = UIAlertController()
+        toast.message = msg;
+        
+        self.present(toast, animated: true, completion: nil)
+        let duration = DispatchTime.now() + Double(Int64(2 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        
+        DispatchQueue.main.asyncAfter(deadline: duration) {
+            toast.dismiss(animated: true, completion: nil)
+        }
+    }
     
    
     

@@ -11,6 +11,7 @@
 		370899B91E1E393100AD8486 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370899B81E1E393100AD8486 /* LoginController.swift */; };
 		370899BB1E1E3DD100AD8486 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370899BA1E1E3DD100AD8486 /* KakaoOpenSDK.framework */; };
 		370B64BD1E1ACBB700CD2A4C /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B64BC1E1ACBB700CD2A4C /* MainController.swift */; };
+		372DCB9A1E2BEBAF000D15D3 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372DCB991E2BEBAF000D15D3 /* AboutUsViewController.swift */; };
 		373816671E29300800E1EEC3 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373816661E29300800E1EEC3 /* RankingTableViewCell.swift */; };
 		373816691E2933E600E1EEC3 /* RankingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373816681E2933E600E1EEC3 /* RankingTableViewController.swift */; };
 		373D13001E19546900EA00C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D12FF1E19546900EA00C4 /* AppDelegate.swift */; };
@@ -28,6 +29,8 @@
 		37664F0E1E2B5995005FA7E7 /* EXO-THIN.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 37664F0D1E2B5995005FA7E7 /* EXO-THIN.OTF */; };
 		37664F101E2B59A4005FA7E7 /* EXO-LIGHT.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 37664F0F1E2B59A4005FA7E7 /* EXO-LIGHT.OTF */; };
 		37664F121E2B59C6005FA7E7 /* EXO-BLACK.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 37664F111E2B59C6005FA7E7 /* EXO-BLACK.OTF */; };
+		377049A41E2BE8D600A8A4A4 /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377049A31E2BE8D600A8A4A4 /* OpenSourceViewController.swift */; };
+		377049A61E2BE90100A8A4A4 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377049A51E2BE90100A8A4A4 /* PrivacyViewController.swift */; };
 		3784E5971E2937A9005E11BE /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3784E5961E2937A9005E11BE /* Ranking.swift */; };
 		3784E5991E294A4D005E11BE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3784E5981E294A4D005E11BE /* SettingViewController.swift */; };
 		37B0B1B61E2279040061F499 /* EXO-REGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 37B0B1B51E2279040061F499 /* EXO-REGULAR.OTF */; };
@@ -44,6 +47,7 @@
 		370899BA1E1E3DD100AD8486 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		370899BC1E1E402B00AD8486 /* TicSong_Media-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TicSong_Media-Bridging-Header.h"; sourceTree = "<group>"; };
 		370B64BC1E1ACBB700CD2A4C /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		372DCB991E2BEBAF000D15D3 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		373816661E29300800E1EEC3 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
 		373816681E2933E600E1EEC3 /* RankingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewController.swift; sourceTree = "<group>"; };
 		373D12FC1E19546900EA00C4 /* TicSong_Media.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicSong_Media.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +67,8 @@
 		37664F0D1E2B5995005FA7E7 /* EXO-THIN.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EXO-THIN.OTF"; sourceTree = "<group>"; };
 		37664F0F1E2B59A4005FA7E7 /* EXO-LIGHT.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EXO-LIGHT.OTF"; sourceTree = "<group>"; };
 		37664F111E2B59C6005FA7E7 /* EXO-BLACK.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EXO-BLACK.OTF"; sourceTree = "<group>"; };
+		377049A31E2BE8D600A8A4A4 /* OpenSourceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
+		377049A51E2BE90100A8A4A4 /* PrivacyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		3784E5961E2937A9005E11BE /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		3784E5981E294A4D005E11BE /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		37B0B1B51E2279040061F499 /* EXO-REGULAR.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EXO-REGULAR.OTF"; sourceTree = "<group>"; };
@@ -125,6 +131,8 @@
 				3784E5981E294A4D005E11BE /* SettingViewController.swift */,
 				67F6C5431E2B73D900B432E0 /* ResultViewControllerLvUp.swift */,
 				67F6C5451E2B740200B432E0 /* ResultViewController.swift */,
+				377049A31E2BE8D600A8A4A4 /* OpenSourceViewController.swift */,
+				377049A51E2BE90100A8A4A4 /* PrivacyViewController.swift */,
 				373D13061E19546900EA00C4 /* Assets.xcassets */,
 				373D130B1E19546900EA00C4 /* Info.plist */,
 				37664F111E2B59C6005FA7E7 /* EXO-BLACK.OTF */,
@@ -140,6 +148,7 @@
 				370899BA1E1E3DD100AD8486 /* KakaoOpenSDK.framework */,
 				370899BC1E1E402B00AD8486 /* TicSong_Media-Bridging-Header.h */,
 				67FFB29B1E2A1B34009BCDE3 /* TicSongLoadingView.swift */,
+				372DCB991E2BEBAF000D15D3 /* AboutUsViewController.swift */,
 			);
 			path = TicSong_Media;
 			sourceTree = "<group>";
@@ -298,12 +307,15 @@
 			files = (
 				373D13021E19546900EA00C4 /* GameController.swift in Sources */,
 				679D5E111E1C9D7E009F824B /* LFTPulseAnimation.swift in Sources */,
+				377049A41E2BE8D600A8A4A4 /* OpenSourceViewController.swift in Sources */,
+				377049A61E2BE90100A8A4A4 /* PrivacyViewController.swift in Sources */,
 				3784E5971E2937A9005E11BE /* Ranking.swift in Sources */,
 				67FFB29C1E2A1B34009BCDE3 /* TicSongLoadingView.swift in Sources */,
 				373816691E2933E600E1EEC3 /* RankingTableViewController.swift in Sources */,
 				373816671E29300800E1EEC3 /* RankingTableViewCell.swift in Sources */,
 				67F6C5441E2B73D900B432E0 /* ResultViewControllerLvUp.swift in Sources */,
 				3784E5991E294A4D005E11BE /* SettingViewController.swift in Sources */,
+				372DCB9A1E2BEBAF000D15D3 /* AboutUsViewController.swift in Sources */,
 				370B64BD1E1ACBB700CD2A4C /* MainController.swift in Sources */,
 				373D13001E19546900EA00C4 /* AppDelegate.swift in Sources */,
 				370899B91E1E393100AD8486 /* LoginController.swift in Sources */,
@@ -444,7 +456,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "TicSong_Media/TicSong_Media-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -470,7 +482,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TicSong_Media/TicSong_Media-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
