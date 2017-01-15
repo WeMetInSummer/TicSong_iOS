@@ -554,7 +554,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STAGE 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="DU5-52-hOP">
-                                <rect key="frame" x="122" y="29" width="131" height="26.5"/>
+                                <rect key="frame" x="122" y="29" width="131" height="26"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DU5-52-hOP" secondAttribute="height" multiplier="5:1" id="dUE-Gu-LiW"/>
@@ -671,6 +671,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sX1-EL-Jv5">
+                                <rect key="frame" x="56.5" y="77.5" width="262.5" height="512"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQQ-fB-x7v">
+                                        <rect key="frame" x="0.0" y="476" width="262.5" height="36"/>
+                                        <fontDescription key="fontDescription" name="Exo-DemiBold" family="Exo" pointSize="18"/>
+                                        <state key="normal" title="계정탈퇴">
+                                            <color key="titleColor" red="0.99950665235519409" green="0.65818989487007262" blue="0.7127985761347555" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="deleteUserBtn:" destination="YEM-2H-GdD" eventType="touchUpInside" id="ozN-jp-Kt6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="sX1-EL-Jv5" secondAttribute="height" multiplier="1:1.95" id="GsZ-uP-VZm"/>
+                                    <constraint firstAttribute="bottom" secondItem="PQQ-fB-x7v" secondAttribute="bottom" id="Jm8-1R-LBC"/>
+                                    <constraint firstItem="PQQ-fB-x7v" firstAttribute="leading" secondItem="sX1-EL-Jv5" secondAttribute="leading" id="YPH-C6-Uo5"/>
+                                    <constraint firstAttribute="trailing" secondItem="PQQ-fB-x7v" secondAttribute="trailing" id="dLw-xs-sTc"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="배경음 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeX-Ks-vy0">
                                 <rect key="frame" x="36" y="84" width="78" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -683,57 +705,72 @@
                                     <action selector="bgmSetting:" destination="YEM-2H-GdD" eventType="valueChanged" id="ycs-Cn-9NK"/>
                                 </connections>
                             </switch>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6EN-lm-lgJ">
-                                <rect key="frame" x="16" y="201" width="343" height="35"/>
-                                <fontDescription key="fontDescription" name="Exo-DemiBold" family="Exo" pointSize="17"/>
-                                <state key="normal" title="TUTORIAL">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QX-gj-Mtv">
-                                <rect key="frame" x="16" y="285" width="375" height="35"/>
-                                <fontDescription key="fontDescription" name="Exo-DemiBold" family="Exo" pointSize="17"/>
-                                <state key="normal" title="ABOUT US">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9T-ea-1tA">
-                                <rect key="frame" x="70" y="369" width="375" height="35"/>
-                                <fontDescription key="fontDescription" name="Exo-DemiBold" family="Exo" pointSize="17"/>
-                                <state key="normal" title="개인정보 취급방침 및 이용약관">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFx-OK-UOo">
-                                <rect key="frame" x="131" y="453" width="375" height="35"/>
-                                <fontDescription key="fontDescription" name="Exo-DemiBold" family="Exo" pointSize="17"/>
-                                <state key="normal" title="오픈소스 공시">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tGz-L5-aMy">
+                                <rect key="frame" x="56.5" y="189.5" width="262.5" height="288"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6EN-lm-lgJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="262.5" height="35"/>
+                                        <fontDescription key="fontDescription" name="Exo-DemiBold" family="Exo" pointSize="17"/>
+                                        <state key="normal" title="TUTORIAL">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tutorialBtn:" destination="YEM-2H-GdD" eventType="touchUpInside" id="ydi-Xh-gNs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFx-OK-UOo">
+                                        <rect key="frame" x="0.0" y="210" width="262.5" height="35"/>
+                                        <fontDescription key="fontDescription" name="Exo-DemiBold" family="Exo" pointSize="17"/>
+                                        <state key="normal" title="오픈소스 공시">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9T-ea-1tA">
+                                        <rect key="frame" x="0.0" y="70" width="262.5" height="35"/>
+                                        <fontDescription key="fontDescription" name="Exo-DemiBold" family="Exo" pointSize="17"/>
+                                        <state key="normal" title="개인정보 취급방침 및 이용약관">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QX-gj-Mtv">
+                                        <rect key="frame" x="0.0" y="140" width="262.5" height="35"/>
+                                        <fontDescription key="fontDescription" name="Exo-DemiBold" family="Exo" pointSize="17"/>
+                                        <state key="normal" title="ABOUT US">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="2QX-gj-Mtv" secondAttribute="trailing" id="0LI-hM-ZTO"/>
+                                    <constraint firstAttribute="trailing" secondItem="xFx-OK-UOo" secondAttribute="trailing" id="7YX-eQ-jQe"/>
+                                    <constraint firstItem="2QX-gj-Mtv" firstAttribute="top" secondItem="j9T-ea-1tA" secondAttribute="bottom" constant="35" id="C0v-Tf-Gch"/>
+                                    <constraint firstItem="j9T-ea-1tA" firstAttribute="top" secondItem="6EN-lm-lgJ" secondAttribute="bottom" constant="35" id="Dqz-h9-qJs"/>
+                                    <constraint firstItem="6EN-lm-lgJ" firstAttribute="leading" secondItem="tGz-L5-aMy" secondAttribute="leading" id="FaH-aB-wMj"/>
+                                    <constraint firstItem="j9T-ea-1tA" firstAttribute="leading" secondItem="tGz-L5-aMy" secondAttribute="leading" id="GvA-5N-mjD"/>
+                                    <constraint firstItem="xFx-OK-UOo" firstAttribute="top" secondItem="2QX-gj-Mtv" secondAttribute="bottom" constant="35" id="I0D-aN-Iw5"/>
+                                    <constraint firstItem="2QX-gj-Mtv" firstAttribute="leading" secondItem="tGz-L5-aMy" secondAttribute="leading" id="Pkl-S7-1p2"/>
+                                    <constraint firstAttribute="width" secondItem="tGz-L5-aMy" secondAttribute="height" multiplier="1:1.1" id="QNe-7L-hlW"/>
+                                    <constraint firstAttribute="trailing" secondItem="6EN-lm-lgJ" secondAttribute="trailing" id="RXb-VY-gN1"/>
+                                    <constraint firstAttribute="trailing" secondItem="j9T-ea-1tA" secondAttribute="trailing" id="hLO-lp-sER"/>
+                                    <constraint firstItem="6EN-lm-lgJ" firstAttribute="top" secondItem="tGz-L5-aMy" secondAttribute="top" id="wRE-bK-9bM"/>
+                                    <constraint firstItem="xFx-OK-UOo" firstAttribute="leading" secondItem="tGz-L5-aMy" secondAttribute="leading" id="xHV-kA-ja0"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.027497058734297752" green="0.10341677814722061" blue="0.20720309019088745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="2QX-gj-Mtv" firstAttribute="width" secondItem="Dhc-a7-GzM" secondAttribute="width" id="CPV-9B-mhM"/>
-                            <constraint firstItem="xFx-OK-UOo" firstAttribute="leading" secondItem="Dhc-a7-GzM" secondAttribute="leadingMargin" constant="115" id="Cxc-uo-Xt3"/>
-                            <constraint firstItem="xFx-OK-UOo" firstAttribute="width" secondItem="Dhc-a7-GzM" secondAttribute="width" id="F2o-Rc-7F2"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2QX-gj-Mtv" secondAttribute="trailing" id="Sb7-Ln-UDI"/>
-                            <constraint firstItem="2QX-gj-Mtv" firstAttribute="top" secondItem="6EN-lm-lgJ" secondAttribute="bottom" constant="49" id="TDO-cp-uKi"/>
-                            <constraint firstItem="j9T-ea-1tA" firstAttribute="width" secondItem="Dhc-a7-GzM" secondAttribute="width" id="U45-lg-HYu"/>
-                            <constraint firstItem="xFx-OK-UOo" firstAttribute="top" secondItem="j9T-ea-1tA" secondAttribute="bottom" constant="49" id="VNl-K5-PWn"/>
+                            <constraint firstItem="tGz-L5-aMy" firstAttribute="width" secondItem="Dhc-a7-GzM" secondAttribute="width" multiplier="0.7" id="DjE-i8-Vfb"/>
+                            <constraint firstItem="tGz-L5-aMy" firstAttribute="centerY" secondItem="Dhc-a7-GzM" secondAttribute="centerY" id="H4b-AK-whA"/>
+                            <constraint firstItem="tGz-L5-aMy" firstAttribute="centerX" secondItem="Dhc-a7-GzM" secondAttribute="centerX" id="VTh-Dy-umX"/>
                             <constraint firstItem="gIY-pN-6W0" firstAttribute="top" secondItem="705-8j-uH3" secondAttribute="bottom" constant="14" id="X45-lr-S39"/>
-                            <constraint firstItem="HTt-Rg-Eea" firstAttribute="top" secondItem="xFx-OK-UOo" secondAttribute="bottom" constant="179" id="XJB-Bo-Iie"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xFx-OK-UOo" secondAttribute="trailing" constant="115" id="faM-k9-qhc"/>
+                            <constraint firstItem="tGz-L5-aMy" firstAttribute="centerX" secondItem="Dhc-a7-GzM" secondAttribute="centerX" id="fMg-7P-pXy"/>
                             <constraint firstItem="qeX-Ks-vy0" firstAttribute="top" secondItem="705-8j-uH3" secondAttribute="bottom" constant="20" id="gIl-E6-L2f"/>
-                            <constraint firstItem="j9T-ea-1tA" firstAttribute="top" secondItem="2QX-gj-Mtv" secondAttribute="bottom" constant="49" id="hmg-Cr-CE9"/>
-                            <constraint firstItem="6EN-lm-lgJ" firstAttribute="leading" secondItem="Dhc-a7-GzM" secondAttribute="leadingMargin" id="iPg-Ed-egv"/>
-                            <constraint firstItem="2QX-gj-Mtv" firstAttribute="leading" secondItem="Dhc-a7-GzM" secondAttribute="leadingMargin" id="ikG-Pj-Lgk"/>
-                            <constraint firstItem="6EN-lm-lgJ" firstAttribute="top" secondItem="705-8j-uH3" secondAttribute="bottom" constant="137" id="jeL-6p-mWL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="j9T-ea-1tA" secondAttribute="trailing" constant="54" id="kfx-c6-Lqd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6EN-lm-lgJ" secondAttribute="trailing" id="m6L-S9-Qe2"/>
+                            <constraint firstItem="sX1-EL-Jv5" firstAttribute="centerX" secondItem="Dhc-a7-GzM" secondAttribute="centerX" id="jji-sr-Zul"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gIY-pN-6W0" secondAttribute="trailing" constant="20" id="met-Rv-2Is"/>
                             <constraint firstItem="qeX-Ks-vy0" firstAttribute="leading" secondItem="Dhc-a7-GzM" secondAttribute="leadingMargin" constant="20" id="nNg-Xh-rSj"/>
-                            <constraint firstItem="j9T-ea-1tA" firstAttribute="leading" secondItem="Dhc-a7-GzM" secondAttribute="leadingMargin" constant="54" id="xZv-dJ-MBq"/>
+                            <constraint firstItem="sX1-EL-Jv5" firstAttribute="width" secondItem="Dhc-a7-GzM" secondAttribute="width" multiplier="0.7" id="qd2-Te-9dZ"/>
+                            <constraint firstItem="sX1-EL-Jv5" firstAttribute="centerY" secondItem="Dhc-a7-GzM" secondAttribute="centerY" id="xtH-0Z-Cu3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Setting" id="sl8-r3-jYU">
@@ -756,7 +793,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yQ6-ga-H5g" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Z1-vW-iWg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="6Z1-vW-iWg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -777,7 +814,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iMT-r5-V17" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mBC-T6-oIb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mBC-T6-oIb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -810,7 +847,7 @@
                                 <rect key="frame" x="47" y="143.5" width="281" height="380"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resultViewimg" translatesAutoresizingMaskIntoConstraints="NO" id="Uit-cu-LhX">
-                                        <rect key="frame" x="0.0" y="6.5" width="281" height="367"/>
+                                        <rect key="frame" x="0.0" y="7.5" width="281" height="365"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Uit-cu-LhX" secondAttribute="height" multiplier="1:1.3" id="OOE-TG-665"/>
                                         </constraints>

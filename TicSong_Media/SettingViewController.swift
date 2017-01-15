@@ -58,7 +58,23 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate,UIN
         self.dismiss(animated: true, completion: nil)
 
     }
+    
+    
+    @IBAction func deleteUserBtn(_ sender: UIButton) {
+        print("a")
+    }
+    
+    @IBAction func tutorialBtn(_ sender: UIButton) {
+        print("keep")
+
+    }
    
+    
+    
+   
+    
+    
+    
     /*
     // MARK: - Navigation
 
