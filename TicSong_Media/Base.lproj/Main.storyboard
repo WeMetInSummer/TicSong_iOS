@@ -185,7 +185,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Poj-si-O5a" secondAttribute="height" id="Ebx-2W-OVo"/>
                                                         </constraints>
-                                                        <state key="normal" backgroundImage="hint_selectStart"/>
+                                                        <state key="normal" backgroundImage="hint_singerName"/>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="von-7w-UMu">
                                                         <rect key="frame" x="0.0" y="5.5" width="76" height="76"/>
@@ -224,7 +224,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="GoA-xe-jqM" secondAttribute="height" id="dtK-fm-avR"/>
                                                         </constraints>
-                                                        <state key="normal" backgroundImage="hint_selectStart"/>
+                                                        <state key="normal" backgroundImage="hint_firstChar"/>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYI-ed-Gdc">
                                                         <rect key="frame" x="0.0" y="5.5" width="76" height="76"/>
@@ -263,7 +263,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Yhc-8A-BfL" secondAttribute="height" id="JjE-Wd-55f"/>
                                                         </constraints>
-                                                        <state key="normal" backgroundImage="hint_selectStart"/>
+                                                        <state key="normal" backgroundImage="hint_threeSec"/>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r7O-wo-nQU">
                                                         <rect key="frame" x="0.0" y="5.5" width="76" height="76"/>
@@ -733,7 +733,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yQ6-ga-H5g" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Z1-vW-iWg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="6Z1-vW-iWg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -754,7 +754,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iMT-r5-V17" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mBC-T6-oIb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mBC-T6-oIb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -773,7 +773,10 @@
         <image name="back" width="35" height="35"/>
         <image name="bar0" width="255" height="28"/>
         <image name="close" width="35" height="35"/>
+        <image name="hint_firstChar" width="127" height="127"/>
         <image name="hint_selectStart" width="127" height="127"/>
+        <image name="hint_singerName" width="127" height="127"/>
+        <image name="hint_threeSec" width="127" height="127"/>
         <image name="juke_shootingStar" width="496" height="496"/>
         <image name="kakao_login" width="588" height="80"/>
         <image name="life" width="35" height="35"/>
