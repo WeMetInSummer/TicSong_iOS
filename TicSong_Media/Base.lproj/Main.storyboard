@@ -59,7 +59,7 @@
                                 <rect key="frame" x="0.0" y="72" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CYK-tm-qSu" id="SsN-Oh-vHB">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="79.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxb-sk-Fk5">
@@ -672,16 +672,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_backgroundStar" translatesAutoresizingMaskIntoConstraints="NO" id="hKy-YH-xoN">
-                                <rect key="frame" x="0.0" y="36.666666666666686" width="414" height="662.66666666666674"/>
+                                <rect key="frame" x="0.0" y="37" width="414" height="662"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hKy-YH-xoN" secondAttribute="height" multiplier="1:1.6" id="eCx-eU-VEO"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sX1-EL-Jv5">
-                                <rect key="frame" x="62" y="85.333333333333314" width="290" height="565.33333333333326"/>
+                                <rect key="frame" x="62" y="85" width="290" height="566"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQQ-fB-x7v">
-                                        <rect key="frame" x="0.0" y="529.33333333333326" width="290" height="36"/>
+                                        <rect key="frame" x="0.0" y="530" width="290" height="36"/>
                                         <fontDescription key="fontDescription" name="Exo-DemiBold" family="Exo" pointSize="18"/>
                                         <state key="normal" title="회원 탈퇴">
                                             <color key="titleColor" red="0.99950665235519409" green="0.65818989487007262" blue="0.7127985761347555" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -712,7 +712,7 @@
                                 </connections>
                             </switch>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tGz-L5-aMy">
-                                <rect key="frame" x="62" y="208.66666666666663" width="290" height="318.66666666666674"/>
+                                <rect key="frame" x="62" y="209" width="290" height="318"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6EN-lm-lgJ">
                                         <rect key="frame" x="0.0" y="0.0" width="290" height="35"/>
@@ -725,7 +725,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFx-OK-UOo">
-                                        <rect key="frame" x="0.0" y="210.00000000000003" width="290" height="35"/>
+                                        <rect key="frame" x="0.0" y="210" width="290" height="35"/>
                                         <fontDescription key="fontDescription" name="Exo-DemiBold" family="Exo" pointSize="17"/>
                                         <state key="normal" title="오픈소스 공시">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -735,7 +735,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9T-ea-1tA">
-                                        <rect key="frame" x="0.0" y="70.000000000000028" width="290" height="35"/>
+                                        <rect key="frame" x="0.0" y="70" width="290" height="35"/>
                                         <fontDescription key="fontDescription" name="Exo-DemiBold" family="Exo" pointSize="17"/>
                                         <state key="normal" title="개인정보 취급방침 및 이용약관">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -745,7 +745,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QX-gj-Mtv">
-                                        <rect key="frame" x="0.0" y="140.00000000000003" width="290" height="35"/>
+                                        <rect key="frame" x="0.0" y="140" width="290" height="35"/>
                                         <fontDescription key="fontDescription" name="Exo-DemiBold" family="Exo" pointSize="17"/>
                                         <state key="normal" title="ABOUT US">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -794,6 +794,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Setting" id="sl8-r3-jYU">
                         <barButtonItem key="leftBarButtonItem" image="back" id="rAR-5L-OC2">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="toMain:" destination="YEM-2H-GdD" id="AiC-X3-1yM"/>
                             </connections>
@@ -951,7 +952,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="개인정보 취급방침 및 이용약관" id="c1T-SZ-x6O">
-                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="o06-NK-y5X">
+                        <barButtonItem key="leftBarButtonItem" image="back" id="o06-NK-y5X">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="closeBtn:" destination="lSg-SP-P64" id="Av1-dh-1cw"/>
                             </connections>
@@ -977,7 +979,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Xrl-9o-sQf">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" red="0.054947271943092346" green="0.13114801049232483" blue="0.23077297210693359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <mutableString key="text">- Library
+                                <string key="text">- Library
         
         #SoundCloud API
         https://developers.soundcloud.com
@@ -1021,7 +1023,7 @@
         아티스트: http://incompetech.com
     
  
-Copyright © 2016 우리는여름에만났다 All Rights Reserved</mutableString>
+Copyright © 2016 우리는여름에만났다 All Rights Reserved</string>
                                 <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1036,7 +1038,8 @@ Copyright © 2016 우리는여름에만났다 All Rights Reserved</mutableString
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="오픈소스 공시" id="sn4-l7-ayf">
-                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="hRA-TZ-djp">
+                        <barButtonItem key="leftBarButtonItem" image="back" id="hRA-TZ-djp">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="closeBtn:" destination="7HT-M8-jEA" id="Mkk-Ul-8Na"/>
                             </connections>
@@ -1077,9 +1080,9 @@ Copyright © 2016 우리는여름에만났다 All Rights Reserved</mutableString
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view opaque="NO" alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGB-6z-bbD">
+                            <view opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGB-6z-bbD">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOm-nq-F9C">
                                 <rect key="frame" x="51.666666666666657" y="158.33333333333337" width="310.66666666666663" height="419.33333333333326"/>
@@ -1398,7 +1401,7 @@ Copyright © 2016 우리는여름에만났다 All Rights Reserved</mutableString
     </scenes>
     <resources>
         <image name="Tic_btn" width="330" height="330"/>
-        <image name="back" width="23" height="23"/>
+        <image name="back" width="48" height="48"/>
         <image name="bar0" width="170" height="19"/>
         <image name="close" width="23" height="23"/>
         <image name="default" width="360" height="360"/>
