@@ -34,6 +34,8 @@
 		3784E5971E2937A9005E11BE /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3784E5961E2937A9005E11BE /* Ranking.swift */; };
 		3784E5991E294A4D005E11BE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3784E5981E294A4D005E11BE /* SettingViewController.swift */; };
 		37B0B1B61E2279040061F499 /* EXO-REGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 37B0B1B51E2279040061F499 /* EXO-REGULAR.OTF */; };
+		37B7E76B1E2CF5D20091E81B /* PrivacyCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B7E76A1E2CF5D20091E81B /* PrivacyCheckViewController.swift */; };
+		37B7E76F1E2D2D310091E81B /* FakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B7E76E1E2D2D310091E81B /* FakeViewController.swift */; };
 		37CB96DA1E2CD6BE00BC5D2E /* TutorialContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CB96D91E2CD6BE00BC5D2E /* TutorialContentViewController.swift */; };
 		37CB96DC1E2CD6DD00BC5D2E /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CB96DB1E2CD6DD00BC5D2E /* TutorialViewController.swift */; };
 		37FC94751E29DB0400A08AA4 /* jellyfish.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 37FC94741E29DB0400A08AA4 /* jellyfish.mp3 */; };
@@ -74,6 +76,8 @@
 		3784E5961E2937A9005E11BE /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		3784E5981E294A4D005E11BE /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		37B0B1B51E2279040061F499 /* EXO-REGULAR.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EXO-REGULAR.OTF"; sourceTree = "<group>"; };
+		37B7E76A1E2CF5D20091E81B /* PrivacyCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyCheckViewController.swift; sourceTree = "<group>"; };
+		37B7E76E1E2D2D310091E81B /* FakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeViewController.swift; sourceTree = "<group>"; };
 		37CB96D91E2CD6BE00BC5D2E /* TutorialContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialContentViewController.swift; sourceTree = "<group>"; };
 		37CB96DB1E2CD6DD00BC5D2E /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		37FC94741E29DB0400A08AA4 /* jellyfish.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jellyfish.mp3; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 				370899BC1E1E402B00AD8486 /* TicSong_Media-Bridging-Header.h */,
 				67FFB29B1E2A1B34009BCDE3 /* TicSongLoadingView.swift */,
 				372DCB991E2BEBAF000D15D3 /* AboutUsViewController.swift */,
+				37B7E76A1E2CF5D20091E81B /* PrivacyCheckViewController.swift */,
+				37B7E76E1E2D2D310091E81B /* FakeViewController.swift */,
 			);
 			path = TicSong_Media;
 			sourceTree = "<group>";
@@ -314,11 +320,13 @@
 				373D13021E19546900EA00C4 /* GameController.swift in Sources */,
 				679D5E111E1C9D7E009F824B /* LFTPulseAnimation.swift in Sources */,
 				377049A41E2BE8D600A8A4A4 /* OpenSourceViewController.swift in Sources */,
+				37B7E76F1E2D2D310091E81B /* FakeViewController.swift in Sources */,
 				377049A61E2BE90100A8A4A4 /* PrivacyViewController.swift in Sources */,
 				3784E5971E2937A9005E11BE /* Ranking.swift in Sources */,
 				67FFB29C1E2A1B34009BCDE3 /* TicSongLoadingView.swift in Sources */,
 				373816691E2933E600E1EEC3 /* RankingTableViewController.swift in Sources */,
 				373816671E29300800E1EEC3 /* RankingTableViewCell.swift in Sources */,
+				37B7E76B1E2CF5D20091E81B /* PrivacyCheckViewController.swift in Sources */,
 				67F6C5441E2B73D900B432E0 /* ResultViewControllerLvUp.swift in Sources */,
 				3784E5991E294A4D005E11BE /* SettingViewController.swift in Sources */,
 				372DCB9A1E2BEBAF000D15D3 /* AboutUsViewController.swift in Sources */,

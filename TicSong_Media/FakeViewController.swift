@@ -1,25 +1,30 @@
 //
-//  PrivacyViewController.swift
+//  FakeViewController.swift
 //  TicSong_Media
 //
-//  Created by 전한경 on 2017. 1. 16..
+//  Created by 전한경 on 2017. 1. 17..
 //  Copyright © 2017년 jeon. All rights reserved.
 //
 
 import UIKit
 
-class PrivacyViewController: UIViewController,UINavigationControllerDelegate,UINavigationBarDelegate {
+class FakeViewController: UIViewController {
 
+    var setting = UserDefaults.standard
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let bar:UINavigationBar! = navigationController?.navigationBar
-        let barColor = UIColor(red: 20.0/255.0, green: 34.0/255.0, blue: 58.0/255.0, alpha: 1.0)
-        bar.isTranslucent = false
-        bar.barTintColor = barColor
-        bar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if setting.string(forKey: "agree") == "1"{
+            performSegue(withIdentifier: "FakeToLogin", sender: self)
+        }else{
+            performSegue(withIdentifier: "FakeToPrivacy", sender: self)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,10 +33,6 @@ class PrivacyViewController: UIViewController,UINavigationControllerDelegate,UIN
     }
     
 
-    @IBAction func closeBtn(_ sender: UIBarButtonItem) {
-        
-        dismiss(animated: true, completion: nil)
-    }
     /*
     // MARK: - Navigation
 

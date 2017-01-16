@@ -17,6 +17,8 @@ class TutorialContentViewController: UIViewController {
     var pageIndex: Int = 0
     var PhotoName: String!
     
+    var setting = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,8 +43,16 @@ class TutorialContentViewController: UIViewController {
     }
     
     @IBAction func startAction(_ sender: UIButton) {
+
+        // 프리퍼런스 nil 또는 1
+        if setting.string(forKey: "agree") == nil {
+            setting.set("1", forKey: "agree")
+            performSegue(withIdentifier: "tutorialToLogin", sender: self)
+        }else {
+            dismiss(animated: true, completion: nil)
+        }
         
-        dismiss(animated: true, completion: nil)
+        
     }
     
     /*
