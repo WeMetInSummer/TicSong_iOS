@@ -28,30 +28,14 @@ class ResultViewControllerLvUp: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print(myScore,"내점수")
         let image = UIImage(named: "levelupItem\(randomIndex)")
         newItemImage.image = image
         myScoreLabel.text = myScore
         myLevelLabel.text = "Lv : " + myLevel
     }
     
-
-    
     @IBAction func dismissResult(_ sender: UIButton) {
-       
         self.performSegue(withIdentifier: "unwindToMain", sender: self)
-
     }
    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

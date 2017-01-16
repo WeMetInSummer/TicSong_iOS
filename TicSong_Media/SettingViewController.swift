@@ -52,13 +52,10 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate,UIN
     @IBAction func bgmSetting(_ sender: UISwitch) {
         
         if bgmSwitch.isOn {
-            print("bgmSwitch 킴")
             setting.set("1", forKey: "setting")
         }else{
-            print("bgmSwitch 끔")
             setting.set("2", forKey: "setting")
         }
-        
     }
     
     @IBAction func toMain(_ sender: UIBarButtonItem) {
@@ -84,18 +81,15 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate,UIN
         
         })
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in print("cancel button clicked")}
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
         
         alertView.addAction(action)
         alertView.addAction(cancelAction)
-        
         let alertWindow = UIWindow(frame: UIScreen.main.bounds)
         alertWindow.rootViewController = UIViewController()
         alertWindow.windowLevel = UIWindowLevelAlert + 1
         alertWindow.makeKeyAndVisible()
         alertWindow.rootViewController?.present(alertView, animated: true, completion: nil)
-       
-    
     }
     
     
@@ -104,9 +98,7 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate,UIN
     
         //서버통신
         let baseURL = "http://52.79.152.130/TicSongServer/user.do?service=delete&userId="+userId
-        
-        
-        
+
         Alamofire.request(baseURL,method : .get,encoding: URLEncoding.default, headers: nil)
             .responseJSON { (response:DataResponse<Any>) in
                 
@@ -121,22 +113,13 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate,UIN
                             
                             if let JSON = JSON as? [String: AnyObject] {
                                 if let resultCode = JSON["resultCode"] as? String {
-                                    
-                                    
                                     if resultCode == "1"{
-                                        
                                         self.setting.removeObject(forKey: "user")
                                         self.setting.removeObject(forKey: "setting")
-                                        
                                         self.performSegue(withIdentifier: "unwindToLogin", sender: self)
-                                        
                                     }else{
-                                        
                                         self.showToast("네트워크 연결 상태를 확인해주세요.")
-                                        
-                                        
                                     }
-                                    
                                 }
                             }
                         }
@@ -147,13 +130,10 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate,UIN
                     
                 case .failure(_):
                     print(response.result.error!)
-                    
-                    
+                   
                     break
-                    
-                }
+            }
         }
-        
     }
     
    
@@ -168,19 +148,4 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate,UIN
             toast.dismiss(animated: true, completion: nil)
         }
     }
-    
-   
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

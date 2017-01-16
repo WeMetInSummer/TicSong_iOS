@@ -24,17 +24,12 @@ class TutorialContentViewController: UIViewController {
         
         navigationController?.setNavigationBarHidden(true, animated: true)
         
-        if(pageIndex < 4)
-        {
+        if(pageIndex < 4){
             startBtn.isHidden = true
         }else{
-            
             startBtn.isHidden = false
         }
-        
-        
         tutorialImage.image = UIImage(named: PhotoName)
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,7 +39,6 @@ class TutorialContentViewController: UIViewController {
     
     @IBAction func startAction(_ sender: UIButton) {
 
-        // 프리퍼런스 nil 또는 1
         if setting.string(forKey: "agree") == nil {
             setting.set("1", forKey: "agree")
             performSegue(withIdentifier: "tutorialToLogin", sender: self)
@@ -54,15 +48,4 @@ class TutorialContentViewController: UIViewController {
         
         
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

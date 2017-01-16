@@ -162,7 +162,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="euy-h5-ipl">
-                                <rect key="frame" x="16" y="30" width="64" height="61"/>
+                                <rect key="frame" x="16" y="30" width="64" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="euy-h5-ipl" secondAttribute="height" multiplier="32:31" id="MA3-9h-710"/>
                                 </constraints>
@@ -783,7 +783,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STAGE 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="DU5-52-hOP">
-                                <rect key="frame" x="122" y="29" width="131" height="26.5"/>
+                                <rect key="frame" x="122" y="29" width="131" height="26"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DU5-52-hOP" secondAttribute="height" multiplier="5:1" id="dUE-Gu-LiW"/>
@@ -1045,7 +1045,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yQ6-ga-H5g" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Z1-vW-iWg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="6Z1-vW-iWg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -1285,7 +1285,7 @@ Copyright © 2016 우리는여름에만났다 All Rights Reserved</string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iMT-r5-V17" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mBC-T6-oIb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mBC-T6-oIb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1318,7 +1318,7 @@ Copyright © 2016 우리는여름에만났다 All Rights Reserved</string>
                                 <rect key="frame" x="47" y="143.5" width="281" height="380"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resultViewimg" translatesAutoresizingMaskIntoConstraints="NO" id="Uit-cu-LhX">
-                                        <rect key="frame" x="0.0" y="6.5" width="281" height="367"/>
+                                        <rect key="frame" x="0.0" y="7.5" width="281" height="365"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Uit-cu-LhX" secondAttribute="height" multiplier="1:1.3" id="OOE-TG-665"/>
                                         </constraints>
@@ -1655,7 +1655,7 @@ Copyright © 2016 우리는여름에만났다 All Rights Reserved</string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W7O-9D-U6s" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lmv-pe-sap">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Lmv-pe-sap">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1673,7 +1673,7 @@ Copyright © 2016 우리는여름에만났다 All Rights Reserved</string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ar4-Cy-XcT" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a4t-m3-3pX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="a4t-m3-3pX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

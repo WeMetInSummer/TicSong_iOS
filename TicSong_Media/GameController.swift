@@ -84,27 +84,14 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("게임 컨트롤러!")
         stageLabel.text = " STAGE \(stage+1)"
-        //stageLabel.textColor = UIColor.white
-        //stageLabel.font = UIFont(name: "EXO-BOLD", size: 33)
-        //stageLabel.font = UIFont.systemFont(ofSize: 30)
-        
         answer.autocorrectionType = .no
-        
-        
-        print(roundList)
-        
         setting(music: roundList[stage].code, time: roundList[stage].start)
         
         if let result = user.stringArray(forKey: "user"){
             userSet = result
         }
-        print(userSet)
-        
         makeFloatBtn()
-        
-        
     }
    
     
@@ -147,15 +134,8 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                 self.userSet[4] = String(Int(self.userSet[4])!-1)
                 // Item Update API
                 self.itemUpdate()
-                
-                //
                 self.user.set(self.userSet, forKey: "user")
-
-                
             }else{
-            
-                // 아이템 까만색으로 하기
-                print("아이템 없음!")
             }
         }
         
@@ -166,19 +146,10 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                 self.firstCharAlert(songName: self.roundList[self.stage].songName)
                 self.resetActionBtn(firstChar)
                 self.userSet[5] = String(Int(self.userSet[5])!-1)
-                
                 // Item Update API
                 self.itemUpdate()
-                
-                //
-                
                 self.user.set(self.userSet, forKey: "user")
-
-                
             }else{
-                
-                // 아이템 까만색으로 하기
-                print("아이템 없음!")
             }
         }
         
@@ -194,16 +165,8 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                 
                 // Item Update API
                 self.itemUpdate()
-                
-                //
-                
                 self.user.set(self.userSet, forKey: "user")
-
-                
             }else{
-                
-                // 아이템 까만색으로 하기
-                print("아이템 없음!")
             }
         }
         
@@ -216,19 +179,10 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                 
                 // Item Update API
                 self.itemUpdate()
-                
                 self.user.set(self.userSet, forKey: "user")
-
-                
              }else{
-                
-                // 아이템 까만색으로 하기
-                print("아이템 없음!")
-            }
+             }
         }
-        
-        
-        
         items.append(selectStart)
         items.append(threeSec)
         items.append(firstChar)
@@ -250,7 +204,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         // 배경화면 돌아가게 한다.
         aniBackgroundStar(pic: main_backgroundStar)
 
-        
         // 키패드에게 알림을 줘서 키보드가 보여질 때 사라질 때의 함수를 실행시킨다
         NotificationCenter.default.addObserver(self, selector: #selector(GameController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
@@ -295,13 +248,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
     }
     
-    
-
-    
-   
-    
-    
-
   
    //MARK: 각종 버튼
 
@@ -310,17 +256,8 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         if(stage < roundList.count){
             playMusic()
             aniStar(pic: juke_shootingStar, aniDuration: 2.0)
-            
-            print("노래 제목 : " + roundList[stage].songName)
-            print("life :"+life.description)
-            print("stage :"+stage.description)
-            print("score :"+score.description)
         }else{
             
-            print("life :"+life.description)
-            print("마지막 stage :"+stage.description)
-            print("최종 점수 :"+score.description)
-            showToast("그만!")
         }
         
     }
@@ -332,8 +269,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
        let isMatch = compareCharacter(origin: roundList[stage].songName, input: answer.text!)
        if isMatch {
-        
-        
         
         if(life == 3){score += 100}
         else if(life == 2){score += 60}
@@ -356,32 +291,23 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         lifeCreate()
     }
     
-    
-    
     // 패스 버튼
     
     @IBAction func Pass(_ sender: UIButton) {
         nextStageInit()
         score += 0
-        
-        
     }
     
    
     @IBAction func Escape(_ sender: UIButton) {
         escapeAlert(score: score)
-        
     }
-    
-    
    //MARK: 노래 재생 설정
     
-    // 아직 노래 코드 오류났을 때 제대로 해결 못함..
     func setting(music: String, time:Double){
         answer.placeholder = "정답을 입력해주세요 (원곡제목)"
         
         do {
-            //무음에서도 들리게 해주는 부분!! 나중에 정리하면 될거 같아요 민섭님
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
             try AVAudioSession.sharedInstance().setActive(true)
             
@@ -395,12 +321,9 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                 audioPlayer.currentTime = startTime
             }
         } catch {
-            print(error)
-            print("Error getting the audio file")
         }
     }
     
-   // 노래 재생 시간 설정 ( musicSec가 초를 나타낸다 )
     
     func counter() {
         musicSec += 1
@@ -426,8 +349,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         }
     }
     
-   
-    
     // 노래 재생 하는 함수
     
     func playMusic(){
@@ -442,38 +363,28 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         self.answer.text=""
         timer.invalidate()
         stage += 1
-        life = 3
         stageFinishAlert(songTitle: roundList[stage-1].songName, artist: roundList[stage-1].artist)
-        
+        life = 3
         audioPlayer.currentTime = 0
         audioPlayer.play()
-        //lifeCreate()
-        // Alert 띄우고 별똥별 도는거 보류
-        //aniStar(pic: juke_shootingStar, aniDuration: 4.0)
+
     }
     
     func nextSong(){
         
         audioPlayer.stop()
         
-        //다음 노래 준비
         if(stage < roundList.count){
             stageLabel.text = " STAGE \(stage+1)"
             answer.text = ""
             setting(music: roundList[stage].code, time: roundList[stage].start)
-            print("다음 노래 준비!")
             makeFloatBtn()
 
         }else{
-            //모든 스테이지 종료 시 일단은 라벨 제거함
-            //Alert창 띄워서 결과보여주고 확인누르면 메인으로 돌아가게 만들까?
             stageLabel.isHidden = true
-            
             resultAlert(score: score)
-            
         }
         lifeCreate()
-
     }
     
     
@@ -496,8 +407,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                 compare2 += input.description
             }
         }
-        
-        print("origin: \(compare1.lowercased()) input : \(compare2.lowercased())")
         return  compare1.lowercased()==compare2.lowercased()
     }
     
@@ -513,6 +422,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         else{lifeOne.isHidden = true}
         
     }
+    
     
     // MARK: 여러가지 Alert
     
@@ -532,8 +442,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
         let alertView = UIAlertController(title: songTitle, message: artist, preferredStyle: .alert)
     
-        
-        
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
             self.nextSong()
             alertView.dismiss(animated: true, completion: nil)
@@ -548,7 +456,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     func singerAlert (artist : String){
         
         let alertView = UIAlertController(title: "가수힌트", message: "해당 노래의 가수는 : " + artist, preferredStyle: .alert)
-        
         
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
             alertView.dismiss(animated: true, completion: nil)
@@ -600,16 +507,14 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                 self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GameController.counter), userInfo: nil,repeats:true)
                 self.audioPlayer.play()
                 }else{
-                    self.basicAlert(string: "꽝",message: "노래의 범위를 벗어난 꽝")
+                    self.basicAlert(string: "꽝",message: "노래의 범위를 벗어났")
                 }
             }else{
-                self.basicAlert(string: "꽝",message: "숫자 외 다른 문자를 입력한 꽝")
+                self.basicAlert(string: "꽝",message: "숫자 외 다른 문자를 입력하셨")
             }
         }))
-        
         // 4. Present the alert.
         self.present(alert, animated: true, completion: nil)
-
     }
 
     
@@ -618,7 +523,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
     func resultAlert(score:Int){
         
-        // 내가 가진 경험치에 이번판에 얻은 스코어를 더한후..
         let scoreSum = Int(userSet[2])! + score
         let myLevel = Int(userSet[3])! // 내 레벨
         let random : Int = Int(arc4random_uniform(UInt32(4)))+1
@@ -626,15 +530,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         gameScore = score // segue 로 넘기기 위한 변수
         
         var levelUp : Bool = false
-        print("내 경험치 : \(scoreSum)")
-        print("내 레벨 : \(myLevel)")
-        print("내가 가지고 있는 아이템 ",userSet[4])
-        
-        print("내가 가지고 있는 아이템 ",userSet[5])
-        
-        print("내가 가지고 있는 아이템 ",userSet[6])
-        
-        print("내가 가지고 있는 아이템 ",userSet[7])
         
         //총 경험치를 userSet의 두번째 인덱스에 넣어주고
         self.userSet[2] = "\(scoreSum)"
@@ -653,9 +548,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         myscoreUpdate()
         itemUpdate()
         
-        //userSet에 담긴 프리퍼런스 값을 그대로 서버에 삽입!
-        // item5Cnt 까지 추가하면 완료... 아마 default 에 4567에 들어있을 것임..
-        // 만약 랜덤값이 4면 서버에는 item5Cnt 을 추가하면 돼
         
         if levelUp {
             self.performSegue(withIdentifier: "GameToResultLvUp", sender: self)
@@ -670,8 +562,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     // 레벨업 할 수 있나 없나 체크!
     func isLevelUp(_ scoreSum : Int ,_ myLevel : Int) -> Bool{
         var mylv = myLevel
-        print("levelup 판독기에서")
-        print ("mylv \(mylv)")
         for index in 0..<expArr.count{
             if scoreSum >= expArr[index]{
                 mylv = index+2
@@ -680,8 +570,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             }
         }
         
-        print ("mylv2 \(mylv)")
-        print("levelup 판독 끝")
         if mylv != myLevel{       //내 레벨이 바뀌었으면
             self.userSet[3] = "\(mylv)"
             return true
@@ -691,19 +579,16 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
     }
     
-    
     func escapeAlert(score:Int){
         
         let alertView = UIAlertController(title: "나가기", message: "현재 당신의 점수는 \(score)점 입니다.\n 정말 나가시겠습니까?", preferredStyle: .alert)
-        
-        
         
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
             alertView.dismiss(animated: true, completion: nil)
             self.dismiss(animated: true, completion: nil)
         })
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in print("cancel button clicked")}
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
         
         alertView.addAction(action)
         alertView.addAction(cancelAction)
@@ -713,12 +598,11 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     }
     
     func basicAlert(string : String,message : String){
-        let alertView = UIAlertController(title: string+"!!", message: message+"입니다요", preferredStyle: .alert)
-
+        let alertView = UIAlertController(title: string+"!", message: message+"습니다.", preferredStyle: .alert)
+        
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
             alertView.dismiss(animated: true, completion: nil)
         })
-        
         
         alertView.addAction(action)
         
@@ -803,7 +687,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             switch(response.result) {
             case .success(_):
                 if response.result.value != nil{
-                    //print(response.result.value!)
                     
                     if let data = response.data, let utf8Text = String(data: data, encoding: .utf8), let encodedData = utf8Text.data(using: String.Encoding.utf8){
                         
@@ -813,17 +696,16 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                             if let resultCode = JSON["resultCode"] as? Int{
                                 
                                 if(resultCode == 1){
-                                    print("성공적으로 exp와 userLevel update!")
-                                }else{print("exp와 userLevel update 실패…")
+                               
+                                }else{
+
                                 }
                             }
-                        }}
+                        }
+                    }
                 }
                 break
-                
             case .failure(_):
-                print(response.result.error!)
-                
                 break
                 
             }
@@ -842,10 +724,9 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         Alamofire.request(baseURL,method : .post, parameters: parameters, encoding: URLEncoding.default, headers: nil)
             .responseJSON { (response:DataResponse<Any>) in
                 
-                switch(response.result) {
+            switch(response.result) {
                 case .success(_):
                     if response.result.value != nil{
-                        //print(response.result.value!)
                         
                         if let data = response.data, let utf8Text = String(data: data, encoding: .utf8), let encodedData = utf8Text.data(using: String.Encoding.utf8){
                             
@@ -855,24 +736,19 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                                 if let resultCode = JSON["resultCode"] as? Int {
                                     
                                     if(resultCode == 1){
-                                        print("성공적으로 exp와 userLevel update!")
                                         
-                                    }else{print("exp와 userLevel update 실패…")
+                                    }else{
+                                    
                                     }
-                                    
-                                    
                                 }
-                            }}
-                        //self.performSegue(withIdentifier: "LoginToMainSegue", sender: self)
+                            }
+                        }
                     }
                     break
                     
                 case .failure(_):
-                    print(response.result.error!)
-                    
                     break
-                    
-                }
+            }
         }
     }
     

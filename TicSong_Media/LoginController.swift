@@ -11,21 +11,16 @@ import Alamofire
 
 class LoginController: UIViewController {
     
-    
-
-    
+    // 카톡 프로필 이미지
     var profileIMG:UIImage = UIImage(named: "default")!
     var name:String = "default"
-    
     var userSet:[String] = []
-    
     var bgmSetting : String? = "1"
    
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
         // Do any additional setup after loading the view.
     }
     
@@ -42,29 +37,16 @@ class LoginController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        
-        
-        if segue.identifier == "LoginToMainSegue"
-        {
-            
-            
-            
+        if segue.identifier == "LoginToMainSegue"{
             let destination = segue.destination as! MainController
-            
             destination.receivedProfImg = profileIMG
             destination.receivedName = name
-            
-          
         }
-        
     }
     
 
     @IBAction func kakaoLoginClicked(_ sender: UIButton) {
-        
         setKakaoProf()
-        
-
     }
     
     func setKakaoProf(){
@@ -76,30 +58,25 @@ class LoginController: UIViewController {
             }
             session.presentingViewController = self
         
-        session.open(completionHandler: { (error) -> Void in
+            session.open(completionHandler: { (error) -> Void in
             if error != nil{
-                print(error?.localizedDescription as Any) // any 원래 없어야함
+
             }else if session.isOpen() == true{
                 KOSessionTask.meTask(completionHandler: { (profile , error) -> Void in
                     if profile != nil{
                         DispatchQueue.main.async(execute: { () -> Void in
                             let kakao : KOUser = profile as! KOUser
-                            //고유 ID값
-                            //print(kakao.id)
-                            
+           
                             if let value = kakao.properties["nickname"] as? String{
                                 
                                 self.name = "\(value)"
                             }
                             if let value = kakao.properties["profile_image"] as? String{
-                                
                                 self.profileIMG = UIImage(data: NSData(contentsOf: NSURL(string: value)! as URL)! as Data)!
-                                
                             }
-                       
                             //서버통신
                             let baseURL = "http://52.79.152.130/TicSongServer/login.do"
-                            
+            
                             let parameters: Parameters = ["userId":kakao.id!,"name":self.name,"platform":"1"]
                             
                             Alamofire.request(baseURL,method : .get, parameters: parameters, encoding: URLEncoding.default, headers: nil)
@@ -108,33 +85,16 @@ class LoginController: UIViewController {
                                 switch(response.result) {
                                 case .success(_):
                                     if response.result.value != nil{
-                                        //print(response.result.value!)
-                                        
                                         if let data = response.data, let utf8Text = String(data: data, encoding: .utf8), let encodedData = utf8Text.data(using: String.Encoding.utf8){
                                             
                                             let JSON = try! JSONSerialization.jsonObject(with: encodedData, options: [])
                                         
                                         if let JSON = JSON as? [String: AnyObject] {
                                             if let exp = JSON["exp"] as? Int, let name = JSON["name"] as? String, let item1Cnt = JSON["item1Cnt"] as? Int, let item2Cnt = JSON["item3Cnt"] as? Int, let item3Cnt = JSON["item4Cnt"] as? Int, let item4Cnt = JSON["item5Cnt"] as? Int, let userLevel = JSON["userLevel"] as? Int {
-                                                
-                                                //추가정보 : {platform = 1;resultCode = 1;timestamp = 1483878381489;userId = 294700636;}
-                                                //userset에 삽입해주세요
-                                                
-                                                print("name:\(name)")
-                                                print("userid:\(kakao.id!)")
-                                                print("exp:\(exp)")
-                                                print("userLevel:\(userLevel)")
-                                                
-                                                print("item1Cnt:\(item1Cnt)") // 가수
-                                                print("item2Cnt:\(item2Cnt)") // 앞에 한글자
-                                                print("item3Cnt:\(item3Cnt)") // 3초
-                                                print("item4Cnt:\(item4Cnt)") // 원하는 구간
-                                                
                                                 self.userSet.append("\(name)")
                                                 self.userSet.append("\(kakao.id!)")
                                                 self.userSet.append("\(exp)")
                                                 self.userSet.append("\(userLevel)")
-                                                
                                                 self.userSet.append("\(item1Cnt)")
                                                 self.userSet.append("\(item2Cnt)")
                                                 self.userSet.append("\(item3Cnt)")
@@ -144,53 +104,32 @@ class LoginController: UIViewController {
                                                 
                                                 user.set(self.userSet, forKey: "user")
                                                 
-                                                }
-                                        }}
-                                        
-
-                                        
-                                        let setting = UserDefaults.standard
-                                        
-                                        if setting.string(forKey: "setting") == nil{
-                                            let set = UserDefaults.standard
-                                            set.set(self.bgmSetting, forKey: "setting")
+                                            }
                                         }
-                                        
-                                        self.performSegue(withIdentifier: "LoginToMainSegue", sender: self)
                                     }
+                                        
+                                            let setting = UserDefaults.standard
+                                        
+                                            if setting.string(forKey: "setting") == nil{
+                                                    let set = UserDefaults.standard
+                                                    set.set(self.bgmSetting, forKey: "setting")
+                                            }
+                                            self.performSegue(withIdentifier: "LoginToMainSegue", sender: self)
+                                }
                                     break
                                     
                                 case .failure(_):
-                                    print(response.result.error!)
-                                    
-                                    //대섭이형이 ㅈ같이 코드짜서 카톡이나 페이스북이 널값만 안넘기면 쉽게 가입 및 로그인가능 
-                                    //error시 alert창 띄우기...할일이 있나 싶음..
-                                    
-                                    //exp,item1,2,3,4,userid,userlevel
-                                    
                                     break
                                     
                                 }
                             }
-                            
-                            
-                            
-                            
-                            
                         })
-                    }else{
-                        
-                        print(error!)}
+                    }else{ }
                 })
-            }else{
-                print("isNotOpen")
-            }
+            }else{ }
         })
-    
-        
-        }
+    }
 
-    
     @IBAction func unwindToLogin(_ sender: UIStoryboardSegue) {
         
     }

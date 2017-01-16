@@ -1,10 +1,6 @@
 //
 //  LFTPulseAnimation.swift
-//  Animation_practice
-//
-//  Created by 윤민섭 on 2017. 1. 5..
-//  Copyright © 2017년 윤민섭. All rights reserved.
-//
+
 
 import UIKit
 
@@ -20,9 +16,7 @@ class LFTPulseAnimation: CALayer {
     var animationGroup:         CAAnimationGroup = CAAnimationGroup()
     var repetitions:            Float = Float.infinity
     
-    // Need to implement that, because otherwise it can't find
-    // the constructor init(layer:AnyObject!)
-    // Doesn't seem to look in the super class
+    
     override init(layer: Any) {
         super.init(layer: layer)
     }

@@ -24,7 +24,6 @@ class ResultViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print(myScore,"내점수")
         myScoreLabel.text = myScore
         myLevelLabel.text = "Lv. : " + myLevel
     }
@@ -34,19 +33,7 @@ class ResultViewController: UIViewController {
     }
     
     @IBAction func dismissResult(_ sender: UIButton) {
-       
         self.performSegue(withIdentifier: "unwindToMain", sender: self)
     }
-
-   
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

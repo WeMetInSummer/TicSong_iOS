@@ -42,7 +42,6 @@
 		679D5E111E1C9D7E009F824B /* LFTPulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D5E101E1C9D7E009F824B /* LFTPulseAnimation.swift */; };
 		67F6C5441E2B73D900B432E0 /* ResultViewControllerLvUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F6C5431E2B73D900B432E0 /* ResultViewControllerLvUp.swift */; };
 		67F6C5461E2B740200B432E0 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F6C5451E2B740200B432E0 /* ResultViewController.swift */; };
-		67FFB29C1E2A1B34009BCDE3 /* TicSongLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FFB29B1E2A1B34009BCDE3 /* TicSongLoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,7 +83,6 @@
 		679D5E101E1C9D7E009F824B /* LFTPulseAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LFTPulseAnimation.swift; sourceTree = "<group>"; };
 		67F6C5431E2B73D900B432E0 /* ResultViewControllerLvUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewControllerLvUp.swift; sourceTree = "<group>"; };
 		67F6C5451E2B740200B432E0 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		67FFB29B1E2A1B34009BCDE3 /* TicSongLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicSongLoadingView.swift; sourceTree = "<group>"; };
 		C1DDF84384BBFA8952B429C6 /* Pods_TicSong_Media.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicSong_Media.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E298CB8F856AA74C17938E62 /* Pods-TicSong_Media.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicSong_Media.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicSong_Media/Pods-TicSong_Media.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +124,7 @@
 		373D12FE1E19546900EA00C4 /* TicSong_Media */ = {
 			isa = PBXGroup;
 			children = (
+				379298201E2D3A2300DCAC7A /* Font */,
 				373D12FF1E19546900EA00C4 /* AppDelegate.swift */,
 				373D13011E19546900EA00C4 /* GameController.swift */,
 				370B64BC1E1ACBB700CD2A4C /* MainController.swift */,
@@ -145,6 +144,18 @@
 				37CB96DB1E2CD6DD00BC5D2E /* TutorialViewController.swift */,
 				373D13061E19546900EA00C4 /* Assets.xcassets */,
 				373D130B1E19546900EA00C4 /* Info.plist */,
+				370899BA1E1E3DD100AD8486 /* KakaoOpenSDK.framework */,
+				370899BC1E1E402B00AD8486 /* TicSong_Media-Bridging-Header.h */,
+				372DCB991E2BEBAF000D15D3 /* AboutUsViewController.swift */,
+				37B7E76A1E2CF5D20091E81B /* PrivacyCheckViewController.swift */,
+				37B7E76E1E2D2D310091E81B /* FakeViewController.swift */,
+			);
+			path = TicSong_Media;
+			sourceTree = "<group>";
+		};
+		379298201E2D3A2300DCAC7A /* Font */ = {
+			isa = PBXGroup;
+			children = (
 				37664F111E2B59C6005FA7E7 /* EXO-BLACK.OTF */,
 				37B0B1B51E2279040061F499 /* EXO-REGULAR.OTF */,
 				37664F0B1E2B5977005FA7E7 /* EXO-MEDIUM.OTF */,
@@ -155,14 +166,8 @@
 				37664F051E2B594F005FA7E7 /* EXO-ITALIC.OTF */,
 				37664F0D1E2B5995005FA7E7 /* EXO-THIN.OTF */,
 				37664F0F1E2B59A4005FA7E7 /* EXO-LIGHT.OTF */,
-				370899BA1E1E3DD100AD8486 /* KakaoOpenSDK.framework */,
-				370899BC1E1E402B00AD8486 /* TicSong_Media-Bridging-Header.h */,
-				67FFB29B1E2A1B34009BCDE3 /* TicSongLoadingView.swift */,
-				372DCB991E2BEBAF000D15D3 /* AboutUsViewController.swift */,
-				37B7E76A1E2CF5D20091E81B /* PrivacyCheckViewController.swift */,
-				37B7E76E1E2D2D310091E81B /* FakeViewController.swift */,
 			);
-			path = TicSong_Media;
+			name = Font;
 			sourceTree = "<group>";
 		};
 		4E184387B79D6CF3586FD78D /* Pods */ = {
@@ -323,7 +328,6 @@
 				37B7E76F1E2D2D310091E81B /* FakeViewController.swift in Sources */,
 				377049A61E2BE90100A8A4A4 /* PrivacyViewController.swift in Sources */,
 				3784E5971E2937A9005E11BE /* Ranking.swift in Sources */,
-				67FFB29C1E2A1B34009BCDE3 /* TicSongLoadingView.swift in Sources */,
 				373816691E2933E600E1EEC3 /* RankingTableViewController.swift in Sources */,
 				373816671E29300800E1EEC3 /* RankingTableViewCell.swift in Sources */,
 				37B7E76B1E2CF5D20091E81B /* PrivacyCheckViewController.swift in Sources */,
