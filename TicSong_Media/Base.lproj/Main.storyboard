@@ -77,7 +77,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lv. 20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XI-lx-1Dg">
-                                            <rect key="frame" x="323.33333333333326" y="35" width="82.666666666666686" height="36"/>
+                                            <rect key="frame" x="323" y="35" width="83" height="36"/>
                                             <fontDescription key="fontDescription" name="Exo-ExtraBold" family="Exo" pointSize="18"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -721,7 +721,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="tutorialBtn:" destination="YEM-2H-GdD" eventType="touchUpInside" id="ydi-Xh-gNs"/>
+                                            <segue destination="7EL-Is-49z" kind="show" id="3mi-Yn-rER"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFx-OK-UOo">
@@ -1360,7 +1360,64 @@ Copyright © 2016 우리는여름에만났다 All Rights Reserved</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qFn-Ci-Q8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2152" y="-1267"/>
+            <point key="canvasLocation" x="-2001" y="-1613"/>
+        </scene>
+        <!--Tutorial Content View Controller-->
+        <scene sceneID="tHH-6E-sCc">
+            <objects>
+                <viewController storyboardIdentifier="TutorialContentViewController" id="S0w-Uj-IhH" customClass="TutorialContentViewController" customModule="TicSong_Media" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9KG-8f-XUy"/>
+                        <viewControllerLayoutGuide type="bottom" id="asG-p6-tj7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ctw-6n-Eyh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XL4-5t-ALS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0P-6L-tTI">
+                                <rect key="frame" x="290.66666666666674" y="36" width="103.33333333333331" height="41.333333333333329"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="a0P-6L-tTI" secondAttribute="height" multiplier="2.5:1" id="qVU-dB-8HS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="시작하기">
+                                    <color key="titleColor" red="0.078431372550000003" green="0.1333333333" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startAction:" destination="S0w-Uj-IhH" eventType="touchUpInside" id="eJP-br-v2m"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="a0P-6L-tTI" firstAttribute="top" secondItem="9KG-8f-XUy" secondAttribute="bottom" constant="16" id="545-jZ-dc0"/>
+                            <constraint firstItem="XL4-5t-ALS" firstAttribute="width" secondItem="ctw-6n-Eyh" secondAttribute="width" id="9tf-HY-Ekn"/>
+                            <constraint firstItem="XL4-5t-ALS" firstAttribute="height" secondItem="ctw-6n-Eyh" secondAttribute="height" id="NC1-ab-XcZ"/>
+                            <constraint firstItem="XL4-5t-ALS" firstAttribute="centerY" secondItem="ctw-6n-Eyh" secondAttribute="centerY" id="cKB-P2-Kxe"/>
+                            <constraint firstItem="a0P-6L-tTI" firstAttribute="trailing" secondItem="ctw-6n-Eyh" secondAttribute="trailingMargin" id="j7P-Ny-2p0"/>
+                            <constraint firstItem="a0P-6L-tTI" firstAttribute="width" secondItem="ctw-6n-Eyh" secondAttribute="width" multiplier="0.25" id="nki-EI-Wvv"/>
+                            <constraint firstItem="XL4-5t-ALS" firstAttribute="centerX" secondItem="ctw-6n-Eyh" secondAttribute="centerX" id="tOa-yo-bFA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="startBtn" destination="a0P-6L-tTI" id="htk-3F-Jom"/>
+                        <outlet property="tutorialImage" destination="XL4-5t-ALS" id="03F-3O-2c5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lMQ-AW-dxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2103" y="-680"/>
+        </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="ndB-Rh-9Kw">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="7EL-Is-49z" customClass="TutorialViewController" customModule="TicSong_Media" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BMI-3p-IUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2104" y="62"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9Rq-Mz-J8W">
@@ -1401,7 +1458,7 @@ Copyright © 2016 우리는여름에만났다 All Rights Reserved</string>
     </scenes>
     <resources>
         <image name="Tic_btn" width="330" height="330"/>
-        <image name="back" width="48" height="48"/>
+        <image name="back" width="16" height="16"/>
         <image name="bar0" width="170" height="19"/>
         <image name="close" width="23" height="23"/>
         <image name="default" width="360" height="360"/>

@@ -32,7 +32,7 @@ class ResultViewControllerLvUp: UIViewController {
         let image = UIImage(named: "levelupItem\(randomIndex)")
         newItemImage.image = image
         myScoreLabel.text = myScore
-        myLevelLabel.text = "레벨 : " + myLevel
+        myLevelLabel.text = "Lv : " + myLevel
     }
     
 

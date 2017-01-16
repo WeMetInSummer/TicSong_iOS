@@ -34,6 +34,8 @@
 		3784E5971E2937A9005E11BE /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3784E5961E2937A9005E11BE /* Ranking.swift */; };
 		3784E5991E294A4D005E11BE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3784E5981E294A4D005E11BE /* SettingViewController.swift */; };
 		37B0B1B61E2279040061F499 /* EXO-REGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 37B0B1B51E2279040061F499 /* EXO-REGULAR.OTF */; };
+		37CB96DA1E2CD6BE00BC5D2E /* TutorialContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CB96D91E2CD6BE00BC5D2E /* TutorialContentViewController.swift */; };
+		37CB96DC1E2CD6DD00BC5D2E /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CB96DB1E2CD6DD00BC5D2E /* TutorialViewController.swift */; };
 		37FC94751E29DB0400A08AA4 /* jellyfish.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 37FC94741E29DB0400A08AA4 /* jellyfish.mp3 */; };
 		679D5E111E1C9D7E009F824B /* LFTPulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D5E101E1C9D7E009F824B /* LFTPulseAnimation.swift */; };
 		67F6C5441E2B73D900B432E0 /* ResultViewControllerLvUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F6C5431E2B73D900B432E0 /* ResultViewControllerLvUp.swift */; };
@@ -72,6 +74,8 @@
 		3784E5961E2937A9005E11BE /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		3784E5981E294A4D005E11BE /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		37B0B1B51E2279040061F499 /* EXO-REGULAR.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EXO-REGULAR.OTF"; sourceTree = "<group>"; };
+		37CB96D91E2CD6BE00BC5D2E /* TutorialContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialContentViewController.swift; sourceTree = "<group>"; };
+		37CB96DB1E2CD6DD00BC5D2E /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		37FC94741E29DB0400A08AA4 /* jellyfish.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jellyfish.mp3; sourceTree = "<group>"; };
 		679D5E101E1C9D7E009F824B /* LFTPulseAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LFTPulseAnimation.swift; sourceTree = "<group>"; };
 		67F6C5431E2B73D900B432E0 /* ResultViewControllerLvUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewControllerLvUp.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 				67F6C5451E2B740200B432E0 /* ResultViewController.swift */,
 				377049A31E2BE8D600A8A4A4 /* OpenSourceViewController.swift */,
 				377049A51E2BE90100A8A4A4 /* PrivacyViewController.swift */,
+				37CB96D91E2CD6BE00BC5D2E /* TutorialContentViewController.swift */,
+				37CB96DB1E2CD6DD00BC5D2E /* TutorialViewController.swift */,
 				373D13061E19546900EA00C4 /* Assets.xcassets */,
 				373D130B1E19546900EA00C4 /* Info.plist */,
 				37664F111E2B59C6005FA7E7 /* EXO-BLACK.OTF */,
@@ -205,7 +211,7 @@
 				TargetAttributes = {
 					373D12FB1E19546900EA00C4 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = VANL3XS874;
+						DevelopmentTeam = 537GQ2WKJ4;
 						LastSwiftMigration = 0820;
 					};
 				};
@@ -317,6 +323,8 @@
 				3784E5991E294A4D005E11BE /* SettingViewController.swift in Sources */,
 				372DCB9A1E2BEBAF000D15D3 /* AboutUsViewController.swift in Sources */,
 				370B64BD1E1ACBB700CD2A4C /* MainController.swift in Sources */,
+				37CB96DA1E2CD6BE00BC5D2E /* TutorialContentViewController.swift in Sources */,
+				37CB96DC1E2CD6DD00BC5D2E /* TutorialViewController.swift in Sources */,
 				373D13001E19546900EA00C4 /* AppDelegate.swift in Sources */,
 				370899B91E1E393100AD8486 /* LoginController.swift in Sources */,
 				67F6C5461E2B740200B432E0 /* ResultViewController.swift in Sources */,
@@ -437,11 +445,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E298CB8F856AA74C17938E62 /* Pods-TicSong_Media.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = VANL3XS874;
+				DEVELOPMENT_TEAM = 537GQ2WKJ4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TicSong_Media",
@@ -450,7 +459,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = wemetinsummer2.org.kr;
+				PRODUCT_BUNDLE_IDENTIFIER = wemetinsummer.org.kr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TicSong_Media/TicSong_Media-Bridging-Header.h";
@@ -464,11 +473,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 32E0DFF0FAAA5860A9F6314D /* Pods-TicSong_Media.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = VANL3XS874;
+				DEVELOPMENT_TEAM = 537GQ2WKJ4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TicSong_Media",
@@ -477,7 +487,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = wemetinsummer2.org.kr;
+				PRODUCT_BUNDLE_IDENTIFIER = wemetinsummer.org.kr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TicSong_Media/TicSong_Media-Bridging-Header.h";

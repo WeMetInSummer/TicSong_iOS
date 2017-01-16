@@ -99,14 +99,6 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate,UIN
     }
     
     
-    
-    @IBAction func tutorialBtn(_ sender: UIButton) {
-        print("keep")
-
-    }
-    
-    
-    
     func deleteUser(){
     
     
