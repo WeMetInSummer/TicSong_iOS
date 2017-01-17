@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TicSong_Media/LoginController.swift"
-            timestampString = "506281853.467532"
+            timestampString = "506368820.997455"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "setKakaoProf()"
             landmarkType = "7">
          </BreakpointContent>

@@ -142,13 +142,13 @@
 				377049A51E2BE90100A8A4A4 /* PrivacyViewController.swift */,
 				37CB96D91E2CD6BE00BC5D2E /* TutorialContentViewController.swift */,
 				37CB96DB1E2CD6DD00BC5D2E /* TutorialViewController.swift */,
+				372DCB991E2BEBAF000D15D3 /* AboutUsViewController.swift */,
+				37B7E76A1E2CF5D20091E81B /* PrivacyCheckViewController.swift */,
+				37B7E76E1E2D2D310091E81B /* FakeViewController.swift */,
 				373D13061E19546900EA00C4 /* Assets.xcassets */,
 				373D130B1E19546900EA00C4 /* Info.plist */,
 				370899BA1E1E3DD100AD8486 /* KakaoOpenSDK.framework */,
 				370899BC1E1E402B00AD8486 /* TicSong_Media-Bridging-Header.h */,
-				372DCB991E2BEBAF000D15D3 /* AboutUsViewController.swift */,
-				37B7E76A1E2CF5D20091E81B /* PrivacyCheckViewController.swift */,
-				37B7E76E1E2D2D310091E81B /* FakeViewController.swift */,
 			);
 			path = TicSong_Media;
 			sourceTree = "<group>";

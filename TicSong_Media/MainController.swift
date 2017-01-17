@@ -53,7 +53,7 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
     // 카카오톡 프로필 및 이름
     var receivedName : String = ""
     var receivedProfImg : UIImage = UIImage(named : "default")!
-    //var receviedUserSet : [String] = []
+    
     
     
     // 사운드 클라우드 유알엘
@@ -329,7 +329,7 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
     // loading alert!
     
     func loadProgress(){
-        let alert = UIAlertController(title: nil, message: " 노래를 준비중입니다...", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: " 노래를 준비중입니다...🎶", preferredStyle: .alert)
         
         alert.view.tintColor = UIColor.black
         let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x:10, y:5, width:50, height:50)) as UIActivityIndicatorView

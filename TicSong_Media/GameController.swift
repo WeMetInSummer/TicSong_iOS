@@ -226,7 +226,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     // 키보드가 보여지면..
     func keyboardWillShow(notification:NSNotification) {
         adjustingHeight(show: true, notification: notification)
-        
     }
     
     // 키보드가 사라지면..
@@ -275,17 +274,16 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         else if(life == 1){score += 30}
         else{score += 0}
         
-        nextStageInit()
+        nextStageInit(checkMsg: "정답입니다👍")
         answer.text = ""
-        self.answer.endEditing(true)
         
         }else if !isMatch{
              life -= 1
-            showToast("틀렸습니다!")
                 if(life == 0){
-                    self.answer.endEditing(true)
-                    nextStageInit()
+                    nextStageInit(checkMsg:"아쉽군요🤔")
                     score += 0
+                }else{
+                    showToast("틀렸습니다🙅🏻")
                 }
         }
         lifeCreate()
@@ -294,7 +292,8 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     // 패스 버튼
     
     @IBAction func Pass(_ sender: UIButton) {
-        nextStageInit()
+        nextStageInit(checkMsg:"패스사용!")
+        self.answer.endEditing(true)
         score += 0
     }
     
@@ -305,7 +304,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
    //MARK: 노래 재생 설정
     
     func setting(music: String, time:Double){
-        answer.placeholder = "정답을 입력해주세요 (원곡제목)"
+        answer.placeholder = "정답을 입력해주세요.(원곡제목)"
         
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
@@ -359,11 +358,15 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         audioPlayer.play()
     }
     
-    func nextStageInit(){
+    func nextStageInit(checkMsg:String){
+        self.bottomConstraint.constant = 0
+        if stage < 4 {
+            self.loadProgress()
+        }
         self.answer.text=""
         timer.invalidate()
         stage += 1
-        stageFinishAlert(songTitle: roundList[stage-1].songName, artist: roundList[stage-1].artist)
+        stageFinishAlert(checkMsg:checkMsg,songTitle: roundList[stage-1].songName, artist: roundList[stage-1].artist)
         life = 3
         audioPlayer.currentTime = 0
         audioPlayer.play()
@@ -373,13 +376,13 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     func nextSong(){
         
         audioPlayer.stop()
-        
         if(stage < roundList.count){
             stageLabel.text = " STAGE \(stage+1)"
             answer.text = ""
             setting(music: roundList[stage].code, time: roundList[stage].start)
             makeFloatBtn()
-
+            dismiss(animated: true, completion: nil)
+            answer.endEditing(true)
         }else{
             stageLabel.isHidden = true
             resultAlert(score: score)
@@ -438,9 +441,9 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         }
     }
     
-    func stageFinishAlert(songTitle:String,artist:String){
+    func stageFinishAlert(checkMsg:String,songTitle:String,artist:String){
     
-        let alertView = UIAlertController(title: songTitle, message: artist, preferredStyle: .alert)
+        let alertView = UIAlertController(title: checkMsg, message: "\(artist) - \(songTitle)", preferredStyle: .alert)
     
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
             self.nextSong()
@@ -455,7 +458,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
     func singerAlert (artist : String){
         
-        let alertView = UIAlertController(title: "가수힌트", message: "해당 노래의 가수는 : " + artist, preferredStyle: .alert)
+        let alertView = UIAlertController(title: "가수 힌트", message: "해당 노래의 가수는 : " + artist, preferredStyle: .alert)
         
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
             alertView.dismiss(animated: true, completion: nil)
@@ -469,7 +472,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     // 첫글자 힌트 alert!
     
     func firstCharAlert(songName: String){
-        let alertView = UIAlertController(title: "첫글자힌트", message: "해당 노래의 첫글자는 : " + songName.substring(to: songName.index(after: songName.startIndex)), preferredStyle: .alert)
+        let alertView = UIAlertController(title: "첫글자 힌트", message: "해당 노래의 첫글자는 : " + songName.substring(to: songName.index(after: songName.startIndex)), preferredStyle: .alert)
         
         
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
@@ -766,6 +769,20 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             des.myScore = String(gameScore)
         }
     }
+    
+    func loadProgress(){
+        let alert = UIAlertController(title: nil, message: " 다음 곡을 준비중입니다🎤", preferredStyle: .alert)
+        
+        alert.view.tintColor = UIColor.black
+        let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x:10, y:5, width:50, height:50)) as UIActivityIndicatorView
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        loadingIndicator.startAnimating();
+        
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+    }
+
     
     
 }

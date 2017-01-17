@@ -25,7 +25,7 @@ class ResultViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         myScoreLabel.text = myScore
-        myLevelLabel.text = "Lv. : " + myLevel
+        myLevelLabel.text = "Lv. " + myLevel
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

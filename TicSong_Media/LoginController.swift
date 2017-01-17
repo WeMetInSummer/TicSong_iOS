@@ -13,7 +13,7 @@ class LoginController: UIViewController {
     
     // 카톡 프로필 이미지
     var profileIMG:UIImage = UIImage(named: "default")!
-    var name:String = "default"
+    var name:String = "닉네임X"
     var userSet:[String] = []
     var bgmSetting : String? = "1"
    
@@ -66,14 +66,22 @@ class LoginController: UIViewController {
                     if profile != nil{
                         DispatchQueue.main.async(execute: { () -> Void in
                             let kakao : KOUser = profile as! KOUser
-           
-                            if let value = kakao.properties["nickname"] as? String{
+                            
+                            if(kakao.properties != nil){
                                 
-                                self.name = "\(value)"
+                                if let value = kakao.properties["nickname"] as? String{
+                                    self.name = "\(value)"
+                                }
+                                
+                                if kakao.properties["profile_image"] as? String != ""{
+                                if let value = kakao.properties["profile_image"] as? String{
+                                    self.profileIMG = UIImage(data: NSData(contentsOf: NSURL(string: value)! as URL)! as Data)!
                             }
-                            if let value = kakao.properties["profile_image"] as? String{
-                                self.profileIMG = UIImage(data: NSData(contentsOf: NSURL(string: value)! as URL)! as Data)!
-                            }
+                            
+                        }
+                            
+                    }
+                        
                             //서버통신
                             let baseURL = "http://52.79.152.130/TicSongServer/login.do"
             
