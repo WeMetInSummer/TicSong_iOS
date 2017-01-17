@@ -72,7 +72,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
     var itemReuseCheck : Int = 0
     var items : [ActionButtonItem] = []
-    let image = UIImage(named:"earthFloatBtn")
+    var image : UIImage? = nil
     
     // 디폴트
     var userSet : [String] = []
@@ -84,13 +84,19 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let randomForFloatBtn : Int = Int(arc4random_uniform(UInt32(7)))+1
+        image = UIImage(named:"FloatBtn\(randomForFloatBtn)")
+        
         stageLabel.text = " STAGE \(stage+1)"
         answer.autocorrectionType = .no
-        setting(music: roundList[stage].code, time: roundList[stage].start)
         
+        setting(music: roundList[stage].code, time: roundList[stage].start)
+
         if let result = user.stringArray(forKey: "user"){
             userSet = result
         }
+        
         makeFloatBtn()
     }
    
@@ -292,7 +298,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     // 패스 버튼
     
     @IBAction func Pass(_ sender: UIButton) {
-        nextStageInit(checkMsg:"패스사용!")
+        nextStageInit(checkMsg:"패스 사용")
         self.answer.endEditing(true)
         score += 0
     }
