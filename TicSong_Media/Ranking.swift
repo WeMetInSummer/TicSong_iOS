@@ -28,7 +28,7 @@ class Ranking {
         self.exp = exp
         self.level = level
         
-        //super.init()
+        
         
         if(number.isEmpty || name.isEmpty || exp.isEmpty || level.isEmpty){
             return nil

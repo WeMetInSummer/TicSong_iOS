@@ -7,18 +7,7 @@
 //
 
 
-/* 2017.01.03
- 1. 노래 리스트업 10곡 선정 V
- 2. 점수 기능 (3번의 목숨이 있으며 1번에 맞추면 100점 2번에 맞추면 60점 3번에 맞추면 30점) V
- 3. 아이템 (1. 3초 재생 2. 타이틀 앞 글자 제공 3. 목숨 늘려주기) - 보류
- 4. 노래 맞추면 노래 재생 (stop 도 생김) + widget visible /invisible 가능 하게
- 5. 라운드 개념 넣기(5곡이 한 라운드로 가정하고 라운드 중간에 종료시 점수는 무효 / 모든 점수를 합산해서 ResultController로 전송) - 보류
- 6. ResultController 로 넘어갈 수 있게 prepareSegue 준비 - 다이얼로그 가능성 제기
- 7. ResultController에서 unwindSegue로 값 받아서 서버로 전송하기 - 보류
- 8. MainController에서 서버에서 불러온 현재의 exp와 level , item 현황 등 을 제공한다. - 보류
- 9. 소셜로그인 카카오톡 추가 - 보류
- 10. 랭킹 테이블뷰 생성하고 서버에서 불러와서 뿌리기 - 보류
- */
+
 
 import UIKit
 import AVFoundation
@@ -403,7 +392,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         var compare1 : String = ""
         var compare2 : String = ""
         
-        //, - ! 문자 예외처리 포함!
         
         for origin in origin.characters {
             if(origin.description != " " && origin.description != "," && origin.description != "-" && origin.description != "!" && origin.description != "&" && origin.description != "'"){
@@ -504,7 +492,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         // 3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-            // 사용자가 한글 입력은 안되고 노래 전체구간 사이를 입력했을 경우만 들려준다.
             if Double((textField?.text)!) != nil {
                 if Double((textField?.text)!)! < 180 {
                 self.answer.endEditing(true)
@@ -533,27 +520,22 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     func resultAlert(score:Int){
         
         let scoreSum = Int(userSet[2])! + score
-        let myLevel = Int(userSet[3])! // 내 레벨
+        let myLevel = Int(userSet[3])!
         let random : Int = Int(arc4random_uniform(UInt32(4)))+1
-        randomItemIndex = random // segue 로 넘기기 위한 변수
-        gameScore = score // segue 로 넘기기 위한 변수
+        randomItemIndex = random
+        gameScore = score
         
         var levelUp : Bool = false
         
-        //총 경험치를 userSet의 두번째 인덱스에 넣어주고
         self.userSet[2] = "\(scoreSum)"
         
-        //레벨업한 경우에만 아이템을 하나 더 준다.
         if isLevelUp(scoreSum,myLevel){
             levelUp = true
             self.userSet[random+3] = String(Int(self.userSet[random+3])! + 1)
          
         }
-        //레벨업을 하거나 하지않거나 해서 나온 결과들을 프리퍼런스에 저장시키고
         self.user.set(self.userSet, forKey: "user")
 
-        //그값들을 동일하게 서버에 저장시킨다.
-        // Update MyScore, Item 
         myscoreUpdate()
         itemUpdate()
         
@@ -568,7 +550,6 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         
     }
     
-    // 레벨업 할 수 있나 없나 체크!
     func isLevelUp(_ scoreSum : Int ,_ myLevel : Int) -> Bool{
         var mylv = myLevel
         for index in 0..<expArr.count{
@@ -579,7 +560,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             }
         }
         
-        if mylv != myLevel{       //내 레벨이 바뀌었으면
+        if mylv != myLevel{       
             self.userSet[3] = "\(mylv)"
             return true
         }else{

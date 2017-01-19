@@ -106,7 +106,7 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
     
     override func viewDidAppear(_ animated: Bool) {
         aniBackgroundStar(pic: main_backgroundStar)
-        //setting preference 값을 받아와서 1이면 재생 0이면 x
+       
         let setting = UserDefaults.standard
         if setting.string(forKey: "setting") == "1" {
             playBgm()
@@ -130,15 +130,14 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
             levelLabel.text = "LV.\(myLevel)"
             let forLevelUpExp = MainController.expArray[myLevel-1]
             
-            // 원래 레벨업 까지 필요한 경험치 (다음레벨 - 내 레벨) exp를 레벨업 바 (19개 던가...) 개수로 나누면 레벨업 바 한칸
-            // ( 원래 레벨업까지 필요한 경험치 - 내가 레벨업까지 남은 경험치 = 내가 채운 경험치 ) / 레벨업 바 한칸 경험치 = 레벨업 바 개수
+            
             if myLevel == 1{
                oneBarExpSize = forLevelUpExp / barSize
                countBar = myExp / oneBarExpSize
                 expText.text = "(\(myExp)/100)"
             }else{
             
-                oneBarExpSize = ( forLevelUpExp - MainController.expArray[myLevel-2] ) / barSize // oneBarExpSize 는 내가 레벨업에 필요한 경험치 bar의한칸의 경험치
+                oneBarExpSize = ( forLevelUpExp - MainController.expArray[myLevel-2] ) / barSize //
                 countBar = ( myExp - MainController.expArray[myLevel-2] ) / oneBarExpSize
                 expText.text = "(\(myExp-MainController.expArray[myLevel-2])/\(forLevelUpExp-MainController.expArray[myLevel-2]))"
             }
@@ -326,7 +325,7 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
     }
     
     
-    // loading alert!
+ 
     
     func loadProgress(){
         let alert = UIAlertController(title: nil, message: " 노래를 준비중입니다...🎶", preferredStyle: .alert)
