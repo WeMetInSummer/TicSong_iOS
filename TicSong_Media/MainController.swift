@@ -20,7 +20,7 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nickNameLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
-    
+    @IBOutlet weak var rankingLabel: UIButton!
     // 경험치 관련
     @IBOutlet weak var expText: UILabel!
     @IBOutlet weak var expBar: UIImageView!
@@ -84,8 +84,9 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
         nickNameLabel.font = UIFont.systemFont(ofSize: 20)
         levelLabel.font = UIFont(name: "EXO-REGULAR", size: 16)
         
-        
-        
+        if LoginController.guest == 1{
+        rankingLabel.isHidden = true
+        }
         profileImage.layer.borderWidth = 1
         profileImage.layer.masksToBounds = false
         profileImage.layer.borderColor = UIColor.black.cgColor
@@ -98,9 +99,9 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
         aniPulse(160)
         aniPulse(170)
         
-        
-       
-        
+        if LoginController.guest == 1 {
+            basicAlert(string:"🍄WARNING🍄", message:"Guest Login에서는 \n일부 기능이 제한되오니\n 다른 Login Platform 선택하여 \n플레이하시는 것을 추천합니다.")
+        }
     }
     
     
@@ -120,38 +121,49 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
         profileImage.image = receivedProfImg
         
         let user = UserDefaults.standard
-        
-        if let result = user.stringArray(forKey: "user"){
-            let myLevel = Int(result[3])!
-            let myExp = Int(result[2])!
-            var countBar = 0
-            var oneBarExpSize = 0
+        if LoginController.guest == 0 {
+            if let result = user.stringArray(forKey: "user") {
+                let myLevel = Int(result[3])!
+                let myExp = Int(result[2])!
+                var countBar = 0
+                var oneBarExpSize = 0
             
-            levelLabel.text = "LV.\(myLevel)"
-            let forLevelUpExp = MainController.expArray[myLevel-1]
+                levelLabel.text = "LV.\(myLevel)"
+                let forLevelUpExp = MainController.expArray[myLevel-1]
             
             
-            if myLevel == 1{
-               oneBarExpSize = forLevelUpExp / barSize
-               countBar = myExp / oneBarExpSize
-                expText.text = "(\(myExp)/100)"
-            }else{
+                if myLevel == 1{
+                    oneBarExpSize = forLevelUpExp / barSize
+                    countBar = myExp / oneBarExpSize
+                    expText.text = "(\(myExp)/100)"
+                }else{
             
-                oneBarExpSize = ( forLevelUpExp - MainController.expArray[myLevel-2] ) / barSize //
-                countBar = ( myExp - MainController.expArray[myLevel-2] ) / oneBarExpSize
-                expText.text = "(\(myExp-MainController.expArray[myLevel-2])/\(forLevelUpExp-MainController.expArray[myLevel-2]))"
+                    oneBarExpSize = ( forLevelUpExp - MainController.expArray[myLevel-2] ) / barSize
+                    countBar = ( myExp - MainController.expArray[myLevel-2] ) / oneBarExpSize
+                    expText.text = "(\(myExp-MainController.expArray[myLevel-2])/\(forLevelUpExp-MainController.expArray[myLevel-2]))"
+                }
+            
+                expBar.image = UIImage(named: "bar\(countBar)")
+            
+                let itemLabelArray: [UILabel] = [self.item1Label,self.item2Label,self.item3Label,self.item4Label]
+            
+                for item in 0..<4 {
+                    if Int(result[item+4])! > 99{
+                        itemLabelArray[item].text = ".."
+                    }else{
+                        itemLabelArray[item].text = result[item+4]
+                    }
+                }
             }
+        } else {
             
-            expBar.image = UIImage(named: "bar\(countBar)")
-            
+            levelLabel.text = "LV.\(0)"
+            expText.text = "(0)"
+            expBar.image = UIImage(named: "bar\(0)")
             let itemLabelArray: [UILabel] = [self.item1Label,self.item2Label,self.item3Label,self.item4Label]
             
             for item in 0..<4 {
-                if Int(result[item+4])! > 99{
-                    itemLabelArray[item].text = ".."
-                }else{
-                    itemLabelArray[item].text = result[item+4]
-                }
+               itemLabelArray[item].text = "0"
             }
         }
     }
@@ -344,8 +356,26 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
 
     }
 
+    func basicAlert(string : String,message : String){
+        let alertView = UIAlertController(title: string, message: message, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
+            alertView.dismiss(animated: true, completion: nil)
+        })
+        
+        alertView.addAction(action)
+        
+        alertWindow(alertView: alertView)
+    }
     
+    // alertWindow 중복 제거
     
-    
+    func alertWindow(alertView: UIAlertController){
+        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
+        alertWindow.rootViewController = UIViewController()
+        alertWindow.windowLevel = UIWindowLevelAlert + 1
+        alertWindow.makeKeyAndVisible()
+        alertWindow.rootViewController?.present(alertView, animated: true, completion: nil)
+    }
     
 }

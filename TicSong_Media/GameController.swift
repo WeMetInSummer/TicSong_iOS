@@ -86,7 +86,9 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             userSet = result
         }
         
+        if LoginController.guest == 0{
         makeFloatBtn()
+        }
     }
    
     
@@ -375,7 +377,9 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             stageLabel.text = " STAGE \(stage+1)"
             answer.text = ""
             setting(music: roundList[stage].code, time: roundList[stage].start)
-            makeFloatBtn()
+            if LoginController.guest == 0{
+                makeFloatBtn()
+            }
             dismiss(animated: true, completion: nil)
             answer.endEditing(true)
         }else{
@@ -519,34 +523,37 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
     func resultAlert(score:Int){
         
-        let scoreSum = Int(userSet[2])! + score
-        let myLevel = Int(userSet[3])!
-        let random : Int = Int(arc4random_uniform(UInt32(4)))+1
-        randomItemIndex = random
-        gameScore = score
+        if LoginController.guest == 0 {
+            let scoreSum = Int(userSet[2])! + score
+            let myLevel = Int(userSet[3])!
+            let random : Int = Int(arc4random_uniform(UInt32(4)))+1
+            randomItemIndex = random
+            gameScore = score
         
-        var levelUp : Bool = false
+            var levelUp : Bool = false
         
-        self.userSet[2] = "\(scoreSum)"
+            self.userSet[2] = "\(scoreSum)"
         
-        if isLevelUp(scoreSum,myLevel){
-            levelUp = true
-            self.userSet[random+3] = String(Int(self.userSet[random+3])! + 1)
+            if isLevelUp(scoreSum,myLevel){
+                levelUp = true
+                self.userSet[random+3] = String(Int(self.userSet[random+3])! + 1)
          
-        }
-        self.user.set(self.userSet, forKey: "user")
+            }
+            self.user.set(self.userSet, forKey: "user")
 
-        myscoreUpdate()
-        itemUpdate()
+            myscoreUpdate()
+            itemUpdate()
         
         
-        if levelUp {
-            self.performSegue(withIdentifier: "GameToResultLvUp", sender: self)
- 
-        } else{
+            if levelUp {
+                self.performSegue(withIdentifier: "GameToResultLvUp", sender: self)
+            }else{
+                self.performSegue(withIdentifier: "GameToResult", sender: self)
+            }
+        }else{
+            gameScore = score
             self.performSegue(withIdentifier: "GameToResult", sender: self)
         }
-        
         
     }
     
@@ -752,13 +759,17 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         }
         else if segue.identifier == "GameToResult"{
             let des = segue.destination as! ResultViewController
+            if LoginController.guest == 0{
             des.myLevel = self.userSet[3]
+            }else{
+            des.myLevel = "0"
+            }
             des.myScore = String(gameScore)
         }
     }
     
     func loadProgress(){
-        let alert = UIAlertController(title: nil, message: " 다음 곡을 준비중입니다🎤", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: "  다음 곡을 준비중입니다🎤", preferredStyle: .alert)
         
         alert.view.tintColor = UIColor.black
         let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x:10, y:5, width:50, height:50)) as UIActivityIndicatorView

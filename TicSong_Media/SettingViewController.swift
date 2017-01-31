@@ -12,6 +12,7 @@ import Alamofire
 class SettingViewController: UIViewController,UINavigationControllerDelegate,UINavigationBarDelegate {
 
     @IBOutlet weak var bgmSwitch: UISwitch!
+    @IBOutlet weak var deleteUserButton: UIButton!
     let setting = UserDefaults.standard
     
     var userId : String = ""
@@ -27,10 +28,11 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate,UIN
         
         bar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
         
-        
-        userId = (setting.stringArray(forKey: "user")?[1])!
-        
-        
+        if LoginController.guest == 0{
+            userId = (setting.stringArray(forKey: "user")?[1])!
+        }else{
+            deleteUserButton.isHidden = true
+        }
         
         let switchState = setting.string(forKey: "setting")
         if switchState == "1" || switchState == nil {

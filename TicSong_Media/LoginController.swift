@@ -13,10 +13,10 @@ class LoginController: UIViewController {
     
     // 카톡 프로필 이미지
     var profileIMG:UIImage = UIImage(named: "default")!
-    var name:String = "닉네임X"
+    var name:String = "GUEST"
     var userSet:[String] = []
     var bgmSetting : String? = "1"
-   
+    static var guest : Int = 0
     
     
     override func viewDidLoad() {
@@ -44,6 +44,18 @@ class LoginController: UIViewController {
         }
     }
     
+    @IBAction func guestLoginClicked(_ sender: UIButton) {
+        
+        LoginController.guest = 1
+        
+        let setting = UserDefaults.standard
+        
+        if setting.string(forKey: "setting") == nil{
+            let set = UserDefaults.standard
+            set.set(self.bgmSetting, forKey: "setting")
+        }
+        self.performSegue(withIdentifier: "LoginToMainSegue", sender: self)
+    }
 
     @IBAction func kakaoLoginClicked(_ sender: UIButton) {
         setKakaoProf()
