@@ -14,7 +14,6 @@ class ResultViewController: UIViewController {
     var myScore : String = ""
     
     @IBOutlet weak var myScoreLabel: UILabel!
-    
     @IBOutlet weak var myLevelLabel: UILabel!
     
     override func viewDidLoad() {

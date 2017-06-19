@@ -9,7 +9,6 @@
 import UIKit
 
 class RankingCell: UITableViewCell {
-
     
     @IBOutlet weak var numberLabel: UILabel!
     
@@ -19,6 +18,4 @@ class RankingCell: UITableViewCell {
     
     @IBOutlet weak var levelLabel: UILabel!
     
-
-
 }
