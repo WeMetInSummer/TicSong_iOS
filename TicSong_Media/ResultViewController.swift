@@ -27,11 +27,7 @@ class ResultViewController: UIViewController {
         myScoreLabel.text = myScore
         myLevelLabel.text = "Lv. " + myLevel
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
     @IBAction func dismissResult(_ sender: UIButton) {
         self.performSegue(withIdentifier: "unwindToMain", sender: self)
     }

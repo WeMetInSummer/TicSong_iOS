@@ -72,11 +72,4 @@ class TutorialViewController: UIPageViewController,UIPageViewControllerDataSourc
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return 0
     }
-    
-    
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 }

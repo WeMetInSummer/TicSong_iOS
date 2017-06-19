@@ -46,7 +46,7 @@ class MainViewController: UIViewController ,AVAudioPlayerDelegate{
     var receivedName : String = ""
     var receivedProfImg : UIImage = UIImage(named : "default")!
     
-    // 백그라운드 큐!
+    // 백그라운드 큐
     let backgroundQueue = DispatchQueue(label: "com.app.queue",
                                         qos: .background,
                                         target: nil)
@@ -73,6 +73,7 @@ class MainViewController: UIViewController ,AVAudioPlayerDelegate{
                 bgMusic.stop()
             }
         }
+        
         levelLogic()
     }
     

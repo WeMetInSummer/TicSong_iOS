@@ -20,7 +20,6 @@ func basicAlert(string : String,message : String){
     alertWindow(alertView: alertView)
 }
 
-// alertWindow 중복 제거
 
 func alertWindow(alertView: UIAlertController){
     let alertWindow = UIWindow(frame: UIScreen.main.bounds)

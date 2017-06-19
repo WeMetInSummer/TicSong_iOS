@@ -42,14 +42,6 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate,UIN
         }
         // Do any additional setup after loading the view.
     }
-    override func viewDidAppear(_ animated: Bool) {
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func bgmSetting(_ sender: UISwitch) {
         
@@ -62,36 +54,23 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate,UIN
     
     @IBAction func toMain(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
-
     }
     
-    
+
     @IBAction func deleteUserBtn(_ sender: UIButton) {
         
         let alertView = UIAlertController(title: "회원 탈퇴", message: "정말로 탈퇴하시겠습니까?", preferredStyle: .alert)
         
-        
-        
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
-            
-            
             alertView.dismiss(animated: true, completion: nil)
             self.deleteUser()
-            
-        
-        
-        
         })
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
         
         alertView.addAction(action)
         alertView.addAction(cancelAction)
-        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
-        alertWindow.rootViewController = UIViewController()
-        alertWindow.windowLevel = UIWindowLevelAlert + 1
-        alertWindow.makeKeyAndVisible()
-        alertWindow.rootViewController?.present(alertView, animated: true, completion: nil)
+        self.present(alertView, animated: false, completion: nil)
     }
     
     

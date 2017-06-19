@@ -22,7 +22,7 @@ extension UIColor {
 
 class RankingTableViewController: UITableViewController,UINavigationBarDelegate, UINavigationControllerDelegate {
     
-    var rankings = [Ranking]()
+    var rankings = [RankingVO]()
     var countRanking :Int = 0
     var userId : String = ""
     var myRank : Int = 0

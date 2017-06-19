@@ -20,12 +20,6 @@ class PrivacyViewController: UIViewController,UINavigationControllerDelegate,UIN
         bar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
     @IBAction func closeBtn(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }

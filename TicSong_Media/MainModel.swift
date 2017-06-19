@@ -24,13 +24,12 @@ class MainModel{
     // MARK: - 서버 준비!
     
     func getSongXmlFromServer() {
-        let url: URL = URL(string: API.server + "TicSongServer/songs?type=xml")!
+        let url = URL(string: API.server + "TicSongServer/songs?type=xml")!
         let doc = xmlDocumentFromURL(url: url)
         parseSongXml(doc: doc)
     }
     
     func parseSongXml(doc: AEXMLDocument) {
-        
         if let songs = doc.root["string-array"].all {
             for song in songs {
                 for child in song.children {

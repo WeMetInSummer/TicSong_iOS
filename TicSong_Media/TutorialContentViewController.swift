@@ -32,11 +32,6 @@ class TutorialContentViewController: UIViewController {
         tutorialImage.image = UIImage(named: PhotoName)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func startAction(_ sender: UIButton) {
 
         if setting.string(forKey: "agree") == nil {

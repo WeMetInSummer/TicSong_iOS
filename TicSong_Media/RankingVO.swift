@@ -9,9 +9,8 @@
 import Foundation
 
 
-class Ranking {
+class RankingVO {
     
-
     //MARK: Properties
     var number : String
     var name: String
@@ -28,12 +27,8 @@ class Ranking {
         self.exp = exp
         self.level = level
         
-        
-        
         if(number.isEmpty || name.isEmpty || exp.isEmpty || level.isEmpty){
             return nil
-            
         }
-        
     }
 }

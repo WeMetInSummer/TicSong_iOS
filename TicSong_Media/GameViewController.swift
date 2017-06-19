@@ -613,7 +613,7 @@ class GameViewController: UIViewController , AVAudioPlayerDelegate {
         var duration = 1.0
         duration = aniDuration
         let delay = 0.0
-        let fullRotation = CGFloat(M_PI*2)
+        let fullRotation = CGFloat(Double.pi*2)
         let options = UIViewKeyframeAnimationOptions.calculationModeLinear
         
         UIView.animateKeyframes(withDuration: duration, delay: delay, options:  options, animations: {
@@ -631,43 +631,8 @@ class GameViewController: UIViewController , AVAudioPlayerDelegate {
         })
         
     }
-    
-    // 가운데 별 회전 애니메이션
-    
-    func aniBackgroundStar(pic : UIImageView){
-        let duration = 35.0
-        let delay = 0.0
-        let fullRotation = CGFloat(M_PI*2)
-        let options = UIViewKeyframeAnimationOptions.calculationModeLinear
-        
-        UIView.animateKeyframes(withDuration: duration, delay: delay, options:  options, animations: {
-            UIView.setAnimationRepeatCount(Float.infinity)
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1/3, animations: {
-                pic.transform = CGAffineTransform(rotationAngle: (1/3) * fullRotation)
-            })
-            UIView.addKeyframe(withRelativeStartTime: 1/3, relativeDuration: 1/3, animations: {
-                pic.transform = CGAffineTransform(rotationAngle: (2/3) * fullRotation)
-            })
-            UIView.addKeyframe(withRelativeStartTime: 2/3, relativeDuration: 1/3, animations: {
-                pic.transform = CGAffineTransform(rotationAngle: (3/3) * fullRotation)
-            })
-            
-        })
-        
-    }
-    
-    // alertWindow 중복 제거
-    
-    func alertWindow(alertView: UIAlertController){
-        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
-        alertWindow.rootViewController = UIViewController()
-        alertWindow.windowLevel = UIWindowLevelAlert + 1
-        alertWindow.makeKeyAndVisible()
-        alertWindow.rootViewController?.present(alertView, animated: true, completion: nil)
-    }
 
-    
-    
+  
     //MARK: SERVER 통신 함수
     
     // Update MyScore API

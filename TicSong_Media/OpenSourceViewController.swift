@@ -20,10 +20,6 @@ class OpenSourceViewController: UIViewController,UINavigationBarDelegate,UINavig
         bar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     @IBAction func closeBtn(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
