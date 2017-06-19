@@ -14,7 +14,7 @@ import AVFoundation
 import Alamofire
 import ActionButton
 
-class GameController: UIViewController , AVAudioPlayerDelegate {
+class GameViewController: UIViewController , AVAudioPlayerDelegate {
     
     
     // MARK: 멤버 필드
@@ -43,7 +43,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
-    let expArr : [Int] = MainController.expArray
+    let expArr : [Int] = MainViewController.expArray
     
     var audioPlayer:AVAudioPlayer = AVAudioPlayer()
     
@@ -86,7 +86,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             userSet = result
         }
         
-        if LoginController.guest == 0{
+        if LoginViewController.guest == 0{
         makeFloatBtn()
         }
     }
@@ -202,9 +202,9 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         aniBackgroundStar(pic: main_backgroundStar)
 
         // 키패드에게 알림을 줘서 키보드가 보여질 때 사라질 때의 함수를 실행시킨다
-        NotificationCenter.default.addObserver(self, selector: #selector(GameController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(GameViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(GameController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(GameViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
     }
     override func didReceiveMemoryWarning() {
@@ -351,7 +351,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         timer.invalidate()
         audioPlayer.currentTime = startTime
         musicSec = 0
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GameController.counter), userInfo: nil, repeats:true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GameViewController.counter), userInfo: nil, repeats:true)
         audioPlayer.play()
     }
     
@@ -377,7 +377,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
             stageLabel.text = " STAGE \(stage+1)"
             answer.text = ""
             setting(music: roundList[stage].code, time: roundList[stage].start)
-            if LoginController.guest == 0{
+            if LoginViewController.guest == 0{
                 makeFloatBtn()
             }
             dismiss(animated: true, completion: nil)
@@ -504,7 +504,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
                 self.musicSec = 0
                 self.hintMode = 1
                 self.aniStar(pic: self.juke_shootingStar, aniDuration: 3.5)
-                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GameController.counter), userInfo: nil,repeats:true)
+                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GameViewController.counter), userInfo: nil,repeats:true)
                 self.audioPlayer.play()
                 }else{
                     self.basicAlert(string: "꽝",message: "노래의 범위를 벗어났")
@@ -523,7 +523,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
     
     func resultAlert(score:Int){
         
-        if LoginController.guest == 0 {
+        if LoginViewController.guest == 0 {
             let scoreSum = Int(userSet[2])! + score
             let myLevel = Int(userSet[3])!
             let random : Int = Int(arc4random_uniform(UInt32(4)))+1
@@ -759,7 +759,7 @@ class GameController: UIViewController , AVAudioPlayerDelegate {
         }
         else if segue.identifier == "GameToResult"{
             let des = segue.destination as! ResultViewController
-            if LoginController.guest == 0{
+            if LoginViewController.guest == 0{
             des.myLevel = self.userSet[3]
             }else{
             des.myLevel = "0"

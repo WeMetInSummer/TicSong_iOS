@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9rJ-yq-1DE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9rJ-yq-1DE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -59,7 +59,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CYK-tm-qSu" id="SsN-Oh-vHB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxb-sk-Fk5">
@@ -127,10 +127,10 @@
             </objects>
             <point key="canvasLocation" x="1986" y="-681"/>
         </scene>
-        <!--Main Controller-->
+        <!--Main View Controller-->
         <scene sceneID="o9e-6G-1Z6">
             <objects>
-                <viewController id="mm2-tq-ShV" customClass="MainController" customModule="TicSong_Media" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mm2-tq-ShV" customClass="MainViewController" customModule="TicSong_Media" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JfL-Hc-rRp"/>
                         <viewControllerLayoutGuide type="bottom" id="JTW-KB-wxj"/>
@@ -448,10 +448,10 @@
             </objects>
             <point key="canvasLocation" x="-369" y="527"/>
         </scene>
-        <!--Login Controller-->
+        <!--Login View Controller-->
         <scene sceneID="6aG-7d-s4j">
             <objects>
-                <viewController id="JcQ-e5-JEc" customClass="LoginController" customModule="TicSong_Media" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JcQ-e5-JEc" customClass="LoginViewController" customModule="TicSong_Media" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FXU-kz-z2F"/>
                         <viewControllerLayoutGuide type="bottom" id="uyb-MQ-Yea"/>
@@ -517,10 +517,10 @@
             </objects>
             <point key="canvasLocation" x="-1122" y="527"/>
         </scene>
-        <!--Fake View Controller-->
+        <!--Enable Login View Controller-->
         <scene sceneID="a4r-aO-dyN">
             <objects>
-                <viewController id="9rJ-yq-1DE" customClass="FakeViewController" customModule="TicSong_Media" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9rJ-yq-1DE" customClass="EnableLoginViewController" customModule="TicSong_Media" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TTe-uC-7Yw"/>
                         <viewControllerLayoutGuide type="bottom" id="usO-gc-wat"/>
@@ -746,10 +746,10 @@
             </objects>
             <point key="canvasLocation" x="-2895.1999999999998" y="526.6866566716642"/>
         </scene>
-        <!--Game Controller-->
+        <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="GameController" customModule="TicSong_Media" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="TicSong_Media" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -1304,7 +1304,7 @@ Copyright © 2016 우리는여름에만났다 All Rights Reserved</string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iMT-r5-V17" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mBC-T6-oIb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mBC-T6-oIb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1502,7 +1502,7 @@ Copyright © 2016 우리는여름에만났다 All Rights Reserved</string>
                                 <rect key="frame" x="65.5" y="236" width="244" height="195"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="레벨 : " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gml-T3-oPE">
-                                        <rect key="frame" x="8" y="161" width="228" height="26"/>
+                                        <rect key="frame" x="8" y="157.5" width="228" height="29.5"/>
                                         <fontDescription key="fontDescription" name="Exo-Light" family="Exo" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1674,7 +1674,7 @@ Copyright © 2016 우리는여름에만났다 All Rights Reserved</string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W7O-9D-U6s" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lmv-pe-sap">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Lmv-pe-sap">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1730,7 +1730,7 @@ Copyright © 2016 우리는여름에만났다 All Rights Reserved</string>
         <image name="startInTutorial" width="133" height="57"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sFZ-jp-2iZ"/>
+        <segue reference="HjF-p2-yqd"/>
         <segue reference="3mi-Yn-rER"/>
     </inferredMetricsTieBreakers>
 </document>

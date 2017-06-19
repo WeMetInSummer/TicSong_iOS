@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class LoginController: UIViewController {
+class LoginViewController: UIViewController {
     
     // 카톡 프로필 이미지
     var profileIMG:UIImage = UIImage(named: "default")!
@@ -38,7 +38,7 @@ class LoginController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "LoginToMainSegue"{
-            let destination = segue.destination as! MainController
+            let destination = segue.destination as! MainViewController
             destination.receivedProfImg = profileIMG
             destination.receivedName = name
         }
@@ -46,7 +46,7 @@ class LoginController: UIViewController {
     
     @IBAction func guestLoginClicked(_ sender: UIButton) {
         
-        LoginController.guest = 1
+        LoginViewController.guest = 1
         
         let setting = UserDefaults.standard
         

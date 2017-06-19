@@ -10,7 +10,7 @@ import UIKit
 import AEXML
 import AVFoundation
 
-class MainController: UIViewController ,AVAudioPlayerDelegate{
+class MainViewController: UIViewController ,AVAudioPlayerDelegate{
     
     // MARK: 멤버 필드
     @IBOutlet var mainView: UIView!
@@ -84,7 +84,7 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
         nickNameLabel.font = UIFont.systemFont(ofSize: 20)
         levelLabel.font = UIFont(name: "EXO-REGULAR", size: 16)
         
-        if LoginController.guest == 1{
+        if LoginViewController.guest == 1{
         rankingLabel.isHidden = true
         }
         profileImage.layer.borderWidth = 1
@@ -99,7 +99,7 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
         aniPulse(160)
         aniPulse(170)
         
-        if LoginController.guest == 1 {
+        if LoginViewController.guest == 1 {
             basicAlert(string:"🍄WARNING🍄", message:"Guest Login에서는 \n일부 기능이 제한되오니\n 다른 Login Platform 선택하여 \n플레이하시는 것을 추천합니다.")
         }
     }
@@ -121,7 +121,7 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
         profileImage.image = receivedProfImg
         
         let user = UserDefaults.standard
-        if LoginController.guest == 0 {
+        if LoginViewController.guest == 0 {
             if let result = user.stringArray(forKey: "user") {
                 let myLevel = Int(result[3])!
                 let myExp = Int(result[2])!
@@ -129,7 +129,7 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
                 var oneBarExpSize = 0
             
                 levelLabel.text = "LV.\(myLevel)"
-                let forLevelUpExp = MainController.expArray[myLevel-1]
+                let forLevelUpExp = MainViewController.expArray[myLevel-1]
             
             
                 if myLevel == 1{
@@ -138,9 +138,9 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
                     expText.text = "(\(myExp)/100)"
                 }else{
             
-                    oneBarExpSize = ( forLevelUpExp - MainController.expArray[myLevel-2] ) / barSize
-                    countBar = ( myExp - MainController.expArray[myLevel-2] ) / oneBarExpSize
-                    expText.text = "(\(myExp-MainController.expArray[myLevel-2])/\(forLevelUpExp-MainController.expArray[myLevel-2]))"
+                    oneBarExpSize = ( forLevelUpExp - MainViewController.expArray[myLevel-2] ) / barSize
+                    countBar = ( myExp - MainViewController.expArray[myLevel-2] ) / oneBarExpSize
+                    expText.text = "(\(myExp-MainViewController.expArray[myLevel-2])/\(forLevelUpExp-MainViewController.expArray[myLevel-2]))"
                 }
             
                 expBar.image = UIImage(named: "bar\(countBar)")
@@ -215,7 +215,7 @@ class MainController: UIViewController ,AVAudioPlayerDelegate{
         
         if segue.identifier == "MainToGameSegue"
         {
-            let destination = segue.destination as! GameController
+            let destination = segue.destination as! GameViewController
             destination.roundList = makeList()
             dismiss(animated: false, completion: nil)
         }
