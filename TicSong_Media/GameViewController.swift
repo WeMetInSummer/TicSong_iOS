@@ -43,7 +43,7 @@ class GameViewController: UIViewController , AVAudioPlayerDelegate {
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
-    let expArr : [Int] = MainViewController.expArray
+    let expArr : [Int] = expArray
     
     var audioPlayer:AVAudioPlayer = AVAudioPlayer()
     

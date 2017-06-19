@@ -24,14 +24,7 @@ class MainViewController: UIViewController ,AVAudioPlayerDelegate{
     // 경험치 관련
     @IBOutlet weak var expText: UILabel!
     @IBOutlet weak var expBar: UIImageView!
-    let barSize : Int = 20  // bar 의 개수
-    static let expArray : [Int] =
-        [100,600,1200,1900,2700,3600,4600,5700,6900,8200,9700,11400,13300,15400,17700,20200,22900,25800,28900,32200,35800,39700,43900,48400,53200,58300,63700,69400,75400,81700,88450,95650,103300,111400,119950,128950,138400,148300,158650,169450,180650,192250,204250,216650,229450,242650,256250,270250,284650,299450,315000,331300,348350,366150,384700,404000,424050,444850,466400,
-         488700,511850,535850,560700,586400,612950,640350,668600,697700,727650,758450,790250,823050,
-         856850,891650,927450,964250,1002050,1040850,1080650,1121450,1163750,1207550,1252850,1299650,
-        1347950,1398250,1450550,1504850,1561150,1621150,1686150,1761150,1861150,2011150,2261150,2661150,3261150,4261150,7000000,10000000]
-    
-    
+    let barSize : Int = 20
     
     // 아이템 레이블
     @IBOutlet weak var item1Label: UILabel!
@@ -54,12 +47,8 @@ class MainViewController: UIViewController ,AVAudioPlayerDelegate{
     var receivedName : String = ""
     var receivedProfImg : UIImage = UIImage(named : "default")!
     
-    
-    
     // 사운드 클라우드 유알엘
     var url: String!
-
-    
     
     // 멤버 변수
     var itemSort = 1
@@ -129,7 +118,7 @@ class MainViewController: UIViewController ,AVAudioPlayerDelegate{
                 var oneBarExpSize = 0
             
                 levelLabel.text = "LV.\(myLevel)"
-                let forLevelUpExp = MainViewController.expArray[myLevel-1]
+                let forLevelUpExp = expArray[myLevel-1]
             
             
                 if myLevel == 1{
@@ -138,9 +127,9 @@ class MainViewController: UIViewController ,AVAudioPlayerDelegate{
                     expText.text = "(\(myExp)/100)"
                 }else{
             
-                    oneBarExpSize = ( forLevelUpExp - MainViewController.expArray[myLevel-2] ) / barSize
-                    countBar = ( myExp - MainViewController.expArray[myLevel-2] ) / oneBarExpSize
-                    expText.text = "(\(myExp-MainViewController.expArray[myLevel-2])/\(forLevelUpExp-MainViewController.expArray[myLevel-2]))"
+                    oneBarExpSize = ( forLevelUpExp - expArray[myLevel-2] ) / barSize
+                    countBar = ( myExp - expArray[myLevel-2] ) / oneBarExpSize
+                    expText.text = "(\(myExp-expArray[myLevel-2])/\(forLevelUpExp-expArray[myLevel-2]))"
                 }
             
                 expBar.image = UIImage(named: "bar\(countBar)")
