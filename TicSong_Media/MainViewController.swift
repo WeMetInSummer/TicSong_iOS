@@ -46,10 +46,6 @@ class MainViewController: UIViewController ,AVAudioPlayerDelegate{
     var receivedName : String = ""
     var receivedProfImg : UIImage = UIImage(named : "default")!
     
-    // 사운드 클라우드 유알엘
-    var url: String!
-    
-
     // 백그라운드 큐!
     let backgroundQueue = DispatchQueue(label: "com.app.queue",
                                         qos: .background,
@@ -198,39 +194,10 @@ class MainViewController: UIViewController ,AVAudioPlayerDelegate{
         if segue.identifier == "MainToGameSegue"
         {
             let destination = segue.destination as! GameViewController
-            destination.roundList = makeList()
+            destination.roundList = MainModel.shared.makeList()
             dismiss(animated: false, completion: nil)
         }
     }
-    
-    
-    func random() -> Int {
-        let random = Int(arc4random_uniform(UInt32(MainModel.shared.getSongName().count)))
-        return random
-    }
-    
-    func makeList() -> [(code:String,songName:String,artist:String,start:Double)]{
-        var list:[(code:String,songName:String,artist:String,start:Double)] = []
-        var indexList:[Int] = []
-        var index = 0
-        
-        while indexList.count != 5 {
-            index = random()
-            if(!indexList.contains(index)){
-                url = "https://api.soundcloud.com/tracks/"+MainModel.shared.getCode()[index]+"/stream?client_id=59eb0488cc28a2c558ecbf47ed19f787"
-                let fileURL = NSURL(string:url)
-                if NSData(contentsOf:fileURL! as URL) != nil {
-                    indexList.append(index)
-                    list.append((code:MainModel.shared.getCode()[index],songName:MainModel.shared.getSongName()[index],artist:MainModel.shared.getArtist()[index],start:MainModel.shared.getStartPoint()[index]))
-                }else{
-
-                }
-            }
-        }
-        return list
-    }
-
-    
     
     
     func loadProgress(){
@@ -243,6 +210,7 @@ class MainViewController: UIViewController ,AVAudioPlayerDelegate{
         loadingIndicator.startAnimating();
         
         alert.view.addSubview(loadingIndicator)
+        
         present(alert, animated: true, completion: nil)
     }
     
