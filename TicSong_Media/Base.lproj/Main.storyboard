@@ -55,7 +55,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RankingTableViewCell" rowHeight="80" id="CYK-tm-qSu" customClass="RankingTableViewCell" customModule="TicSong_Media" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RankingTableViewCell" rowHeight="80" id="CYK-tm-qSu" customClass="RankingCell" customModule="TicSong_Media" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CYK-tm-qSu" id="SsN-Oh-vHB">

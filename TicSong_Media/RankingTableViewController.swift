@@ -70,7 +70,7 @@ class RankingTableViewController: UITableViewController,UINavigationBarDelegate,
         
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "RankingTableViewCell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RankingTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RankingCell
         
         // Fetches the appropriate meal for the data source layout.
         if !rankings.isEmpty {
@@ -97,7 +97,7 @@ class RankingTableViewController: UITableViewController,UINavigationBarDelegate,
                             if let JSON = JSON as? [String: AnyObject] {
                                 if let resultCode = JSON["resultCode"] as? String{
                                     if(resultCode == "1"){
-                                        var ranking: Ranking!
+                                        var ranking: RankingVO!
                                         if let result = JSON["rankerList"] as? [AnyObject]{
                                             let counts =  result.map(
                                                 {(a: AnyObject) -> Int in
@@ -106,7 +106,7 @@ class RankingTableViewController: UITableViewController,UINavigationBarDelegate,
                                                     let name = rankDict["name"] as! String!
                                                     let exp = rankDict["exp"] as! Int
                                                     let userLevel = rankDict["userLevel"] as! Int
-                                                    ranking = Ranking(number: String(rank), name: name!, exp : String(exp), level : String(userLevel))
+                                                    ranking = RankingVO(number: String(rank), name: name!, exp : String(exp), level : String(userLevel))
                                                     self.rankings += [ranking]
                                            
                                                     return a.count

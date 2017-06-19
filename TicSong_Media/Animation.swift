@@ -30,3 +30,27 @@ func aniBackgroundStar(pic : UIImageView){
     })
     
 }
+
+//MARK: ANIMATION
+
+func aniStar(pic : UIImageView, aniDuration : Double){
+    var duration = 1.0
+    duration = aniDuration
+    let delay = 0.0
+    let fullRotation = CGFloat(Double.pi*2)
+    let options = UIViewKeyframeAnimationOptions.calculationModeLinear
+    
+    UIView.animateKeyframes(withDuration: duration, delay: delay, options:  options, animations: {
+        //UIView.setAnimationRepeatCount(1)
+        UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1/3, animations: {
+            pic.transform = CGAffineTransform(rotationAngle: -(1/3) * fullRotation)
+        })
+        UIView.addKeyframe(withRelativeStartTime: 1/3, relativeDuration: 1/3, animations: {
+            pic.transform = CGAffineTransform(rotationAngle: -(2/3) * fullRotation)
+        })
+        UIView.addKeyframe(withRelativeStartTime: 2/3, relativeDuration: 1/3, animations: {
+            pic.transform = CGAffineTransform(rotationAngle: -(3/3) * fullRotation)
+        })
+        
+    })
+}
