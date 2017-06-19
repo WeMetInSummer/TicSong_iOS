@@ -1317,10 +1317,10 @@ Copyright © 2016 우리는여름에만났다 All Rights Reserved</string>
             </objects>
             <point key="canvasLocation" x="-991.20000000000005" y="-679.61019490254876"/>
         </scene>
-        <!--Result View Controller Lv Up-->
+        <!--Level Up View Controller-->
         <scene sceneID="PYh-zt-26S">
             <objects>
-                <viewController id="vZI-1X-nQT" customClass="ResultViewControllerLvUp" customModule="TicSong_Media" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vZI-1X-nQT" customClass="LevelUpViewController" customModule="TicSong_Media" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qPw-N3-Zxx"/>
                         <viewControllerLayoutGuide type="bottom" id="ucx-5N-sba"/>

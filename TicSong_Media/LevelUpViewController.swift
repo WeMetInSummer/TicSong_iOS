@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResultViewControllerLvUp: UIViewController {
+class LevelUpViewController: UIViewController {
 
     var randomIndex : Int = 0
     var myLevel : String = ""

@@ -554,7 +554,7 @@ class GameViewController: UIViewController , AVAudioPlayerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "GameToResultLvUp"{
-            let des = segue.destination as! ResultViewControllerLvUp
+            let des = segue.destination as! LevelUpViewController
             des.randomIndex = randomItemIndex
             des.myLevel = GameModel.shared.userSet[3]
             des.myScore = String(gameScore)
