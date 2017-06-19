@@ -9,46 +9,51 @@
 import UIKit
 import Alamofire
 
-class SettingViewController: UIViewController,UINavigationControllerDelegate,UINavigationBarDelegate {
+class SettingViewController: UIViewController {
 
     @IBOutlet weak var bgmSwitch: UISwitch!
     @IBOutlet weak var deleteUserButton: UIButton!
-    let setting = UserDefaults.standard
+    
+    let ud = UserDefaults.standard
     
     var userId : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         
-        let bar:UINavigationBar! = navigationController?.navigationBar
-        let barColor = UIColor(red: 20.0/255.0, green: 34.0/255.0, blue: 58.0/255.0, alpha: 1.0)
-        bar.isTranslucent = false
-        bar.barTintColor = barColor
-        
-        
-        bar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+    }
+    
+    func setup(){
+        if let bar = navigationController?.navigationBar{
+            let barColor = UIColor(red: 20.0/255.0, green: 34.0/255.0, blue: 58.0/255.0, alpha: 1.0)
+            bar.isTranslucent = false
+            bar.barTintColor = barColor
+            bar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        }
         
         if LoginModel.shared.guestMode == 0{
-            userId = (setting.stringArray(forKey: "user")?[1])!
+            userId = (ud.stringArray(forKey: "user")?[1])!
         }else{
             deleteUserButton.isHidden = true
         }
         
-        let switchState = setting.string(forKey: "setting")
+        let switchState = ud.string(forKey: "setting")
+        
         if switchState == "1" || switchState == nil {
             bgmSwitch.setOn(true, animated:true)
         }else{
             bgmSwitch.setOn(false, animated:true)
         }
-        // Do any additional setup after loading the view.
+
     }
     
     @IBAction func bgmSetting(_ sender: UISwitch) {
         
         if bgmSwitch.isOn {
-            setting.set("1", forKey: "setting")
+            ud.set("1", forKey: "setting")
         }else{
-            setting.set("2", forKey: "setting")
+            ud.set("2", forKey: "setting")
         }
     }
     
@@ -73,50 +78,17 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate,UIN
         self.present(alertView, animated: false, completion: nil)
     }
     
-    
     func deleteUser(){
-    
-    
-        //서버통신
-        let baseURL = "http://13.124.46.227/TicSongServer/user.do?service=delete&userId="+userId
-
-        Alamofire.request(baseURL,method : .get,encoding: URLEncoding.default, headers: nil)
-            .responseJSON { (response:DataResponse<Any>) in
-                
-                switch(response.result) {
-                case .success(_):
-                    if response.result.value != nil{
-                        
-                        
-                        if let data = response.data, let utf8Text = String(data: data, encoding: .utf8), let encodedData = utf8Text.data(using: String.Encoding.utf8){
-                            
-                            let JSON = try! JSONSerialization.jsonObject(with: encodedData, options: [])
-                            
-                            if let JSON = JSON as? [String: AnyObject] {
-                                if let resultCode = JSON["resultCode"] as? String {
-                                    if resultCode == "1"{
-                                        self.setting.removeObject(forKey: "user")
-                                        self.setting.removeObject(forKey: "setting")
-                                        self.performSegue(withIdentifier: "unwindToLogin", sender: self)
-                                    }else{
-                                        self.showToast("네트워크 연결 상태를 확인해주세요.")
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    
-                    
-                    break
-                    
-                case .failure(_):
-                    print(response.result.error!)
-                   
-                    break
+        UserModel.shared.deleteUser { (completion) in
+            if completion == 1{
+                self.ud.removeObject(forKey: "user")
+                self.ud.removeObject(forKey: "setting")
+                self.performSegue(withIdentifier: "unwindToLogin", sender: self)
+            } else {
+                self.showToast("네트워크 연결 상태를 확인해주세요.")
             }
         }
     }
-    
    
     func showToast(_ msg:String) {
         let toast = UIAlertController()
