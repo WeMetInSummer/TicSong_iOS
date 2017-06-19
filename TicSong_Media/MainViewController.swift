@@ -289,7 +289,7 @@ class MainViewController: UIViewController ,AVAudioPlayerDelegate{
     // MARK: - 서버 준비!
     
     func getSongXmlFromServer() {
-        let url: URL = URL(string: "http://52.79.152.130/TicSongServer/songs?type=xml")!
+        let url: URL = URL(string: "http://13.124.46.227/TicSongServer/songs?type=xml")!
         let doc = xmlDocumentFromURL(url: url)
         parseSongXml(doc: doc)
     }

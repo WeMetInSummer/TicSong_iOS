@@ -54,7 +54,7 @@ class LoginModel {
                             }
                             
                             //서버통신
-                            let baseURL = "http://52.79.152.130/TicSongServer/login.do"
+                            let baseURL = "http://13.124.46.227/TicSongServer/login.do"
                             
                             let parameters: Parameters = ["userId":kakao.id!,"name":self.name,"platform":"1"]
                             

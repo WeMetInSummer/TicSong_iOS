@@ -99,7 +99,7 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate,UIN
     
     
         //서버통신
-        let baseURL = "http://52.79.152.130/TicSongServer/user.do?service=delete&userId="+userId
+        let baseURL = "http://13.124.46.227/TicSongServer/user.do?service=delete&userId="+userId
 
         Alamofire.request(baseURL,method : .get,encoding: URLEncoding.default, headers: nil)
             .responseJSON { (response:DataResponse<Any>) in

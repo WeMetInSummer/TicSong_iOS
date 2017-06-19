@@ -84,7 +84,7 @@ class RankingTableViewController: UITableViewController,UINavigationBarDelegate,
         return cell
     }
     func selectRankings(userId:String)  {
-        let baseURL = "http://52.79.152.130/TicSongServer/myscore.do"
+        let baseURL = "http://13.124.46.227/TicSongServer/myscore.do"
         let parameters: Parameters = ["service":"rank","userId":userId]
         Alamofire.request(baseURL,method : .get, parameters: parameters, encoding: URLEncoding.default, headers: nil)
             .responseJSON { (response:DataResponse<Any>) in

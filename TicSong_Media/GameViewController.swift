@@ -673,7 +673,7 @@ class GameViewController: UIViewController , AVAudioPlayerDelegate {
     // Update MyScore API
     func myscoreUpdate(){
     
-        let baseURL = "http://52.79.152.130/TicSongServer/myscore.do"
+        let baseURL = "http://13.124.46.227/TicSongServer/myscore.do"
         
         let parameters: Parameters = ["service":"update", "userId":userSet[1], "exp":userSet[2], "userLevel":userSet[3]]
         
@@ -713,7 +713,7 @@ class GameViewController: UIViewController , AVAudioPlayerDelegate {
     func itemUpdate() {
         
         
-        let baseURL = "http://52.79.152.130/TicSongServer/item.do"
+        let baseURL = "http://13.124.46.227/TicSongServer/item.do"
         
         let parameters: Parameters = ["service":"update", "userId":userSet[1], "item1Cnt":userSet[4], "item3Cnt":userSet[5], "item4Cnt":userSet[6], "item5Cnt":userSet[7],]
         
