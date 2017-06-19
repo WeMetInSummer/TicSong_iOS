@@ -11,8 +11,6 @@ import Alamofire
 
 class LoginViewController: UIViewController {
     
-    static var guest : Int = 0
-    
     var userInfo: (name: String,profileImage: UIImage?)?
     
     override func viewDidLoad() {
@@ -20,12 +18,13 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        LoginModel.shared.guestMode = 0
         LoginModel.shared.userSetClear()
     }
     
     @IBAction func guestLoginClicked(_ sender: UIButton) {
         
-        LoginViewController.guest = 1
+        LoginModel.shared.guestMode = 1
         LoginModel.shared.guestLogin()
         self.performSegue(withIdentifier: "LoginToMainSegue", sender: self)
     }

@@ -19,6 +19,7 @@ class LoginModel {
     private var userSet = [String]()
     private let user = UserDefaults.standard
     private var bgmSetting : String? = "1"
+    var guestMode = 0
     
     private var session :KOSession = KOSession.shared()
     
@@ -134,4 +135,5 @@ class LoginModel {
             return (name,nil)
         }
     }
+    
 }
