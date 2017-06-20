@@ -12,7 +12,7 @@
 		370899BB1E1E3DD100AD8486 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370899BA1E1E3DD100AD8486 /* KakaoOpenSDK.framework */; };
 		370B64BD1E1ACBB700CD2A4C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B64BC1E1ACBB700CD2A4C /* MainViewController.swift */; };
 		372DCB9A1E2BEBAF000D15D3 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372DCB991E2BEBAF000D15D3 /* AboutUsViewController.swift */; };
-		373816671E29300800E1EEC3 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373816661E29300800E1EEC3 /* RankingTableViewCell.swift */; };
+		373816671E29300800E1EEC3 /* RankingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373816661E29300800E1EEC3 /* RankingCell.swift */; };
 		373816691E2933E600E1EEC3 /* RankingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373816681E2933E600E1EEC3 /* RankingTableViewController.swift */; };
 		373D13001E19546900EA00C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D12FF1E19546900EA00C4 /* AppDelegate.swift */; };
 		373D13021E19546900EA00C4 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D13011E19546900EA00C4 /* GameViewController.swift */; };
@@ -40,13 +40,17 @@
 		37CB96DC1E2CD6DD00BC5D2E /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CB96DB1E2CD6DD00BC5D2E /* TutorialViewController.swift */; };
 		37FC94751E29DB0400A08AA4 /* jellyfish.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 37FC94741E29DB0400A08AA4 /* jellyfish.mp3 */; };
 		6740EC361EF839A200A8FF37 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740EC351EF839A200A8FF37 /* Alert.swift */; };
+		6740EC3D1EF83F2300A8FF37 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740EC3C1EF83F2300A8FF37 /* GameModel.swift */; };
+		6740EC3F1EF84D6900A8FF37 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740EC3E1EF84D6900A8FF37 /* Extension.swift */; };
+		6740EC411EF84DD900A8FF37 /* RankingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740EC401EF84DD900A8FF37 /* RankingModel.swift */; };
+		6740EC451EF8532600A8FF37 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740EC441EF8532600A8FF37 /* UserModel.swift */; };
 		679D5E111E1C9D7E009F824B /* LFTPulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D5E101E1C9D7E009F824B /* LFTPulseAnimation.swift */; };
 		67A5DBC81EF82953006791E2 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A5DBC71EF82953006791E2 /* LoginModel.swift */; };
 		67A5DBCB1EF82FBB006791E2 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A5DBCA1EF82FBB006791E2 /* Level.swift */; };
 		67A5DBCD1EF831A5006791E2 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A5DBCC1EF831A5006791E2 /* MainModel.swift */; };
 		67A5DBD01EF8333F006791E2 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A5DBCF1EF8333F006791E2 /* Animation.swift */; };
 		67A5DBD21EF835A4006791E2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A5DBD11EF835A4006791E2 /* API.swift */; };
-		67F6C5441E2B73D900B432E0 /* ResultViewControllerLvUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F6C5431E2B73D900B432E0 /* ResultViewControllerLvUp.swift */; };
+		67F6C5441E2B73D900B432E0 /* LevelUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F6C5431E2B73D900B432E0 /* LevelUpViewController.swift */; };
 		67F6C5461E2B740200B432E0 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F6C5451E2B740200B432E0 /* ResultViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +61,7 @@
 		370899BC1E1E402B00AD8486 /* TicSong_Media-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TicSong_Media-Bridging-Header.h"; sourceTree = "<group>"; };
 		370B64BC1E1ACBB700CD2A4C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		372DCB991E2BEBAF000D15D3 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
-		373816661E29300800E1EEC3 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
+		373816661E29300800E1EEC3 /* RankingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingCell.swift; sourceTree = "<group>"; };
 		373816681E2933E600E1EEC3 /* RankingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewController.swift; sourceTree = "<group>"; };
 		373D12FC1E19546900EA00C4 /* TicSong_Media.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicSong_Media.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		373D12FF1E19546900EA00C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,13 +91,17 @@
 		37CB96DB1E2CD6DD00BC5D2E /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		37FC94741E29DB0400A08AA4 /* jellyfish.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jellyfish.mp3; sourceTree = "<group>"; };
 		6740EC351EF839A200A8FF37 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		6740EC3C1EF83F2300A8FF37 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		6740EC3E1EF84D6900A8FF37 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		6740EC401EF84DD900A8FF37 /* RankingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingModel.swift; sourceTree = "<group>"; };
+		6740EC441EF8532600A8FF37 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		679D5E101E1C9D7E009F824B /* LFTPulseAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LFTPulseAnimation.swift; sourceTree = "<group>"; };
 		67A5DBC71EF82953006791E2 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		67A5DBCA1EF82FBB006791E2 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		67A5DBCC1EF831A5006791E2 /* MainModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		67A5DBCF1EF8333F006791E2 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		67A5DBD11EF835A4006791E2 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		67F6C5431E2B73D900B432E0 /* ResultViewControllerLvUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewControllerLvUp.swift; sourceTree = "<group>"; };
+		67F6C5431E2B73D900B432E0 /* LevelUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelUpViewController.swift; sourceTree = "<group>"; };
 		67F6C5451E2B740200B432E0 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		C1DDF84384BBFA8952B429C6 /* Pods_TicSong_Media.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicSong_Media.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E298CB8F856AA74C17938E62 /* Pods-TicSong_Media.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicSong_Media.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicSong_Media/Pods-TicSong_Media.debug.xcconfig"; sourceTree = "<group>"; };
@@ -140,25 +148,12 @@
 				373D12FF1E19546900EA00C4 /* AppDelegate.swift */,
 				67A5DBD11EF835A4006791E2 /* API.swift */,
 				67A5DBCE1EF831AC006791E2 /* Main */,
-				67A5DBCA1EF82FBB006791E2 /* Level.swift */,
 				67A5DBC91EF82EF3006791E2 /* Login */,
+				6740EC3A1EF83ECC00A8FF37 /* Game */,
+				6740EC391EF83E6000A8FF37 /* Ranking */,
+				6740EC381EF83DE500A8FF37 /* Setting */,
 				373D13031E19546900EA00C4 /* Main.storyboard */,
-				373D13011E19546900EA00C4 /* GameViewController.swift */,
-				373816681E2933E600E1EEC3 /* RankingTableViewController.swift */,
-				373816661E29300800E1EEC3 /* RankingTableViewCell.swift */,
-				3784E5961E2937A9005E11BE /* RankingVO.swift */,
-				3784E5981E294A4D005E11BE /* SettingViewController.swift */,
-				67F6C5431E2B73D900B432E0 /* ResultViewControllerLvUp.swift */,
-				67F6C5451E2B740200B432E0 /* ResultViewController.swift */,
-				377049A31E2BE8D600A8A4A4 /* OpenSourceViewController.swift */,
-				377049A51E2BE90100A8A4A4 /* PrivacyViewController.swift */,
-				37CB96D91E2CD6BE00BC5D2E /* TutorialContentViewController.swift */,
-				37CB96DB1E2CD6DD00BC5D2E /* TutorialViewController.swift */,
-				372DCB991E2BEBAF000D15D3 /* AboutUsViewController.swift */,
-				37B7E76A1E2CF5D20091E81B /* PrivacyCheckViewController.swift */,
-				37B7E76E1E2D2D310091E81B /* EnableLoginViewController.swift */,
 				6740EC371EF83CA000A8FF37 /* Animation */,
-				6740EC351EF839A200A8FF37 /* Alert.swift */,
 				67A5DBC61EF82782006791E2 /* Supporting Files */,
 				370899BA1E1E3DD100AD8486 /* KakaoOpenSDK.framework */,
 				370899BC1E1E402B00AD8486 /* TicSong_Media-Bridging-Header.h */,
@@ -201,9 +196,49 @@
 			name = Animation;
 			sourceTree = "<group>";
 		};
+		6740EC381EF83DE500A8FF37 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				3784E5981E294A4D005E11BE /* SettingViewController.swift */,
+				377049A31E2BE8D600A8A4A4 /* OpenSourceViewController.swift */,
+				377049A51E2BE90100A8A4A4 /* PrivacyViewController.swift */,
+				37CB96D91E2CD6BE00BC5D2E /* TutorialContentViewController.swift */,
+				37CB96DB1E2CD6DD00BC5D2E /* TutorialViewController.swift */,
+				372DCB991E2BEBAF000D15D3 /* AboutUsViewController.swift */,
+				37B7E76A1E2CF5D20091E81B /* PrivacyCheckViewController.swift */,
+				37B7E76E1E2D2D310091E81B /* EnableLoginViewController.swift */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		6740EC391EF83E6000A8FF37 /* Ranking */ = {
+			isa = PBXGroup;
+			children = (
+				3784E5961E2937A9005E11BE /* RankingVO.swift */,
+				373816681E2933E600E1EEC3 /* RankingTableViewController.swift */,
+				373816661E29300800E1EEC3 /* RankingCell.swift */,
+				6740EC401EF84DD900A8FF37 /* RankingModel.swift */,
+			);
+			name = Ranking;
+			sourceTree = "<group>";
+		};
+		6740EC3A1EF83ECC00A8FF37 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				67A5DBCA1EF82FBB006791E2 /* Level.swift */,
+				373D13011E19546900EA00C4 /* GameViewController.swift */,
+				67F6C5431E2B73D900B432E0 /* LevelUpViewController.swift */,
+				67F6C5451E2B740200B432E0 /* ResultViewController.swift */,
+				6740EC3C1EF83F2300A8FF37 /* GameModel.swift */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
 		67A5DBC61EF82782006791E2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6740EC351EF839A200A8FF37 /* Alert.swift */,
+				6740EC3E1EF84D6900A8FF37 /* Extension.swift */,
 				373D13081E19546900EA00C4 /* LaunchScreen.storyboard */,
 				373D13061E19546900EA00C4 /* Assets.xcassets */,
 				373D130B1E19546900EA00C4 /* Info.plist */,
@@ -216,6 +251,7 @@
 			children = (
 				370899B81E1E393100AD8486 /* LoginViewController.swift */,
 				67A5DBC71EF82953006791E2 /* LoginModel.swift */,
+				6740EC441EF8532600A8FF37 /* UserModel.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -373,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6740EC3D1EF83F2300A8FF37 /* GameModel.swift in Sources */,
 				67A5DBD01EF8333F006791E2 /* Animation.swift in Sources */,
 				67A5DBC81EF82953006791E2 /* LoginModel.swift in Sources */,
 				373D13021E19546900EA00C4 /* GameViewController.swift in Sources */,
@@ -381,11 +418,12 @@
 				37B7E76F1E2D2D310091E81B /* EnableLoginViewController.swift in Sources */,
 				6740EC361EF839A200A8FF37 /* Alert.swift in Sources */,
 				377049A61E2BE90100A8A4A4 /* PrivacyViewController.swift in Sources */,
+				6740EC3F1EF84D6900A8FF37 /* Extension.swift in Sources */,
 				3784E5971E2937A9005E11BE /* RankingVO.swift in Sources */,
 				373816691E2933E600E1EEC3 /* RankingTableViewController.swift in Sources */,
-				373816671E29300800E1EEC3 /* RankingTableViewCell.swift in Sources */,
+				373816671E29300800E1EEC3 /* RankingCell.swift in Sources */,
 				37B7E76B1E2CF5D20091E81B /* PrivacyCheckViewController.swift in Sources */,
-				67F6C5441E2B73D900B432E0 /* ResultViewControllerLvUp.swift in Sources */,
+				67F6C5441E2B73D900B432E0 /* LevelUpViewController.swift in Sources */,
 				3784E5991E294A4D005E11BE /* SettingViewController.swift in Sources */,
 				372DCB9A1E2BEBAF000D15D3 /* AboutUsViewController.swift in Sources */,
 				370B64BD1E1ACBB700CD2A4C /* MainViewController.swift in Sources */,
@@ -393,9 +431,11 @@
 				37CB96DA1E2CD6BE00BC5D2E /* TutorialContentViewController.swift in Sources */,
 				37CB96DC1E2CD6DD00BC5D2E /* TutorialViewController.swift in Sources */,
 				373D13001E19546900EA00C4 /* AppDelegate.swift in Sources */,
+				6740EC451EF8532600A8FF37 /* UserModel.swift in Sources */,
 				67A5DBCD1EF831A5006791E2 /* MainModel.swift in Sources */,
 				370899B91E1E393100AD8486 /* LoginViewController.swift in Sources */,
 				67A5DBCB1EF82FBB006791E2 /* Level.swift in Sources */,
+				6740EC411EF84DD900A8FF37 /* RankingModel.swift in Sources */,
 				67F6C5461E2B740200B432E0 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
