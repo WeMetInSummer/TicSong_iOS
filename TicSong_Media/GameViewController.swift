@@ -97,7 +97,7 @@ class GameViewController: UIViewController , AVAudioPlayerDelegate {
             GameModel.shared.userSet = result
         }
         
-        if LoginModel.shared.guestMode == 0{
+        if UserModel.shared.guestMode == 0{
             makeFloatBtn()
         }
     }
@@ -336,7 +336,7 @@ class GameViewController: UIViewController , AVAudioPlayerDelegate {
             stageLabel.text = " STAGE \(stage+1)"
             answer.text = ""
             musicSetting(music: roundList[stage].code, time: roundList[stage].start)
-            if LoginModel.shared.guestMode == 0{
+            if UserModel.shared.guestMode == 0{
                 makeFloatBtn()
             }
             dismiss(animated: true, completion: nil)
@@ -481,7 +481,7 @@ class GameViewController: UIViewController , AVAudioPlayerDelegate {
     
     func resultAlert(score:Int){
         
-        if LoginModel.shared.guestMode == 0 {
+        if UserModel.shared.guestMode == 0 {
             let scoreSum = Int(GameModel.shared.userSet[2])! + score
             let myLevel = Int(GameModel.shared.userSet[3])!
             let random : Int = Int(arc4random_uniform(UInt32(4)))+1
@@ -561,7 +561,7 @@ class GameViewController: UIViewController , AVAudioPlayerDelegate {
         }
         else if segue.identifier == "GameToResult"{
             let des = segue.destination as! ResultViewController
-            if LoginModel.shared.guestMode == 0{
+            if UserModel.shared.guestMode == 0{
             des.myLevel = GameModel.shared.userSet[3]
             }else{
             des.myLevel = "0"

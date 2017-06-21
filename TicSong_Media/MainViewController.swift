@@ -78,7 +78,7 @@ class MainViewController: UIViewController ,AVAudioPlayerDelegate{
     }
     
     func setup(){
-        if LoginModel.shared.guestMode == 1{
+        if UserModel.shared.guestMode == 1{
             rankingLabel.isHidden = true
         }
         profileImage.layer.borderWidth = 1
@@ -96,13 +96,13 @@ class MainViewController: UIViewController ,AVAudioPlayerDelegate{
         nickNameLabel.text = receivedName
         profileImage.image = receivedProfImg
         
-        if LoginModel.shared.guestMode  == 1 {
+        if UserModel.shared.guestMode  == 1 {
             basicAlert(string:"🍄WARNING🍄", message:"Guest Login에서는 \n일부 기능이 제한되오니\n 다른 Login Platform 선택하여 \n플레이하시는 것을 추천합니다.")
         }
     }
     
     func levelLogic(){
-        if LoginModel.shared.guestMode == 0 {
+        if UserModel.shared.guestMode == 0 {
             if let result = ud.stringArray(forKey: "user") {
                 let myLevel = Int(result[3])!
                 let myExp = Int(result[2])!

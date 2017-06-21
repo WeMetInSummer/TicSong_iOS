@@ -18,14 +18,14 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        LoginModel.shared.guestMode = 0
-        LoginModel.shared.userSetClear()
+        UserModel.shared.guestMode = 0
+        UserModel.shared.userSetClear()
     }
     
     @IBAction func guestLoginClicked(_ sender: UIButton) {
         
-        LoginModel.shared.guestMode = 1
-        LoginModel.shared.guestLogin()
+        UserModel.shared.guestMode = 1
+        UserModel.shared.guestLogin()
         self.performSegue(withIdentifier: "LoginToMainSegue", sender: self)
     }
     
@@ -34,8 +34,8 @@ class LoginViewController: UIViewController {
     }
     
     func setKakaoProf(){
-        LoginModel.shared.setKaKaoSession(vc: self)
-        LoginModel.shared.requestLogin { (completion) in
+        UserModel.shared.setKaKaoSession(vc: self)
+        UserModel.shared.requestLogin { (completion) in
             if completion == 0 {
               self.performSegue(withIdentifier: "LoginToMainSegue", sender: self)
             }
@@ -48,7 +48,7 @@ class LoginViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        userInfo = LoginModel.shared.getUserInfo()
+        userInfo = UserModel.shared.getUserInfo()
         
         if segue.identifier == "LoginToMainSegue"{
             let destination = segue.destination as! MainViewController

@@ -32,7 +32,7 @@ class SettingViewController: UIViewController {
             bar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
         }
         
-        if LoginModel.shared.guestMode == 0{
+        if UserModel.shared.guestMode == 0{
             userId = (ud.stringArray(forKey: "user")?[1])!
         }else{
             deleteUserButton.isHidden = true
